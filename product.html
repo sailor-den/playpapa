@@ -1,0 +1,1461 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Forza Horizon 6 · Standard / Deluxe / Premium · STEAM RU — PlayPapa</title>
+    <script>
+      (() => {
+        try {
+          const requestedTheme = new URLSearchParams(window.location.search).get("theme");
+          const savedTheme = localStorage.getItem("playpapa-theme");
+          const theme = requestedTheme || savedTheme;
+          document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="./assets/blogger-playpapa-logo.svg" />
+    <link rel="stylesheet" href="./frame.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./product.css" />
+    <link rel="stylesheet" href="./auth-local.css" />
+
+  </head>
+  <body class="product-page">
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="logo-link" href="./index.html">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+        </a>
+
+        <div class="theme-switch" aria-label="Переключение темы">
+          <button class="theme-btn is-active" type="button" data-theme="light" aria-label="Светлая тема" aria-pressed="true">
+            <img src="./assets/white-theme.svg" alt="" />
+          </button>
+          <button class="theme-btn" type="button" data-theme="dark" aria-label="Темная тема" aria-pressed="false">
+            <img src="./assets/dark-theme.svg" alt="" />
+          </button>
+        </div>
+
+        <button class="catalog-btn" type="button" aria-label="Каталог" aria-expanded="false" aria-controls="catalogMegaMenu">
+          <img src="./assets/catalog.svg" alt="" />
+          <span>Каталог</span>
+        </button>
+
+        <form class="search-form" action="#">
+          <input type="search" placeholder="Игра, приложение или услуга..." />
+          <button class="search-favorite" type="button" aria-label="Избранное">
+            <img src="./assets/favorite.svg" alt="" />
+          </button>
+          <button class="search-submit" type="submit" aria-label="Найти">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+          </button>
+        </form>
+
+        <button class="bonus-btn" type="button" aria-label="Бонусы">
+          <img src="./assets/bonus.svg" alt="Бонусы" />
+        </button>
+
+        <div class="profile-menu">
+          <button class="profile-btn" type="button" aria-label="Профиль" aria-expanded="false" aria-controls="profilePopover">
+            <img src="./assets/profile.svg" alt="" />
+            <span class="profile-toggle-indicator" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none">
+                <path d="m2 2 4 4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+
+          <section class="profile-popover" id="profilePopover" aria-hidden="true" aria-label="Меню профиля" inert>
+            <div class="profile-popover-heading">
+              <h2>Вы не авторизованы</h2>
+              <p>
+                <span>Войдите, чтобы видеть бонусы и</span>
+                <span>рефералов</span>
+              </p>
+            </div>
+
+            <nav class="profile-popover-nav" aria-label="Разделы профиля">
+              <button class="profile-menu-item" type="button" disabled>
+                <img class="profile-menu-icon" src="./assets/profile-menu-profile.svg" alt="" />
+                <span>Профиль</span>
+              </button>
+              <button class="profile-menu-item" type="button" disabled>
+                <img class="profile-menu-icon" src="./assets/profile-menu-referrals.svg" alt="" />
+                <span>Рефералы</span>
+              </button>
+              <button class="profile-menu-item" type="button" disabled>
+                <img class="profile-menu-icon" src="./assets/profile-menu-bonus.svg" alt="" />
+                <span>Бонусы</span>
+              </button>
+              <button class="profile-menu-item profile-help" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-help.svg" alt="" />
+                <span>Помощь</span>
+              </button>
+              <button class="profile-menu-item profile-login" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-login.svg" alt="" />
+                <span>Войти</span>
+              </button>
+            </nav>
+          </section>
+        </div>
+      </div>
+
+      <div class="catalog-layer" id="catalogMegaMenu" aria-hidden="true" inert>
+        <div class="shell catalog-mega" role="dialog" aria-label="Каталог товаров">
+          <aside class="catalog-sidebar" aria-label="Разделы каталога">
+            <button class="catalog-side-link is-active" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 8.2h9a4.5 4.5 0 0 1 4.2 6.1l-1.1 2.8a2.2 2.2 0 0 1-3.7.7l-1.2-1.5H9.3l-1.2 1.5a2.2 2.2 0 0 1-3.7-.7l-1.1-2.8a4.5 4.5 0 0 1 4.2-6.1Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 11v3m-1.5-1.5h3M16.5 11.7h.01m2 2h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Игры и игровые сервисы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2.8 8.1 5.5L12 21.2 3.9 8.3 12 2.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.9 8.3 5.1.2 3-5.7 3 5.7 5.1-.2M9 8.5l3 12.7 3-12.7" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <span>Игровые ценности</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6.2" y="2.5" width="11.6" height="19" rx="2.2" stroke="currentColor" stroke-width="1.8"/><path d="M10 5h4m-2 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Мобильные игры</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3.4 12h17.2M12 3c2.2 2.5 3.3 5.5 3.3 9S14.2 18.5 12 21c-2.2-2.5-3.3-5.5-3.3-9S9.8 5.5 12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+              <span>Сервисы и соцсети</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.2" width="18" height="12.3" rx="1.8" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 20h7M12 16.5V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Программы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+          </aside>
+
+          <div class="catalog-content">
+            <section class="catalog-showcase" aria-labelledby="catalogFeaturedTitle">
+              <h2 id="catalogFeaturedTitle">Игры и игровые сервисы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogFeatured"></div>
+            </section>
+
+            <section class="catalog-showcase catalog-new" aria-labelledby="catalogNewTitle">
+              <h2 id="catalogNewTitle">Новинки и предзаказы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogNew"></div>
+            </section>
+
+            <div class="catalog-platforms">
+              <section class="catalog-link-group">
+                <h3>Steam <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Коллекционные карточки</a>
+                <a href="#">Смена региона</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>PlayStation <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">PS Plus</a>
+                <a href="#">EA Play</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Xbox <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">Xbox Game Pass</a>
+                <a href="#">Услуги</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Nintendo <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">NS Online</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Battle.net <span aria-hidden="true">›</span></h3>
+                <a href="#">World of Warcraft</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Прямое пополнение</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">Смена региона</a>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="shell product-hero" aria-label="Карточка товара">
+        <nav class="product-breadcrumbs" aria-label="Навигация">
+          <a href="./index.html">Главная</a>
+          <span aria-hidden="true">›</span>
+          <a href="./catalog.html">Игры</a>
+          <span aria-hidden="true">›</span>
+          <b>Forza Horizon 6 · Standard / Deluxe / Premium · STEAM RU</b>
+        </nav>
+
+        <div class="product-overview">
+          <div class="product-gallery">
+            <div class="product-cover-large">
+              <img src="./assets/product-doom.jpg" alt="Forza Horizon 6 · Standard / Deluxe / Premium · STEAM RU" data-product-cover />
+                          </div>
+          </div>
+
+          <section class="product-summary" aria-labelledby="productTitle">
+            <h1 id="productTitle">
+              <span class="desktop-title">Forza Horizon 6 · Standard / Deluxe / Premium · STEAM RU</span>
+              <span class="mobile-title">DOOM 2016 · STEAM RU</span>
+            </h1>
+            <div class="product-meta">
+              <span class="product-stars" aria-label="Рейтинг 4.9">★★★★★ <b>4.9</b></span>
+              <span>Продано 5 744</span>
+              <a href="#reviews" data-product-tab-link="reviews">896 отзывов</a>
+            </div>
+            <div class="mobile-price-row" aria-hidden="true">
+              <strong>5 299 ₽</strong>
+                          </div>
+
+            <div class="variant-block">
+              <p class="variant-title">Выберите регион и издание <span>*</span></p>
+              <div class="variant-grid" role="group" aria-label="Регион и издание">
+                                  <button class="variant-option is-selected" type="button">
+                    <span>Россия · Standard</span>
+                    <small>Выбрано</small>
+                  </button>
+                  <button class="variant-option" type="button">
+                    <span>Россия · Deluxe</span>
+                    <small>+2 500 ₽</small>
+                  </button>
+                  <button class="variant-option" type="button">
+                    <span>Россия · Premium</span>
+                    <small>+4 300 ₽</small>
+                  </button>
+                  <button class="variant-option is-discount" type="button">
+                    <span><span class="desktop-label">Казахстан · Standard</span><span class="mobile-label">Казахстан</span></span>
+                    <small>−400 ₽</small>
+                  </button>
+                              </div>
+                              <button class="show-regions" type="button">Показать все регионы ›</button>
+                          </div>
+
+            <div class="product-media-tabs">
+              <div class="product-media-head" aria-label="Галерея товара">
+                <p>Изображения</p>
+              </div>
+              <div class="thumb-row-product" aria-label="Миниатюры">
+                                  <button class="product-thumb is-active" type="button" aria-label="Изображение 1" data-product-thumb data-full-image="./assets/product-doom.jpg">
+                    <img src="./assets/product-doom.jpg" alt="" />
+                  </button>
+                              </div>
+            </div>
+          </section>
+
+          <aside class="purchase-column" aria-label="Покупка">
+            <section class="purchase-card">
+              <div class="price-main">
+                <strong>5 299 ₽</strong>
+                <del>6 499 ₽</del>              </div>
+              <div class="buy-context">
+                <span>Россия · Standard</span>
+                <b data-discount-label-target hidden></b>
+              </div>
+              <div class="delivery-method" data-delivery-method>
+                <span>Способ получения</span>
+                <strong data-delivery-label-target>Подарок Steam</strong>
+                <small data-delivery-description-target>Отправляется подарком на Steam-аккаунт по ссылке-приглашению.</small>
+              </div>
+              <button class="buy-now" type="button" data-checkout-open aria-haspopup="dialog" aria-controls="checkoutModal">
+                <img src="./assets/cart-white.svg" alt="" />
+                Купить сейчас
+              </button>
+              <div class="promo-widget" data-promo-widget>
+                <button class="promo-link" type="button" aria-expanded="false">
+                  Ввести промокод <img src="./assets/promo-arrow.svg" alt="" />
+                </button>
+                <form class="promo-form" hidden>
+                  <div class="promo-control-row">
+                    <input type="text" placeholder="Промокод" autocomplete="off" />
+                    <button class="promo-apply" type="submit">
+                      <span>OK</span>
+                      <img src="./assets/auth-check.svg" alt="" />
+                    </button>
+                  </div>
+                  <p class="promo-help">Введите промокод - скидка применится автоматически.</p>
+                  <p class="promo-success" hidden>Промокод применён - скидка 15%</p>
+                  <p class="promo-error" hidden>× Промокод недействителен или истёк</p>
+                </form>
+              </div>
+              <ul class="buy-features">
+                <li>Безопасная сделка</li>
+                <li>Мгновенная доставка</li>
+                <li>Гарантия возврата</li>
+              </ul>
+            </section>
+
+            <section class="seller-card" aria-label="Продавец">
+              <img class="seller-logo" src="./assets/blogger-playpapa-logo.svg" alt="" />
+              <div>
+                <strong>PlayPapa</strong>
+                <span>20 218 продаж</span>
+              </div>
+              <b class="seller-rating">★ 4.9</b>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="shell product-info" aria-label="Описание товара">
+        <nav class="product-page-tabs" aria-label="Разделы товара">
+          <button class="is-active" type="button" data-product-tab="description">Описание</button>
+          <button id="reviews" type="button" data-product-tab="reviews">Отзывы <span class="tab-count">896</span></button>
+          <button type="button" data-product-tab="comments">Комментарии <span class="tab-count">28</span></button>
+          <button type="button" data-product-tab="images">Изображения <span class="tab-count">1</span></button>
+        </nav>
+
+        <div class="product-description product-tab-panel is-active is-collapsed" data-product-panel="description">
+          <div class="description-copy">
+                          <p>
+                DOOM 2016 - перезапуск легендарной серии от id Software. Стремительный, агрессивный шутер с культовым
+                арсеналом, добиваниями Glory Kill и саундтреком, ставшим эталоном жанра. Ключ активируется в Steam, регион
+                РФ + СНГ.
+              </p>
+                      </div>
+
+                      <div class="spec-grid product-spec-grid" aria-label="Характеристики товара">
+                              <div class="spec-card">
+                  <small>ПЛАТФОРМА</small>
+                  <strong>Steam · PC</strong>
+                </div>
+                              <div class="spec-card">
+                  <small>РЕГИОН АКТИВАЦИИ</small>
+                  <strong data-spec-region>Россия</strong>
+                </div>
+                              <div class="spec-card">
+                  <small>ЯЗЫК</small>
+                  <strong>Русский, English</strong>
+                </div>
+                              <div class="spec-card">
+                  <small>ЖАНР</small>
+                  <strong>Игра</strong>
+                </div>
+                              <div class="spec-card">
+                  <small>ДАТА ВЫХОДА</small>
+                  <strong>Уточняется</strong>
+                </div>
+                              <div class="spec-card">
+                  <small>ИЗДАТЕЛЬ</small>
+                  <strong>Уточняется</strong>
+                </div>
+                          </div>
+          
+          <div class="region-restriction-note" data-region-restriction hidden>
+            <strong data-region-restriction-title></strong>
+            <p data-region-restriction-text></p>
+            <code data-region-restriction-countries></code>
+          </div>
+
+          <div class="product-description-extra" id="descriptionDetails" data-description-extra hidden>
+                        <ul>
+              <li>Автоматическая выдача 24/7 - активация не дольше 2 минут.</li>
+              <li>Оплата через СБП - комиссия 0%.</li>
+              <li>Отправляется как подарок (gift) на ваш аккаунт Steam.</li>
+              <li>Цены для разных регионов могут отличаться - смотрите при выборе.</li>
+              <li>Куплено официально через Steam. Действует гарантия возврата.</li>
+            </ul>
+
+            <h2>Подробнее об игре</h2>
+            <p>
+              Вы - Палач Рока, пробудившийся на марсианской базе, захваченной силами Ада. Никаких перезарядок-передышек:
+              игра поощряет постоянное движение и агрессию. Собирайте руны, улучшайте броню Praetor и оружие, исследуйте
+              секреты уровней и уничтожайте демонов всеми доступными способами.
+            </p>
+                      </div>
+
+          <button class="description-toggle" type="button" data-description-toggle aria-expanded="false" aria-controls="descriptionDetails">
+            <span>Показать полностью</span>
+            <img src="./assets/promo-arrow.svg" alt="" />
+          </button>
+        </div>
+
+        <section class="product-reviews-block product-tab-panel" data-product-panel="reviews" aria-label="Отзывы о товаре" hidden>
+          <div class="reviews-score-card">
+            <div class="reviews-score-main">
+              <strong>4.9</strong>
+              <span aria-label="Рейтинг 4.9 из 5">★★★★★</span>
+              <b>896 отзывов</b>
+            </div>
+            <div class="reviews-score-bars" aria-label="Распределение оценок">
+              <div class="score-row"><span>5</span><i><b style="--score: 92%"></b></i><em>824</em></div>
+              <div class="score-row"><span>4</span><i><b style="--score: 7%"></b></i><em>52</em></div>
+              <div class="score-row"><span>3</span><i><b style="--score: 2%"></b></i><em>14</em></div>
+              <div class="score-row"><span>2</span><i><b style="--score: 1%"></b></i><em>4</em></div>
+              <div class="score-row"><span>1</span><i><b style="--score: 1%"></b></i><em>2</em></div>
+            </div>
+          </div>
+
+          <div class="review-form-grid">
+            <article class="review-form-wrap">
+              <form class="product-review-form" data-review-form>
+                <div class="review-form-head">
+                  <h3><span class="desktop-label">Поделитесь впечатлением</span><span class="mobile-label">Ваш отзыв</span></h3>
+                </div>
+                <div class="review-form-rating" role="radiogroup" aria-label="Поставьте оценку">
+                  <button type="button" aria-label="1 звезда" data-rating="1">★</button>
+                  <button type="button" aria-label="2 звезды" data-rating="2">★</button>
+                  <button type="button" aria-label="3 звезды" data-rating="3">★</button>
+                  <button type="button" aria-label="4 звезды" data-rating="4">★</button>
+                  <button type="button" aria-label="5 звезд" data-rating="5">★</button>
+                  <b>Поставьте оценку</b>
+                </div>
+                <div class="review-tags" aria-label="Быстрые теги">
+                  <button type="button">Быстрая выдача</button>
+                  <button type="button">Всё честно</button>
+                  <button type="button">Приятная цена</button>
+                </div>
+                <label class="review-textarea">
+                  <textarea placeholder="Расскажите, как прошла покупка и активация..."></textarea>
+                </label>
+                <p class="review-error" hidden>Пожалуйста, напишите текст перед отправкой</p>
+                <p class="review-success" hidden>Отправлено, спасибо! Появится после модерации</p>
+                <button class="review-submit" type="submit">Опубликовать отзыв</button>
+              </form>
+            </article>
+          </div>
+
+          <div class="product-review-list">
+            <article class="product-review-item">
+              <div class="review-avatar"></div>
+              <div class="review-item-body">
+                <div class="review-item-head">
+                  <div>
+                    <strong>Bizidin</strong>
+                    <span aria-label="5 из 5">★★★★★</span>
+                  </div>
+                  <time>Сегодня, 11:48</time>
+                </div>
+                <b class="review-product-chip">DOOM 2016</b>
+                <p>Отзывчивый и приятный продавец, помог не только с товаром, но и с другим вопросом. Рекомендую!</p>
+                <div class="review-actions">
+                  <button class="like-action is-liked" type="button" aria-label="13 лайков">
+                    <img src="./assets/like-filled.svg" alt="" />
+                    <span>13</span>
+                  </button>
+                  <button type="button">Ответить</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-review-item">
+              <div class="review-avatar"></div>
+              <div class="review-item-body">
+                <div class="review-item-head">
+                  <div>
+                    <strong>maxx_88</strong>
+                    <span aria-label="4 из 5">★★★★<i>★</i></span>
+                  </div>
+                  <time>2 дня назад</time>
+                </div>
+                <b class="review-product-chip">DOOM Eternal</b>
+                <p>Немного подождал ответа поддержки, но в итоге всё ок. Цена приятная.</p>
+                <div class="review-actions">
+                  <button class="like-action" type="button" aria-label="3 лайка">
+                    <img src="./assets/like-outline.svg" alt="" />
+                    <span>3</span>
+                  </button>
+                  <button type="button">Ответить</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="product-questions-block product-tab-panel" data-product-panel="comments" aria-label="Вопросы о товаре" hidden>
+          <div class="question-form-grid">
+            <form class="product-question-form" data-question-form>
+              <h3>Задайте вопрос о товаре</h3>
+              <label class="question-textarea">
+                <textarea placeholder="Ваш вопрос по товару..."></textarea>
+              </label>
+              <div class="question-form-footer">
+                <p class="question-error" hidden>Напишите вопрос перед отправкой</p>
+                <p class="question-success" hidden>Отправлено - ответит продавец или покупатели</p>
+                <button class="question-submit" type="submit">Отправить</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="product-question-list">
+            <article class="product-question-item">
+              <div class="question-main">
+                <div class="review-avatar question-avatar"></div>
+                <div class="question-item-body">
+                  <div class="review-item-head">
+                    <strong>Vladislav</strong>
+                    <time>Сегодня, 10:12</time>
+                  </div>
+                  <p>А регион точно РФ? Активируется на российском аккаунте?</p>
+                  <div class="review-actions question-actions">
+                    <button class="like-action" type="button" aria-label="4 лайка">
+                      <img src="./assets/like-outline.svg" alt="" />
+                      <span>4</span>
+                    </button>
+                    <button type="button">Ответить</button>
+                  </div>
+
+                  <div class="question-answer">
+                    <div class="review-avatar seller-answer-avatar"></div>
+                    <div class="question-answer-body">
+                      <div class="review-item-head">
+                        <strong>PlayPapa <em>· Продавец</em></strong>
+                        <time>Сегодня, 10:20</time>
+                      </div>
+                      <p>Да, ключ для региона РФ+СНГ, активируется на российском аккаунте Steam без VPN.</p>
+                      <div class="review-actions question-actions">
+                        <button class="like-action is-liked" type="button" aria-label="9 лайков">
+                          <img src="./assets/like-filled.svg" alt="" />
+                          <span>9</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="product-images-block product-tab-panel" data-product-panel="images" aria-label="Изображения товара" hidden>
+          <div class="product-images-grid">
+                          <button class="product-image-preview" type="button" aria-label="Открыть изображение 1">
+                <img src="./assets/product-doom.jpg" alt="Forza Horizon 6 · Standard / Deluxe / Premium · STEAM RU скриншот 1" />
+              </button>
+                      </div>
+        </section>
+      </section>
+
+      <section class="shell product-section product-recommendations">
+        <div class="section-head">
+          <h2>С этим товаром смотрят</h2>
+          <a class="show-all" href="./catalog.html">Показать все</a>
+        </div>
+        <div class="product-grid product-recommend-grid">
+                      <article class="product-card">
+              <div class="product-cover">
+                <img src="./assets/product-pubg.png" alt="" />
+              </div>
+              <div class="product-body">
+                <h3>Популярные товары PlayPapa</h3>
+                <div class="price-line"><strong>Каталог</strong></div>
+                <a href="./catalog.html">Смотреть</a>
+              </div>
+            </article>
+                  </div>
+      </section>
+
+      <footer class="shell site-footer">
+        <div class="footer-top">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+          <nav>
+            <a href="#">Стать продавцом</a>
+            <a href="#">Бонусы</a>
+            <a href="#">Поддержка</a>
+            <a href="#">Гарантии</a>
+            <a href="#">Отзывы</a>
+          </nav>
+        </div>
+        <div class="footer-mid">
+          <div class="footer-social">
+            <b>PlayPapa</b>
+            <a class="social-icon" href="#" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></a>
+            <a class="footer-channel" href="#">Polk Zone</a>
+            <a class="social-icon" href="#" aria-label="TikTok"><img src="./assets/footer-tiktok.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="YouTube"><img src="./assets/footer-youtube.svg" alt="" /></a>
+          </div>
+          <div class="payments">
+            <span><img src="./assets/payment-visa.svg" alt="VISA" /></span>
+            <span><img src="./assets/payment-mir.svg" alt="МИР" /></span>
+            <span><img src="./assets/payment-mastercard.svg" alt="Mastercard" /></span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <nav>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Соглашение</a>
+            <a href="#">Договор-оферта</a>
+          </nav>
+          <span>© 2026 PlayPapa</span>
+        </div>
+      </footer>
+    </main>
+
+    <aside class="sticky-purchase-bar" aria-label="Быстрая покупка">
+      <div class="sticky-purchase-inner">
+        <img class="sticky-purchase-thumb" src="./assets/product-doom.jpg" alt="" />
+        <strong class="sticky-purchase-title">Forza Horizon 6 · Standard / Deluxe / Premium · STEAM RU</strong>
+        <div class="sticky-purchase-price">
+          <strong>5 299 ₽</strong>
+          <del>6 499 ₽</del>        </div>
+        <button class="sticky-purchase-button" type="button" data-checkout-open aria-haspopup="dialog" aria-controls="checkoutModal">Купить сейчас</button>
+      </div>
+    </aside>
+
+    <section class="checkout-modal-layer" id="checkoutModal" aria-hidden="true" hidden inert>
+      <button class="checkout-backdrop" type="button" aria-label="Закрыть оформление заказа" data-checkout-close></button>
+      <form class="checkout-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" novalidate>
+        <button class="checkout-close" type="button" aria-label="Закрыть" data-checkout-close>
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M4.5 4.5 15.5 15.5M15.5 4.5 4.5 15.5" />
+          </svg>
+        </button>
+
+        <h2 id="checkoutTitle">Оформление заказа</h2>
+
+        <div class="checkout-product">
+          <img src="./assets/product-doom.jpg" alt="" />
+          <div>
+            <strong>Forza Horizon 6 · Standard / Deluxe / Premium · STEAM RU</strong>
+            <span>Россия · Standard · Подарок Steam</span>
+          </div>
+          <div class="checkout-product-price">
+            <strong>5 299 ₽</strong>
+            <del>6 499 ₽</del>          </div>
+        </div>
+
+        <label class="checkout-field">
+          <span>E-mail для чека</span>
+          <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+          <small hidden>Введите корректный e-mail</small>
+        </label>
+
+        <input type="hidden" name="product_id" value="" data-checkout-product-id />
+        <div
+          class="checkout-dynamic-fields"
+          data-checkout-fields
+          data-initial-forms="&#x5B;&#x5D;"
+          data-initial-delivery-type="steam_gift"
+        ></div>
+
+        <div class="checkout-payments">
+          <span class="checkout-label">Режим проверки</span>
+          <div class="checkout-payment-list" role="radiogroup" aria-label="Способ оплаты">
+            <button class="checkout-payment-option is-selected" type="button" role="radio" aria-checked="true" data-payment-method="galaxylink-test">
+              <span class="checkout-payment-icon"><img src="./assets/cart-white.svg" alt="" /></span>
+              <span class="checkout-payment-copy">
+                <b>Тест GalaxyLink</b>
+                <small>Платежный шлюз PlayPapa не вызывается</small>
+              </span>
+              <span class="checkout-payment-check"><img src="./assets/auth-check.svg" alt="" /></span>
+            </button>
+          </div>
+          <input type="hidden" name="payment" value="galaxylink-test" />
+        </div>
+
+        <div class="checkout-total">
+          <span>К оплате</span>
+          <strong data-checkout-total-price>5 299 ₽</strong>
+        </div>
+
+        <label class="checkout-confirm">
+          <input type="checkbox" name="confirm_provider_order" value="1" data-checkout-confirm required />
+          <span>Понимаю, что тест создаст заказ в GalaxyLink и может списать баланс поставщика.</span>
+        </label>
+
+        <button class="checkout-submit" type="submit">Тестовая покупка 5 299 ₽</button>
+
+        <div class="checkout-result" data-checkout-result hidden></div>
+
+        <p class="checkout-consent">
+          Это тестовый контур без реальной оплаты на PlayPapa. GalaxyLink-заказ создается только после подтверждения выше.
+        </p>
+      </form>
+    </section>
+
+    <div class="image-lightbox" data-image-lightbox hidden>
+      <button class="image-lightbox-backdrop" type="button" aria-label="Закрыть изображение"></button>
+      <figure class="image-lightbox-dialog">
+        <button class="image-lightbox-close" type="button" aria-label="Закрыть">×</button>
+        <img src="" alt="" />
+      </figure>
+    </div>
+
+    <script>
+      const root = document.documentElement;
+      const themeSwitch = document.querySelector(".theme-switch");
+      const themeButtons = document.querySelectorAll(".theme-btn[data-theme]");
+
+      const setTheme = (theme, animate = false) => {
+        if (animate) {
+          document.body.classList.remove("theme-animating");
+          void document.body.offsetWidth;
+          document.body.classList.add("theme-animating");
+        }
+
+        root.dataset.theme = theme;
+        try {
+          localStorage.setItem("playpapa-theme", theme);
+        } catch {}
+
+        themeButtons.forEach((button) => {
+          const active = button.dataset.theme === theme;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        if (animate) window.setTimeout(() => document.body.classList.remove("theme-animating"), 560);
+      };
+
+      setTheme(root.dataset.theme === "dark" ? "dark" : "light");
+      themeButtons.forEach((button) => button.addEventListener("click", () => setTheme(button.dataset.theme, true)));
+      themeSwitch?.addEventListener("click", (event) => {
+        if (event.target.closest(".theme-btn")) return;
+        setTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+      });
+
+      const profileMenu = document.querySelector(".profile-menu");
+      const profileButton = profileMenu?.querySelector(".profile-btn");
+      const profilePopover = document.getElementById("profilePopover");
+
+      const setProfileOpen = (open, returnFocus = false) => {
+        if (!profileMenu || !profilePopover || !profileButton) return;
+        profileMenu.classList.toggle("is-open", open);
+        profileButton.setAttribute("aria-expanded", open ? "true" : "false");
+        profilePopover.setAttribute("aria-hidden", open ? "false" : "true");
+        profilePopover.toggleAttribute("inert", !open);
+        document.body.classList.toggle("profile-open", open);
+        if (returnFocus) profileButton.focus();
+      };
+
+      profileButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setProfileOpen(!profileMenu?.classList.contains("is-open"));
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!profileMenu?.classList.contains("is-open") || profileMenu.contains(event.target)) return;
+        setProfileOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        setProfileOpen(false, true);
+      });
+
+      const catalogLayer = document.getElementById("catalogMegaMenu");
+      const catalogButton = document.querySelector(".catalog-btn:not([href])");
+      const catalogSideLinks = document.querySelectorAll(".catalog-side-link");
+      const catalogFeaturedItems = [
+        ["service-steam.png", "Пополнение Steam"],
+        ["service-brawl.png", "Game Pass"],
+        ["service-steam.png", "Пополнение PSN"],
+        ["service-brawl.png", "PS Plus"],
+        ["service-pubg.png", "Grand Theft Auto V"],
+        ["service-roblox.png", "Minecraft"],
+        ["service-playstation.png", "Diablo 4"],
+        ["service-mobile.png", "ARC Raiders"],
+        ["service-chatgpt.png", "Dead by Daylight"],
+      ];
+      const catalogNewItems = [
+        ["article-paradise.png", "Gothic 1 Remake"],
+        ["article-sale.png", "Forza Horizon 6"],
+        ["product-pubg.png", "Assassin's Creed: Black..."],
+        ["article-mobile.png", "007 First Light"],
+        ["article-sale.png", "Call of Duty: Modern..."],
+        ["product-pubg.png", "Marvel's Wolverine"],
+        ["article-paradise.png", "UFC 6"],
+        ["article-sale.png", "Subnautica 2"],
+        ["product-pubg.png", "SILENT HILL: Townfall"],
+      ];
+
+      const catalogItemMarkup = ([image, label]) => `
+        <a class="catalog-showcase-item" href="#" aria-label="${label}">
+          <img src="./assets/${image}" alt="">
+          <span>${label}</span>
+        </a>
+      `;
+
+      const catalogFeatured = document.getElementById("catalogFeatured");
+      const catalogNew = document.getElementById("catalogNew");
+      if (catalogFeatured) catalogFeatured.innerHTML = catalogFeaturedItems.map(catalogItemMarkup).join("");
+      if (catalogNew) catalogNew.innerHTML = catalogNewItems.map(catalogItemMarkup).join("");
+
+      const setCatalogOpen = (open) => {
+        if (!catalogLayer || !catalogButton) return;
+        catalogLayer.classList.toggle("is-open", open);
+        catalogLayer.setAttribute("aria-hidden", open ? "false" : "true");
+        catalogLayer.toggleAttribute("inert", !open);
+        document.body.classList.toggle("catalog-open", open);
+        catalogButton.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+
+      catalogButton?.addEventListener("click", (event) => {
+        event.preventDefault();
+        setProfileOpen(false);
+        setCatalogOpen(!catalogLayer?.classList.contains("is-open"));
+      });
+
+      catalogSideLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          catalogSideLinks.forEach((item) => item.classList.toggle("is-active", item === link));
+        });
+      });
+
+      catalogLayer?.querySelectorAll('a[href="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!catalogLayer?.classList.contains("is-open")) return;
+        if (catalogLayer.contains(event.target) || catalogButton?.contains(event.target)) return;
+        setCatalogOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !catalogLayer?.classList.contains("is-open")) return;
+        setCatalogOpen(false);
+        catalogButton?.focus();
+      });
+
+      const checkoutModal = document.getElementById("checkoutModal");
+      const checkoutDialog = checkoutModal?.querySelector(".checkout-modal-dialog");
+      const checkoutOpenButtons = document.querySelectorAll("[data-checkout-open]");
+      const checkoutCloseButtons = checkoutModal?.querySelectorAll("[data-checkout-close]");
+      const checkoutPaymentButtons = checkoutModal?.querySelectorAll(".checkout-payment-option");
+      const checkoutPaymentInput = checkoutModal?.querySelector('input[name="payment"]');
+      const checkoutEmailInput = checkoutModal?.querySelector('input[name="email"]');
+      const checkoutEmailField = checkoutEmailInput?.closest(".checkout-field");
+      const checkoutEmailError = checkoutEmailField?.querySelector("small");
+      const checkoutProductIdInput = checkoutModal?.querySelector("[data-checkout-product-id]");
+      const checkoutDynamicFields = checkoutModal?.querySelector("[data-checkout-fields]");
+      const checkoutConfirmInput = checkoutModal?.querySelector("[data-checkout-confirm]");
+      const checkoutResult = checkoutModal?.querySelector("[data-checkout-result]");
+      const checkoutEndpoint = "/checkout/galaxylink/test";
+      const checkoutStatusEndpointBase = "/checkout/galaxylink/test/";
+      let checkoutReturnFocus = null;
+      let checkoutPollTimer = 0;
+
+      const setCheckoutEmailError = (show) => {
+        checkoutEmailField?.classList.toggle("is-invalid", show);
+        if (checkoutEmailError) checkoutEmailError.hidden = !show;
+      };
+
+      const checkoutEscape = (value) =>
+        String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+
+      const checkoutFieldMeta = {
+        invite_url: ["Ссылка-приглашение Steam", "https://s.team/p/xxxx/yyyyyyyy", "url"],
+        user_id: ["User ID", "ID пользователя", "text"],
+        server_id: ["Сервер", "Europe", "text"],
+        region_id: ["Регион", "Europe", "text"],
+        ip_address: ["IP-адрес", "Автоматически, если оставить пустым", "text"],
+        login: ["Логин аккаунта", "login@example.com", "text"],
+        password: ["Пароль аккаунта", "Пароль", "password"],
+        backup_codes: ["Backup codes", "Коды через пробел", "text"],
+        order_comment: ["Комментарий", "Комментарий для оператора", "text"],
+        roblox_username: ["Roblox username", "PlayerOne", "text"],
+        roblox_password: ["Roblox password", "Пароль Roblox", "password"],
+      };
+
+      const parseCheckoutForms = (raw) => {
+        try {
+          const forms = JSON.parse(raw || "[]");
+          return Array.isArray(forms) ? forms.map((item) => String(item || "").trim().toLowerCase()).filter(Boolean) : [];
+        } catch {
+          return [];
+        }
+      };
+
+      const checkoutFormsFor = (forms, deliveryType) => {
+        const result = Array.from(new Set(forms));
+        if (deliveryType === "steam_gift" && !result.includes("invite_url")) result.push("invite_url");
+        return result.filter((field) => checkoutFieldMeta[field]);
+      };
+
+      const renderCheckoutFields = (forms, deliveryType) => {
+        if (!checkoutDynamicFields) return;
+        const fields = checkoutFormsFor(forms, deliveryType);
+        checkoutDynamicFields.hidden = fields.length === 0;
+        checkoutDynamicFields.innerHTML = fields.map((field) => {
+          const [label, placeholder, type] = checkoutFieldMeta[field];
+          const required = field === "ip_address" || field === "order_comment" ? "" : "required";
+          return `
+            <label class="checkout-field checkout-extra-field">
+              <span>${checkoutEscape(label)}</span>
+              <input type="${type}" name="${checkoutEscape(field)}" placeholder="${checkoutEscape(placeholder)}" autocomplete="off" ${required} data-checkout-extra-input />
+              <small hidden>Заполните поле</small>
+            </label>
+          `;
+        }).join("");
+      };
+
+      const collectCheckoutFields = () => {
+        const fields = {};
+        const inputs = Array.from(checkoutDynamicFields?.querySelectorAll("[data-checkout-extra-input]") || []);
+        for (const input of inputs) {
+          if (!input.checkValidity()) {
+            input.closest(".checkout-field")?.classList.add("is-invalid");
+            input.focus();
+            return null;
+          }
+          input.closest(".checkout-field")?.classList.remove("is-invalid");
+          fields[input.name] = input.value.trim();
+        }
+        return fields;
+      };
+
+      const renderCheckoutResult = (order, error = "") => {
+        if (!checkoutResult) return;
+        checkoutResult.hidden = false;
+        checkoutResult.classList.toggle("is-error", Boolean(error));
+        checkoutResult.classList.toggle("is-success", !error && order?.status === "completed");
+        if (error) {
+          checkoutResult.innerHTML = `<strong>Не получилось создать тестовый заказ</strong><p>${checkoutEscape(error)}</p>`;
+          return;
+        }
+
+        const items = Array.isArray(order?.items) ? order.items : [];
+        const codes = items.map((item) => `
+          <li>
+            <span>${checkoutEscape(item.label || "Код")}</span>
+            <code>${checkoutEscape(item.code || "")}</code>
+          </li>
+        `).join("");
+        const verification = order?.verification?.url
+          ? `<a href="${checkoutEscape(order.verification.url)}" target="_blank" rel="noreferrer">Открыть verification-ссылку</a>`
+          : "";
+
+        checkoutResult.innerHTML = `
+          <strong>${checkoutEscape(order?.status_label || "Заказ создан")}</strong>
+          <p>${checkoutEscape(order?.message || "")}</p>
+          <dl>
+            <div><dt>GalaxyLink</dt><dd>${checkoutEscape(order?.provider_order_id || "ожидаем")}</dd></div>
+            <div><dt>Partner ID</dt><dd>${checkoutEscape(order?.partner_order_id || "")}</dd></div>
+            ${order?.amount_label ? `<div><dt>Списание</dt><dd>${checkoutEscape(order.amount_label)}</dd></div>` : ""}
+          </dl>
+          ${codes ? `<ul>${codes}</ul>` : ""}
+          ${verification}
+        `;
+      };
+
+      const refreshCheckoutOrder = async (orderId) => {
+        const response = await fetch(`${checkoutStatusEndpointBase}${encodeURIComponent(orderId)}`, {
+          headers: { Accept: "application/json" },
+        });
+        const payload = await response.json();
+        if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
+        renderCheckoutResult(payload.order);
+        return payload.order;
+      };
+
+      const pollCheckoutOrder = (order) => {
+        window.clearInterval(checkoutPollTimer);
+        if (!order?.id || order.terminal || (Array.isArray(order.items) && order.items.length > 0)) return;
+        let attempts = 0;
+        checkoutPollTimer = window.setInterval(async () => {
+          attempts += 1;
+          try {
+            const nextOrder = await refreshCheckoutOrder(order.id);
+            if (nextOrder.terminal || (Array.isArray(nextOrder.items) && nextOrder.items.length > 0) || attempts >= 8) {
+              window.clearInterval(checkoutPollTimer);
+            }
+          } catch (error) {
+            window.clearInterval(checkoutPollTimer);
+          }
+        }, 3500);
+      };
+
+      const setCheckoutOpen = (open, returnFocus = false) => {
+        if (!checkoutModal) return;
+
+        if (open) {
+          window.clearInterval(checkoutPollTimer);
+          if (checkoutResult) {
+            checkoutResult.hidden = true;
+            checkoutResult.innerHTML = "";
+          }
+          checkoutReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+          checkoutModal.hidden = false;
+          checkoutModal.removeAttribute("inert");
+          checkoutModal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("checkout-modal-open");
+          setCatalogOpen(false);
+          setProfileOpen(false);
+          requestAnimationFrame(() => checkoutModal.classList.add("is-open"));
+          window.setTimeout(() => checkoutModal.querySelector("[data-checkout-close]")?.focus(), 80);
+          return;
+        }
+
+        checkoutModal.classList.remove("is-open");
+        checkoutModal.setAttribute("aria-hidden", "true");
+        checkoutModal.setAttribute("inert", "");
+        document.body.classList.remove("checkout-modal-open");
+        window.setTimeout(() => {
+          if (!checkoutModal.classList.contains("is-open")) checkoutModal.hidden = true;
+        }, 200);
+        if (returnFocus) checkoutReturnFocus?.focus();
+      };
+
+      checkoutOpenButtons.forEach((button) => {
+        button.addEventListener("click", () => setCheckoutOpen(true));
+      });
+
+      checkoutCloseButtons?.forEach((button) => {
+        button.addEventListener("click", () => setCheckoutOpen(false, true));
+      });
+
+      checkoutModal?.addEventListener("pointerdown", (event) => {
+        if (event.target !== checkoutModal || checkoutDialog?.contains(event.target)) return;
+        setCheckoutOpen(false, true);
+      });
+
+      checkoutPaymentButtons?.forEach((button) => {
+        button.addEventListener("click", () => {
+          checkoutPaymentButtons.forEach((item) => {
+            const selected = item === button;
+            item.classList.toggle("is-selected", selected);
+            item.setAttribute("aria-checked", selected ? "true" : "false");
+          });
+          if (checkoutPaymentInput) checkoutPaymentInput.value = button.dataset.paymentMethod || "sbp";
+        });
+      });
+
+      checkoutEmailInput?.addEventListener("input", () => setCheckoutEmailError(false));
+
+      renderCheckoutFields(
+        parseCheckoutForms(checkoutDynamicFields?.dataset.initialForms || "[]"),
+        checkoutDynamicFields?.dataset.initialDeliveryType || "digital_item"
+      );
+
+      checkoutDialog?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!checkoutEmailInput?.checkValidity()) {
+          setCheckoutEmailError(true);
+          checkoutEmailInput?.focus();
+          return;
+        }
+        if (!checkoutConfirmInput?.checked) {
+          renderCheckoutResult(null, "Подтвердите, что тест создаст заказ в GalaxyLink.");
+          checkoutConfirmInput?.focus();
+          return;
+        }
+        const fields = collectCheckoutFields();
+        if (fields === null) {
+          renderCheckoutResult(null, "Заполните обязательные поля для выдачи товара.");
+          return;
+        }
+
+        setCheckoutEmailError(false);
+        const submitButton = checkoutDialog.querySelector(".checkout-submit");
+        const originalText = submitButton?.textContent || "";
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Создаем заказ...";
+        }
+        renderCheckoutResult({ status_label: "Отправляем в GalaxyLink", message: "Создаем тестовый заказ и сразу проверяем статус." });
+
+        try {
+          const response = await fetch(checkoutEndpoint, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              product_id: checkoutProductIdInput?.value || "",
+              email: checkoutEmailInput.value,
+              payment: checkoutPaymentInput?.value || "galaxylink-test",
+              confirm_provider_order: true,
+              fields,
+            }),
+          });
+          const payload = await response.json();
+          if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
+          renderCheckoutResult(payload.order);
+          pollCheckoutOrder(payload.order);
+        } catch (error) {
+          renderCheckoutResult(null, error.message || "Неизвестная ошибка GalaxyLink.");
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !checkoutModal?.classList.contains("is-open")) return;
+        setCheckoutOpen(false, true);
+      });
+
+      document.querySelectorAll(".variant-option").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.disabled) return;
+          document.querySelectorAll(".variant-option").forEach((item) => item.classList.remove("is-selected"));
+          document.querySelectorAll(".variant-option small").forEach((item) => {
+            const option = item.closest(".variant-option");
+            if (!option || option === button) return;
+            item.textContent = option.dataset.price || item.textContent;
+          });
+          button.classList.add("is-selected");
+          const note = button.querySelector("small");
+          if (note) note.textContent = "Выбрано";
+
+          const price = button.dataset.price || "";
+          const context = button.dataset.context || "";
+          const regionLabel = button.dataset.regionLabel || "";
+          const regionRestrictionTitle = button.dataset.regionRestrictionTitle || "";
+          const regionRestrictionText = button.dataset.regionRestrictionText || "";
+          const regionRestrictionCountries = button.dataset.regionRestrictionCountries || "";
+          const name = button.dataset.name || "";
+          const deliveryLabel = button.dataset.deliveryLabel || "";
+          const deliveryShortLabel = button.dataset.deliveryShortLabel || deliveryLabel;
+          const deliveryDescription = button.dataset.deliveryDescription || "";
+          const deliveryType = button.dataset.deliveryType || "digital_item";
+          const forms = parseCheckoutForms(button.dataset.forms || "[]");
+          const discountLabel = button.dataset.discountLabel || "";
+          if (checkoutProductIdInput && button.dataset.productId) checkoutProductIdInput.value = button.dataset.productId;
+          renderCheckoutFields(forms, deliveryType);
+          if (checkoutResult) checkoutResult.hidden = true;
+          if (price) {
+            document.querySelectorAll(".price-main strong, .mobile-price-row strong, .sticky-purchase-price strong, .checkout-product-price strong, [data-checkout-total-price]").forEach((node) => {
+              node.textContent = price;
+            });
+            document.querySelectorAll(".checkout-submit").forEach((node) => {
+              node.textContent = `Тестовая покупка ${price}`;
+            });
+          }
+          if (context) {
+            document.querySelectorAll(".buy-context span").forEach((node) => {
+              node.textContent = context;
+            });
+            const checkoutContext = document.querySelector(".checkout-product span");
+            if (checkoutContext) checkoutContext.textContent = `${context} · ${deliveryShortLabel || "мгновенно"}`;
+          }
+          if (deliveryLabel) {
+            document.querySelectorAll("[data-delivery-label-target]").forEach((node) => {
+              node.textContent = deliveryLabel;
+            });
+          }
+          if (deliveryDescription) {
+            document.querySelectorAll("[data-delivery-description-target]").forEach((node) => {
+              node.textContent = deliveryDescription;
+            });
+          }
+          if (regionLabel) {
+            document.querySelectorAll("[data-spec-region]").forEach((node) => {
+              node.textContent = regionLabel;
+            });
+          }
+          document.querySelectorAll("[data-region-restriction]").forEach((node) => {
+            const hasRestriction = regionRestrictionTitle !== "" || regionRestrictionText !== "" || regionRestrictionCountries !== "";
+            node.hidden = !hasRestriction;
+            const title = node.querySelector("[data-region-restriction-title]");
+            const text = node.querySelector("[data-region-restriction-text]");
+            const countries = node.querySelector("[data-region-restriction-countries]");
+            if (title) title.textContent = regionRestrictionTitle;
+            if (text) text.textContent = regionRestrictionText;
+            if (countries) countries.textContent = regionRestrictionCountries;
+          });
+          document.querySelectorAll("[data-discount-label-target]").forEach((node) => {
+            node.textContent = discountLabel;
+            node.hidden = discountLabel === "";
+          });
+          if (name) {
+            document.querySelectorAll(".sticky-purchase-title, .checkout-product strong").forEach((node) => {
+              node.textContent = name;
+            });
+          }
+          if (button.dataset.url && window.history?.replaceState) {
+            window.history.replaceState(null, "", button.dataset.url);
+          }
+        });
+      });
+
+      const productTabButtons = document.querySelectorAll("[data-product-tab]");
+      const productPanels = document.querySelectorAll("[data-product-panel]");
+      const setProductTab = (target, scrollToPanel = false) => {
+        const targetPanel = document.querySelector(`[data-product-panel="${target}"]`);
+        if (!targetPanel) return;
+
+        productPanels.forEach((panel) => {
+          const active = panel.dataset.productPanel === target;
+          panel.classList.toggle("is-active", active);
+          panel.hidden = !active;
+        });
+
+        productTabButtons.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.productTab === target);
+        });
+
+        if (scrollToPanel) {
+          document.querySelector(".product-info")?.scrollIntoView({ block: "start", behavior: "smooth" });
+        }
+      };
+
+      productTabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setProductTab(button.dataset.productTab, false);
+        });
+      });
+
+      document.querySelectorAll("[data-product-tab-link]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          setProductTab(link.dataset.productTabLink, true);
+        });
+      });
+
+      const productCover = document.querySelector("[data-product-cover]");
+      const productThumbs = Array.from(document.querySelectorAll("[data-product-thumb]"));
+      let productGalleryTimer = null;
+      let productCoverSwapTimer = null;
+
+      const setProductCover = (button, scrollThumb = false) => {
+        if (!button) return;
+        const src = button.dataset.fullImage || button.querySelector("img")?.src;
+        if (!src) return;
+
+        const group = button.parentElement;
+        group?.querySelectorAll(".is-active").forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+
+        if (productCover) {
+          if (productCoverSwapTimer) window.clearTimeout(productCoverSwapTimer);
+          productCover.classList.add("is-changing");
+          productCoverSwapTimer = window.setTimeout(() => {
+            productCover.src = src;
+            productCover.alt = button.getAttribute("aria-label") || productCover.alt;
+            productCover.classList.remove("is-changing");
+          }, 120);
+        }
+
+        if (scrollThumb && group && group.scrollWidth > group.clientWidth) {
+          group.scrollTo({ left: Math.max(0, button.offsetLeft - 12), behavior: "smooth" });
+        }
+      };
+
+      const restartProductGalleryAutoplay = () => {
+        if (productGalleryTimer) window.clearInterval(productGalleryTimer);
+        if (productThumbs.length < 2) return;
+
+        productGalleryTimer = window.setInterval(() => {
+          const activeIndex = Math.max(0, productThumbs.findIndex((button) => button.classList.contains("is-active")));
+          setProductCover(productThumbs[(activeIndex + 1) % productThumbs.length], true);
+        }, 4500);
+      };
+
+      productThumbs.forEach((button) => {
+        button.addEventListener("click", () => {
+          setProductCover(button, true);
+          restartProductGalleryAutoplay();
+        });
+      });
+      restartProductGalleryAutoplay();
+
+      document.querySelectorAll("[data-description-toggle]").forEach((button) => {
+        const description = button.closest(".product-description");
+        const extra = description?.querySelector("[data-description-extra]");
+        const label = button.querySelector("span");
+        const mobileDescription = window.matchMedia("(max-width: 767px)");
+
+        const setDescriptionOpen = (isOpen) => {
+          if (!description || !extra || !label) return;
+          description.classList.toggle("is-collapsed", !isOpen);
+          extra.hidden = !isOpen;
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          label.textContent = isOpen ? (mobileDescription.matches ? "Свернуть" : "Скрыть полностью") : "Показать полностью";
+        };
+
+        button.addEventListener("click", () => {
+          setDescriptionOpen(button.getAttribute("aria-expanded") !== "true");
+        });
+
+        const refreshDescriptionLabel = () => setDescriptionOpen(button.getAttribute("aria-expanded") === "true");
+        if (mobileDescription.addEventListener) {
+          mobileDescription.addEventListener("change", refreshDescriptionLabel);
+        } else {
+          mobileDescription.addListener(refreshDescriptionLabel);
+        }
+      });
+
+      document.querySelectorAll("[data-review-form]").forEach((form) => {
+        const textarea = form.querySelector("textarea");
+        const error = form.querySelector(".review-error");
+        const success = form.querySelector(".review-success");
+        const ratingLabel = form.querySelector(".review-form-rating b");
+        const ratingButtons = form.querySelectorAll("[data-rating]");
+
+        const setRating = (rating) => {
+          form.dataset.rating = rating;
+          form.querySelector(".review-form-rating")?.classList.add("has-value");
+          ratingButtons.forEach((button) => button.classList.toggle("is-active", Number(button.dataset.rating) <= rating));
+          if (ratingLabel) ratingLabel.textContent = `${rating}.0`;
+        };
+
+        ratingButtons.forEach((button) => {
+          button.addEventListener("click", () => setRating(Number(button.dataset.rating)));
+        });
+
+        form.querySelectorAll(".review-tags button").forEach((button) => {
+          button.addEventListener("click", () => button.classList.toggle("is-active"));
+        });
+
+        textarea?.addEventListener("input", () => {
+          form.classList.remove("has-error");
+          if (error) error.hidden = true;
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const text = textarea?.value.trim() || "";
+          if (!text) {
+            setRating(Number(form.dataset.rating || 5));
+            form.classList.add("has-error");
+            form.classList.remove("is-sent");
+            if (error) error.hidden = false;
+            if (success) success.hidden = true;
+            textarea?.focus();
+            return;
+          }
+
+          setRating(Number(form.dataset.rating || 5));
+          form.classList.remove("has-error");
+          form.classList.add("is-sent");
+          if (error) error.hidden = true;
+          if (success) success.hidden = false;
+        });
+      });
+
+      document.querySelectorAll("[data-question-form]").forEach((form) => {
+        const textarea = form.querySelector("textarea");
+        const error = form.querySelector(".question-error");
+        const success = form.querySelector(".question-success");
+
+        textarea?.addEventListener("input", () => {
+          form.classList.remove("has-error");
+          if (error) error.hidden = true;
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const text = textarea?.value.trim() || "";
+          if (!text) {
+            form.classList.add("has-error");
+            form.classList.remove("is-sent");
+            if (error) error.hidden = false;
+            if (success) success.hidden = true;
+            textarea?.focus();
+            return;
+          }
+
+          form.classList.remove("has-error");
+          form.classList.add("is-sent");
+          if (error) error.hidden = true;
+          if (success) success.hidden = false;
+        });
+      });
+
+      document.querySelectorAll(".like-action").forEach((button) => {
+        button.addEventListener("click", () => {
+          const wasLiked = button.classList.contains("is-liked");
+          const count = button.querySelector("span");
+          const icon = button.querySelector("img");
+          button.classList.toggle("is-liked", !wasLiked);
+          if (icon) icon.src = wasLiked ? "./assets/like-outline.svg" : "./assets/like-filled.svg";
+          if (count) count.textContent = String(Math.max(0, Number(count.textContent || 0) + (wasLiked ? -1 : 1)));
+        });
+      });
+
+      document.querySelectorAll("[data-promo-widget]").forEach((widget) => {
+        const toggle = widget.querySelector(".promo-link");
+        const form = widget.querySelector(".promo-form");
+        const input = widget.querySelector("input");
+        const help = widget.querySelector(".promo-help");
+        const success = widget.querySelector(".promo-success");
+        const error = widget.querySelector(".promo-error");
+
+        const setPromoState = (state) => {
+          widget.classList.toggle("is-success", state === "success");
+          widget.classList.toggle("is-error", state === "error");
+          if (help) help.hidden = state !== "idle";
+          if (success) success.hidden = state !== "success";
+          if (error) error.hidden = state !== "error";
+        };
+
+        toggle?.addEventListener("click", () => {
+          const isOpen = widget.classList.toggle("is-open");
+          if (form) form.hidden = !isOpen;
+          toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          if (isOpen) {
+            setPromoState("idle");
+            window.setTimeout(() => input?.focus(), 0);
+          }
+        });
+
+        input?.addEventListener("input", () => setPromoState("idle"));
+
+        form?.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const code = input?.value.trim().toUpperCase() || "";
+          if (code === "PAPA15") {
+            if (input) input.value = "PAPA15";
+            setPromoState("success");
+            return;
+          }
+          setPromoState("error");
+        });
+      });
+
+      const lightbox = document.querySelector("[data-image-lightbox]");
+      const lightboxImage = lightbox?.querySelector("img");
+      const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.hidden = true;
+        document.body.classList.remove("image-lightbox-open");
+      };
+
+      document.querySelectorAll(".product-image-preview").forEach((button) => {
+        button.addEventListener("click", () => {
+          const image = button.querySelector("img");
+          if (!lightbox || !lightboxImage || !image) return;
+          lightboxImage.src = image.currentSrc || image.src;
+          lightboxImage.alt = image.alt;
+          lightbox.hidden = false;
+          document.body.classList.add("image-lightbox-open");
+        });
+      });
+
+      lightbox?.querySelectorAll(".image-lightbox-backdrop, .image-lightbox-close").forEach((button) => {
+        button.addEventListener("click", closeLightbox);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLightbox();
+      });
+
+      document.querySelectorAll('a[href="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+
+      document.querySelector(".search-form")?.addEventListener("submit", (event) => event.preventDefault());
+
+    </script>
+      <script src="./assets/playpapa-auth.js"></script>
+  </body>
+</html>

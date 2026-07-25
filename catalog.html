@@ -1,0 +1,2008 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Каталог — PlayPapa</title>
+    <script>
+      (() => {
+        window.__preloaderStart = performance.now();
+        try {
+          const requestedTheme = new URLSearchParams(window.location.search).get("theme");
+          const savedTheme = localStorage.getItem("playpapa-theme");
+          const theme = requestedTheme || savedTheme;
+          document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+        try {
+          if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+          if (!window.location.hash || window.location.hash === "#") {
+            window.addEventListener("load", () => requestAnimationFrame(() => window.scrollTo(0, 0)), { once: true });
+          }
+        } catch {}
+      })();
+    </script>
+    <script>
+      window.playpapaCatalog = {"products":[{"name":"Пополнение Steam","image_url":"./assets/steam-topup.png","price_label":"от 500 ₽","discount_label":"-5%","url":"./product.html","catalog_kind":"donate","catalog_kinds":["donate","services"]},{"name":"PUBG Mobile UC","image_url":"./assets/product-pubg.png","price_label":"от 149 ₽","discount_label":"-12%","url":"./product.html","catalog_kind":"donate","catalog_kinds":["donate","items"]},{"name":"DOOM 2016 STEAM KEY РФ+СНГ","image_url":"./assets/product-doom.jpg","price_label":"990 ₽","discount_label":"","url":"./product.html","catalog_kind":"keys","catalog_kinds":["keys"]},{"name":"Roblox Robux","image_url":"./assets/service-roblox.png","price_label":"от 299 ₽","discount_label":"-7%","url":"./product.html","catalog_kind":"donate","catalog_kinds":["donate"]},{"name":"ChatGPT Plus","image_url":"./assets/service-chatgpt.png","price_label":"от 1 990 ₽","discount_label":"","url":"./product.html","catalog_kind":"subscriptions","catalog_kinds":["subscriptions","services"]}],"official_products":[{"name":"Пополнение Steam","image_url":"./assets/steam-topup.png","price_label":"от 500 ₽","discount_label":"-5%","url":"./product.html","catalog_kind":"donate","catalog_kinds":["donate","services"]},{"name":"PUBG Mobile UC","image_url":"./assets/product-pubg.png","price_label":"от 149 ₽","discount_label":"-12%","url":"./product.html","catalog_kind":"donate","catalog_kinds":["donate","items"]},{"name":"DOOM 2016 STEAM KEY РФ+СНГ","image_url":"./assets/product-doom.jpg","price_label":"990 ₽","discount_label":"","url":"./product.html","catalog_kind":"keys","catalog_kinds":["keys"]},{"name":"Roblox Robux","image_url":"./assets/service-roblox.png","price_label":"от 299 ₽","discount_label":"-7%","url":"./product.html","catalog_kind":"donate","catalog_kinds":["donate"]},{"name":"ChatGPT Plus","image_url":"./assets/service-chatgpt.png","price_label":"от 1 990 ₽","discount_label":"","url":"./product.html","catalog_kind":"subscriptions","catalog_kinds":["subscriptions","services"]}],"total":5,"has_more":false,"next_offset":5,"limit":24};
+      window.playpapaCatalogState = {
+        category: "all",
+        query: "",
+        sort: "popular"
+      };
+    </script>
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              colors: {
+                papa: "#268bf3",
+                ink: "#202838",
+                soft: "#f2f4f8",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="./assets/blogger-playpapa-logo.svg" />
+    <link rel="stylesheet" href="./frame.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./catalog.css" />
+    <link rel="stylesheet" href="./auth-local.css" />
+
+  </head>
+  <body class="preloader-active catalog-page">
+    <div class="page-preloader" id="pagePreloader" role="status" aria-label="Загрузка">
+      <div class="preloader-inner">
+        <div class="preloader-dots" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="preloader-text">Загрузка...</div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="logo-link" href="./index.html">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+        </a>
+
+        <div class="theme-switch" aria-label="Переключение темы">
+          <button class="theme-btn is-active" type="button" data-theme="light" aria-label="Светлая тема" aria-pressed="true">
+            <img src="./assets/white-theme.svg" alt="" />
+          </button>
+          <button class="theme-btn" type="button" data-theme="dark" aria-label="Темная тема" aria-pressed="false">
+            <img src="./assets/dark-theme.svg" alt="" />
+          </button>
+        </div>
+
+        <button class="catalog-btn" type="button" aria-label="Каталог" aria-expanded="false" aria-controls="catalogMegaMenu">
+          <img src="./assets/catalog.svg" alt="" />
+          <span>Каталог</span>
+        </button>
+
+        <form class="search-form" action="#">
+          <input type="search" placeholder="Игра, приложение или услуга..." />
+          <button class="search-favorite" type="button" aria-label="Избранное">
+            <img src="./assets/favorite.svg" alt="" />
+          </button>
+          <button class="search-submit" type="submit" aria-label="Найти">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+          </button>
+        </form>
+
+        <button class="bonus-btn" aria-label="Бонусы">
+          <img src="./assets/bonus.svg" alt="Бонусы" />
+        </button>
+
+        <div class="profile-menu">
+          <button class="profile-btn" type="button" aria-label="Профиль" aria-expanded="false" aria-controls="profilePopover">
+            <img src="./assets/profile.svg" alt="" />
+            <span class="profile-toggle-indicator" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none">
+                <path d="m2 2 4 4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+
+          <section class="profile-popover" id="profilePopover" aria-hidden="true" aria-label="Меню профиля" inert>
+            <div class="profile-popover-heading">
+              <h2>Вы не авторизованы</h2>
+              <p>
+                <span>Войдите, чтобы видеть бонусы и</span>
+                <span>рефералов</span>
+              </p>
+            </div>
+
+            <nav class="profile-popover-nav" aria-label="Разделы профиля">
+              <button class="profile-menu-item" type="button" disabled>
+                <img class="profile-menu-icon" src="./assets/profile-menu-profile.svg" alt="" />
+                <span>Профиль</span>
+              </button>
+              <button class="profile-menu-item" type="button" disabled>
+                <img class="profile-menu-icon" src="./assets/profile-menu-referrals.svg" alt="" />
+                <span>Рефералы</span>
+              </button>
+              <button class="profile-menu-item" type="button" disabled>
+                <img class="profile-menu-icon" src="./assets/profile-menu-bonus.svg" alt="" />
+                <span>Бонусы</span>
+              </button>
+              <button class="profile-menu-item" type="button" disabled>
+                <img class="profile-menu-icon" src="./assets/profile-menu-topup.svg" alt="" />
+                <span>Пополнить</span>
+              </button>
+              <button class="profile-menu-item profile-help" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-help.svg" alt="" />
+                <span>Помощь</span>
+              </button>
+              <button class="profile-menu-item profile-login" type="button" data-auth-open="login">
+                <img class="profile-menu-icon" src="./assets/profile-menu-login.svg" alt="" />
+                <span>Войти</span>
+              </button>
+            </nav>
+          </section>
+        </div>
+      </div>
+
+      <div class="catalog-layer" id="catalogMegaMenu" aria-hidden="true" inert>
+        <div class="shell catalog-mega" role="dialog" aria-label="Каталог товаров">
+          <aside class="catalog-sidebar" aria-label="Разделы каталога">
+            <button class="catalog-side-link is-active" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 8.2h9a4.5 4.5 0 0 1 4.2 6.1l-1.1 2.8a2.2 2.2 0 0 1-3.7.7l-1.2-1.5H9.3l-1.2 1.5a2.2 2.2 0 0 1-3.7-.7l-1.1-2.8a4.5 4.5 0 0 1 4.2-6.1Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 11v3m-1.5-1.5h3M16.5 11.7h.01m2 2h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Игры и игровые сервисы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2.8 8.1 5.5L12 21.2 3.9 8.3 12 2.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.9 8.3 5.1.2 3-5.7 3 5.7 5.1-.2M9 8.5l3 12.7 3-12.7" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <span>Игровые ценности</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6.2" y="2.5" width="11.6" height="19" rx="2.2" stroke="currentColor" stroke-width="1.8"/><path d="M10 5h4m-2 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Мобильные игры</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3.4 12h17.2M12 3c2.2 2.5 3.3 5.5 3.3 9S14.2 18.5 12 21c-2.2-2.5-3.3-5.5-3.3-9S9.8 5.5 12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+              <span>Сервисы и соцсети</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.2" width="18" height="12.3" rx="1.8" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 20h7M12 16.5V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Программы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+          </aside>
+
+          <div class="catalog-content">
+            <section class="catalog-showcase" aria-labelledby="catalogFeaturedTitle">
+              <h2 id="catalogFeaturedTitle">Игры и игровые сервисы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogFeatured"></div>
+            </section>
+
+            <section class="catalog-showcase catalog-new" aria-labelledby="catalogNewTitle">
+              <h2 id="catalogNewTitle">Новинки и предзаказы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogNew"></div>
+            </section>
+
+            <div class="catalog-platforms">
+              <section class="catalog-link-group">
+                <h3>Steam <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Коллекционные карточки</a>
+                <a href="#">Смена региона</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>PlayStation <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">PS Plus</a>
+                <a href="#">EA Play</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Xbox <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">Xbox Game Pass</a>
+                <a href="#">Услуги</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Nintendo <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">NS Online</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Battle.net <span aria-hidden="true">›</span></h3>
+                <a href="#">World of Warcraft</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Прямое пополнение</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">Смена региона</a>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="shell catalog-official" aria-labelledby="catalogOfficialTitle">
+        <div class="catalog-official-head">
+          <span class="catalog-shield" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3.2 19 6v5.4c0 4.4-2.8 7.9-7 9.4-4.2-1.5-7-5-7-9.4V6l7-2.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              <path d="m9.3 12.1 1.8 1.8 3.9-4.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <h1 id="catalogOfficialTitle">Официально от PlayPapa</h1>
+          <div class="catalog-official-actions" aria-label="Навигация по подборке">
+            <button class="catalog-official-arrow" type="button" data-official-scroll="prev" aria-label="Предыдущие товары">
+              <img class="catalog-arrow-icon catalog-arrow-left" src="./assets/catalog-arrow.svg" alt="" aria-hidden="true" />
+            </button>
+            <button class="catalog-official-arrow" type="button" data-official-scroll="next" aria-label="Следующие товары">
+              <img class="catalog-arrow-icon catalog-arrow-right" src="./assets/catalog-arrow.svg" alt="" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+        <div class="product-grid catalog-feature-grid" data-products="catalog-featured" data-count="10"></div>
+      </section>
+
+      <section class="shell catalog-page-layout" aria-label="Каталог товаров">
+        <aside class="catalog-filter-panel" id="catalogFilterPanel" aria-label="Фильтры каталога">
+          <div class="catalog-filter-head">
+            <img src="./assets/filter-candle.svg" alt="" />
+            <b>Фильтр</b>
+            <button class="catalog-mobile-filter-close" type="button" aria-label="Закрыть фильтр">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+
+          <section class="filter-group" hidden aria-hidden="true">
+            <h2><button class="filter-group-toggle" type="button" aria-expanded="true">Способ получения <img class="catalog-arrow-icon" src="./assets/catalog-arrow.svg" alt="" aria-hidden="true" /></button></h2>
+            <div class="filter-group-body">
+              <label class="filter-check"><input type="checkbox" /> <span>Без входа в аккаунт</span></label>
+              <label class="filter-check"><input type="checkbox" /> <span>Со входом в аккаунт</span></label>
+              <label class="filter-check"><input type="checkbox" /> <span>Аккаунт с лицензией</span></label>
+            </div>
+          </section>
+
+          <section class="filter-group">
+            <h2><button class="filter-group-toggle" type="button" aria-expanded="true">Тип <img class="catalog-arrow-icon" src="./assets/catalog-arrow.svg" alt="" aria-hidden="true" /></button></h2>
+            <div class="filter-group-body">
+                              <label class="filter-check"><input type="checkbox" value="steam_gift" data-filter-type="type" /> <span>Steam Gift</span></label>
+                              <label class="filter-check"><input type="checkbox" value="keys" data-filter-type="type" /> <span>Ключ Steam</span></label>
+                              <label class="filter-check"><input type="checkbox" value="donate" data-filter-type="type" /> <span>Донат</span></label>
+                              <label class="filter-check"><input type="checkbox" value="subscriptions" data-filter-type="type" /> <span>Подписки</span></label>
+                              <label class="filter-check"><input type="checkbox" value="items" data-filter-type="type" /> <span>Предметы</span></label>
+                              <label class="filter-check"><input type="checkbox" value="accounts" data-filter-type="type" /> <span>Аккаунты</span></label>
+                              <label class="filter-check"><input type="checkbox" value="other" data-filter-type="type" /> <span>Другое</span></label>
+                          </div>
+          </section>
+
+          <section class="filter-group">
+            <h2><button class="filter-group-toggle" type="button" aria-expanded="true">Жанр <img class="catalog-arrow-icon" src="./assets/catalog-arrow.svg" alt="" aria-hidden="true" /></button></h2>
+            <div class="filter-group-body">
+                              <label class="filter-check"><input type="checkbox" value="action" data-filter-type="genre" /> <span>Экшен</span></label>
+                              <label class="filter-check"><input type="checkbox" value="rpg" data-filter-type="genre" /> <span>RPG</span></label>
+                              <label class="filter-check"><input type="checkbox" value="sport" data-filter-type="genre" /> <span>Спорт</span></label>
+                              <label class="filter-check"><input type="checkbox" value="strategy" data-filter-type="genre" /> <span>Стратегии</span></label>
+                          </div>
+          </section>
+
+          <section class="filter-group filter-price-group" data-price-filter data-min-price="1" data-max-price="10000" data-price-step="100">
+            <h2><button class="filter-group-toggle" type="button" aria-expanded="true">Цена <img class="catalog-arrow-icon" src="./assets/catalog-arrow.svg" alt="" aria-hidden="true" /></button></h2>
+            <div class="filter-group-body">
+              <div class="filter-price-row">
+                <label><span>от</span><input type="text" inputmode="numeric" value="1" data-price-min-input /><b>₽</b></label>
+                <label><span>до</span><input type="text" inputmode="numeric" value="10000" data-price-max-input /><b>₽</b></label>
+              </div>
+              <div class="filter-range">
+                <span></span>
+                <i></i>
+                <b></b>
+              </div>
+              <div class="filter-range-labels"><span>1</span><span>10000</span></div>
+            </div>
+          </section>
+
+          <section class="filter-group" hidden aria-hidden="true">
+            <h2><button class="filter-group-toggle" type="button" aria-expanded="true">Сервисы <img class="catalog-arrow-icon" src="./assets/catalog-arrow.svg" alt="" aria-hidden="true" /></button></h2>
+            <div class="filter-group-body">
+              <label class="filter-check"><input type="checkbox" /> <span>Steam</span></label>
+              <label class="filter-check"><input type="checkbox" /> <span>xBox</span></label>
+            </div>
+          </section>
+
+          <div class="filter-actions">
+            <button class="filter-apply" type="button">Применить <span hidden>0</span></button>
+            <button class="filter-reset" type="button">Сбросить</button>
+          </div>
+        </aside>
+
+        <section class="catalog-results" aria-label="Список товаров">
+          <div class="catalog-controls">
+            <nav class="catalog-category-tabs" aria-label="Категории товаров">
+                              <a
+                  class="chip is-active"
+                  href="./catalog.html"
+                  data-catalog-category="all"
+                  aria-current="true"
+                >
+                  <img src="./assets/catalog.svg" alt="" />Все
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=donate"
+                  data-catalog-category="donate"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-donate.svg" alt="" />Донат
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=subscriptions"
+                  data-catalog-category="subscriptions"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-subscribes.svg" alt="" />Подписки
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=items"
+                  data-catalog-category="items"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-items.svg" alt="" />Предметы
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=accounts"
+                  data-catalog-category="accounts"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-accounts.svg" alt="" />Аккаунты
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=keys"
+                  data-catalog-category="keys"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-keys.svg" alt="" />Ключи
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=steam_gift"
+                  data-catalog-category="steam_gift"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-currency.svg" alt="" />Steam Gift
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=other"
+                  data-catalog-category="other"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-other.svg" alt="" />Другое
+                </a>
+                              <a
+                  class="chip "
+                  href="./catalog.html?category=services"
+                  data-catalog-category="services"
+                  aria-current="false"
+                >
+                  <img src="./assets/cat-services.svg" alt="" />Услуги
+                </a>
+                          </nav>
+
+            <div class="catalog-toolbar">
+              <label class="catalog-search">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                </svg>
+                <input type="search" placeholder="Поиск по названию" value="" data-catalog-search />
+              </label>
+              <button class="catalog-pill catalog-pill-green" type="button"><img src="./assets/catalog-sale.svg" alt="" />Скидка</button>
+              <button class="catalog-pill catalog-pill-orange" type="button"><img src="./assets/catalog-flash.svg" alt="" />Хит продаж</button>
+              <button class="catalog-pill catalog-pill-blue" type="button"><img src="./assets/catalog-reviews.svg" alt="" />Лучшие отзывы</button>
+            </div>
+          </div>
+
+          <div class="catalog-mobile-filterbar" aria-label="Фильтры и сортировка">
+            <div class="catalog-mobile-filter-row">
+              <button class="catalog-mobile-filter-btn" type="button" aria-expanded="false" aria-controls="catalogFilterPanel">
+                <img src="./assets/filter-candle.svg" alt="" />
+                <span>Фильтр</span>
+                <b hidden>0</b>
+              </button>
+              <button class="catalog-mobile-sort" type="button" aria-expanded="false" aria-controls="catalogMobileSortPanel">
+                <img class="catalog-sort-direction-icon" src="./assets/sort-arrow-3.svg" alt="" aria-hidden="true" />
+                <span class="catalog-mobile-sort-label">Популярные</span>
+              </button>
+            </div>
+            <div class="catalog-mobile-tags" aria-label="Активные фильтры">
+                              <button type="button" disabled>Все товары</button>
+                          </div>
+            <div class="catalog-mobile-sort-panel" id="catalogMobileSortPanel" aria-hidden="true" inert>
+              <button class="is-selected" type="button" data-sort-value="popular" data-sort-label="Популярные">Популярные <span aria-hidden="true">✓</span></button>
+              <button type="button" data-sort-value="price_asc" data-sort-label="Сначала дешёвые">Сначала дешёвые <span aria-hidden="true">✓</span></button>
+              <button type="button" data-sort-value="price_desc" data-sort-label="Сначала дорогие">Сначала дорогие <span aria-hidden="true">✓</span></button>
+              <button type="button" data-sort-value="new" data-sort-label="Сначала новинки">Сначала новинки <span aria-hidden="true">✓</span></button>
+              <button type="button" data-sort-value="rating" data-sort-label="По рейтингу">По рейтингу <span aria-hidden="true">✓</span></button>
+            </div>
+          </div>
+
+          <div class="catalog-meta-row">
+            <p class="catalog-total">Всего 5 товаров</p>
+            <div class="catalog-sort-row">
+              <button class="catalog-sort-icon" type="button" aria-label="Сортировать по цене">
+                <img class="catalog-sort-direction-icon" src="./assets/sort-arrow-3.svg" alt="" aria-hidden="true" />
+              </button>
+              <button class="catalog-sort-icon" type="button" aria-label="Фильтр сортировки">
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 5h12M6 10h10M9 15h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </button>
+              <button class="catalog-sort" type="button">Популярные</button>
+            </div>
+          </div>
+
+          <div class="product-grid catalog-product-grid catalog-product-grid-primary" data-products="catalog-results-grid-primary" data-count="12"></div>
+
+          <section class="topup-row catalog-topup-row" aria-label="Пополнение Steam">
+            <div class="topup-info">
+              <img src="./assets/steam-topup.png" alt="" />
+              <div>
+                <div class="topup-title">
+                  Пополнение Steam
+                  <span>5%</span>
+                </div>
+                <button class="promo-small" type="button" aria-expanded="false" aria-controls="topupPromoSection">
+                  <span class="promo-small-label">Ввести промокод</span>
+                  <svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <label class="form-field login-field">
+              <img src="./assets/profile-gray.svg" alt="" />
+              <input type="text" name="steam-login" placeholder="Логин Steam" />
+              <span class="field-info" aria-hidden="true"><img src="./assets/info-i.svg" alt="" /></span>
+            </label>
+
+            <div class="form-field amount-field">
+              <div class="amount-field-shell">
+                <span class="currency-mark" aria-hidden="true">
+                  <svg class="currency-svg currency-svg-ruble" viewBox="0 0 12 12" fill="none">
+                    <path d="M1.55153 11.2002V0.00019455H6.39953C7.89287 0.00019455 9.07687 0.314861 9.95153 0.944195C10.8262 1.57353 11.2635 2.51753 11.2635 3.7762C11.2635 5.0242 10.8262 5.96286 9.95153 6.5922C9.07687 7.22153 7.89287 7.5362 6.39953 7.5362H2.99153L4.15953 6.38419V11.2002H1.55153ZM-0.000468731 9.7602V8.4322H7.61553V9.7602H-0.000468731ZM4.15953 6.6562L2.99153 5.5042H6.38353C7.0982 5.5042 7.65287 5.3602 8.04753 5.0722C8.4422 4.77353 8.63953 4.34686 8.63953 3.79219C8.63953 3.2482 8.4422 2.8322 8.04753 2.5442C7.65287 2.2562 7.0982 2.1122 6.38353 2.1122H2.99153L4.15953 0.880195V6.6562Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <label class="amount-control">
+                  <small>Сумма</small>
+                  <span class="amount-value">
+                    <input type="text" name="amount" inputmode="numeric" value="500" maxlength="6" aria-label="Сумма" aria-expanded="false" aria-controls="topupQuickPopover" />
+                    <svg class="currency-svg currency-svg-ruble" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M1.55153 11.2002V0.00019455H6.39953C7.89287 0.00019455 9.07687 0.314861 9.95153 0.944195C10.8262 1.57353 11.2635 2.51753 11.2635 3.7762C11.2635 5.0242 10.8262 5.96286 9.95153 6.5922C9.07687 7.22153 7.89287 7.5362 6.39953 7.5362H2.99153L4.15953 6.38419V11.2002H1.55153ZM-0.000468731 9.7602V8.4322H7.61553V9.7602H-0.000468731ZM4.15953 6.6562L2.99153 5.5042H6.38353C7.0982 5.5042 7.65287 5.3602 8.04753 5.0722C8.4422 4.77353 8.63953 4.34686 8.63953 3.79219C8.63953 3.2482 8.4422 2.8322 8.04753 2.5442C7.65287 2.2562 7.0982 2.1122 6.38353 2.1122H2.99153L4.15953 0.880195V6.6562Z" fill="currentColor" />
+                    </svg>
+                  </span>
+                </label>
+                <span class="currency-tabs" role="group" aria-label="Валюта">
+                  <button type="button" aria-label="Доллар">
+                    <svg class="currency-svg currency-svg-dollar" viewBox="0 0 10 16" fill="none" aria-hidden="true">
+                      <path d="M4.56073 13.3121C3.66473 13.3121 2.80607 13.1948 1.98473 12.9601C1.1634 12.7148 0.502068 12.4001 0.000734389 12.0161L0.880734 10.0641C1.36073 10.4055 1.92607 10.6881 2.57673 10.9121C3.23807 11.1255 3.90473 11.2321 4.57673 11.2321C5.08873 11.2321 5.4994 11.1841 5.80873 11.0881C6.12873 10.9815 6.3634 10.8375 6.51273 10.6561C6.66207 10.4748 6.73673 10.2668 6.73673 10.0321C6.73673 9.73345 6.6194 9.49878 6.38473 9.32812C6.15007 9.14678 5.84073 9.00278 5.45673 8.89612C5.07273 8.77878 4.64607 8.67212 4.17673 8.57612C3.71807 8.46945 3.25407 8.34145 2.78473 8.19212C2.32607 8.04278 1.90473 7.85078 1.52073 7.61612C1.13673 7.38145 0.822068 7.07212 0.576734 6.68812C0.342068 6.30412 0.224734 5.81345 0.224734 5.21612C0.224734 4.57612 0.395401 3.99478 0.736734 3.47212C1.08873 2.93878 1.6114 2.51745 2.30473 2.20812C3.00873 1.88812 3.88873 1.72812 4.94473 1.72812C5.64873 1.72812 6.34207 1.81345 7.02473 1.98412C7.7074 2.14412 8.31007 2.38945 8.83274 2.72012L8.03273 4.68812C7.51007 4.38945 6.9874 4.17078 6.46473 4.03212C5.94207 3.88278 5.43007 3.80812 4.92873 3.80812C4.4274 3.80812 4.01673 3.86678 3.69673 3.98412C3.37673 4.10145 3.1474 4.25612 3.00873 4.44812C2.87007 4.62945 2.80073 4.84278 2.80073 5.08812C2.80073 5.37612 2.91807 5.61078 3.15273 5.79212C3.3874 5.96278 3.69673 6.10145 4.08073 6.20812C4.46473 6.31478 4.88607 6.42145 5.34473 6.52812C5.81407 6.63478 6.27807 6.75745 6.73673 6.89612C7.20607 7.03478 7.63273 7.22145 8.01674 7.45612C8.40073 7.69078 8.71007 8.00012 8.94473 8.38412C9.19007 8.76812 9.31273 9.25345 9.31273 9.84012C9.31273 10.4695 9.13673 11.0455 8.78473 11.5681C8.43273 12.0908 7.90473 12.5121 7.20073 12.8321C6.5074 13.1521 5.6274 13.3121 4.56073 13.3121ZM3.95273 15.0401V0.000116348H5.55273V15.0401H3.95273Z" fill="currentColor" />
+                    </svg>
+                  </button>
+                  <button type="button" aria-label="Тенге">
+                    <svg class="currency-svg currency-svg-tenge" viewBox="0 0 10 12" fill="none" aria-hidden="true">
+                      <path d="M3.56819 11.2002V3.61619H0.000187516V2.27219H9.74419V3.61619H6.16019V11.2002H3.56819ZM0.000187516 1.34419V0.00019455H9.74419V1.34419H0.000187516Z" fill="currentColor" />
+                    </svg>
+                  </button>
+                  <button class="is-active" type="button" aria-label="Рубль">
+                    <svg class="currency-svg currency-svg-ruble" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M1.55153 11.2002V0.00019455H6.39953C7.89287 0.00019455 9.07687 0.314861 9.95153 0.944195C10.8262 1.57353 11.2635 2.51753 11.2635 3.7762C11.2635 5.0242 10.8262 5.96286 9.95153 6.5922C9.07687 7.22153 7.89287 7.5362 6.39953 7.5362H2.99153L4.15953 6.38419V11.2002H1.55153ZM-0.000468731 9.7602V8.4322H7.61553V9.7602H-0.000468731ZM4.15953 6.6562L2.99153 5.5042H6.38353C7.0982 5.5042 7.65287 5.3602 8.04753 5.0722C8.4422 4.77353 8.63953 4.34686 8.63953 3.79219C8.63953 3.2482 8.4422 2.8322 8.04753 2.5442C7.65287 2.2562 7.0982 2.1122 6.38353 2.1122H2.99153L4.15953 0.880195V6.6562Z" fill="currentColor" />
+                    </svg>
+                  </button>
+                </span>
+              </div>
+              <div class="topup-quick-popover" id="topupQuickPopover" aria-hidden="true" inert>
+                <span class="topup-quick-popover-label">Быстрый выбор суммы</span>
+                <div class="topup-quick-popover-buttons" aria-label="Быстрый выбор суммы">
+                  <button class="is-active" type="button" data-quick-amount="500">500 ₽</button>
+                  <button type="button" data-quick-amount="1000">1 000 ₽</button>
+                  <button type="button" data-quick-amount="2500">2 500 ₽</button>
+                  <button type="button" data-quick-amount="5000">5 000 ₽</button>
+                </div>
+              </div>
+            </div>
+
+            <button class="pay-btn" type="button" aria-expanded="false" aria-controls="topupPaymentSection">Оплатить 500<svg class="currency-svg currency-svg-ruble pay-currency-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.55153 11.2002V0.00019455H6.39953C7.89287 0.00019455 9.07687 0.314861 9.95153 0.944195C10.8262 1.57353 11.2635 2.51753 11.2635 3.7762C11.2635 5.0242 10.8262 5.96286 9.95153 6.5922C9.07687 7.22153 7.89287 7.5362 6.39953 7.5362H2.99153L4.15953 6.38419V11.2002H1.55153ZM-0.000468731 9.7602V8.4322H7.61553V9.7602H-0.000468731ZM4.15953 6.6562L2.99153 5.5042H6.38353C7.0982 5.5042 7.65287 5.3602 8.04753 5.0722C8.4422 4.77353 8.63953 4.34686 8.63953 3.79219C8.63953 3.2482 8.4422 2.8322 8.04753 2.5442C7.65287 2.2562 7.0982 2.1122 6.38353 2.1122H2.99153L4.15953 0.880195V6.6562Z" fill="currentColor" /></svg></button>
+
+            <div class="topup-expand" id="topupDetails" aria-hidden="true" inert>
+              <div class="topup-expand-clip">
+                <div class="topup-expand-content">
+                  <section class="topup-expand-section topup-promo-section" id="topupPromoSection" aria-hidden="true" inert>
+                    <div class="topup-expand-section-inner">
+                      <label class="topup-detail-label" for="topupPromoInput">Промокод</label>
+                      <div class="topup-promo-row">
+                        <label class="topup-promo-input">
+                          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 10h16v10H4V10Zm0-4h16v4H4V6Zm8 0v14M12 6c-1.7-3.1-5.2-2.8-5.2-.5C6.8 7.2 9 7.5 12 6Zm0 0c1.7-3.1 5.2-2.8 5.2-.5C17.2 7.2 15 7.5 12 6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          </svg>
+                          <input id="topupPromoInput" type="text" placeholder="Введите промокод" autocomplete="off" />
+                        </label>
+                        <button class="topup-promo-apply" type="button">Применить</button>
+                      </div>
+                    </div>
+                  </section>
+
+                  <div class="topup-promo-benefit" aria-live="polite" aria-hidden="true">
+                    <img src="./assets/discount-percent.png" alt="" />
+                    <strong>Скидка <span>5%</span> - вы экономите <b data-promo-saving>25 ₽</b></strong>
+                    <small><span>Вы платите примерно на 12% меньше,</span><span>чем на других площадках</span></small>
+                  </div>
+
+                  <section class="topup-expand-section topup-payment-section" id="topupPaymentSection" aria-hidden="true" inert>
+                    <div class="topup-expand-section-inner">
+                      <h3 class="topup-detail-label topup-payment-title">Способ оплаты</h3>
+                      <div class="topup-payment-methods" role="radiogroup" aria-label="Способ оплаты">
+                        <button class="topup-payment-method is-selected" type="button" role="radio" aria-checked="true" data-fee="0">
+                          <span class="topup-payment-icon"><img src="./assets/payment-sbp.svg" alt="" /></span>
+                          <span class="topup-payment-copy"><b>СБП</b><small>Без комиссии</small></span>
+                          <span class="topup-payment-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                        </button>
+                        <button class="topup-payment-method" type="button" role="radio" aria-checked="false" data-fee="2">
+                          <span class="topup-payment-icon"><img src="./assets/payment-mir-option.svg" alt="" /></span>
+                          <span class="topup-payment-copy"><b>Карта МИР</b><small>+2% комиссия</small></span>
+                          <span class="topup-payment-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                        </button>
+                        <button class="topup-payment-method" type="button" role="radio" aria-checked="false" data-fee="0">
+                          <span class="topup-payment-icon"><img src="./assets/payment-btc.svg" alt="" /></span>
+                          <span class="topup-payment-copy"><b>Криптовалюта</b><small>Без комиссии</small></span>
+                          <span class="topup-payment-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                        </button>
+                      </div>
+
+                      <div class="topup-total-row">
+                        <div class="topup-total-copy">
+                          <small>К зачислению на Steam</small>
+                          <span><strong data-topup-credit>500 ₽</strong><b data-topup-fee-badge>Без комиссии</b></span>
+                        </div>
+                        <button class="topup-final-pay" type="button">Оплатить 500₽</button>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="product-grid catalog-product-grid catalog-product-grid-secondary" data-products="catalog-results-grid-secondary" data-count="8"></div>
+
+          <div class="catalog-loader" role="status">
+            <div class="catalog-loader-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <strong>Подгружаем ещё товары...</strong>
+          </div>
+        </section>
+      </section>
+
+    <footer class="shell site-footer">
+      <div class="footer-top">
+        <img src="./assets/logo.svg" alt="PlayPapa" />
+        <nav>
+          <a href="#">Стать продавцом</a>
+          <a href="#">Бонусы</a>
+          <a href="#">Поддержка</a>
+          <a href="#">Гарантии</a>
+          <a href="#">Отзывы</a>
+        </nav>
+      </div>
+      <div class="footer-mid">
+        <div class="footer-social">
+          <b>PlayPapa</b>
+          <a class="social-icon" href="#" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></a>
+          <a class="social-icon" href="#" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></a>
+          <a class="footer-channel" href="#">Polk Zone</a>
+          <a class="social-icon" href="#" aria-label="TikTok"><img src="./assets/footer-tiktok.svg" alt="" /></a>
+          <a class="social-icon" href="#" aria-label="YouTube"><img src="./assets/footer-youtube.svg" alt="" /></a>
+        </div>
+        <div class="payments">
+          <span><img src="./assets/payment-visa.svg" alt="VISA" /></span>
+          <span><img src="./assets/payment-mir.svg" alt="МИР" /></span>
+          <span><img src="./assets/payment-mastercard.svg" alt="Mastercard" /></span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav>
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Соглашение</a>
+          <a href="#">Договор-оферта</a>
+        </nav>
+        <span>© 2026 PlayPapa</span>
+      </div>
+    </footer>
+    </main>
+
+    <section class="mobile-search-layer" id="mobileSearch" role="dialog" aria-modal="true" aria-label="Мобильный поиск" aria-hidden="true" inert>
+      <div class="mobile-search-page">
+        <header class="mobile-search-topbar">
+          <button class="mobile-search-back" id="mobileSearchBack" type="button" aria-label="Назад">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5m6-6-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <form class="mobile-search-form" role="search">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="2" />
+              <path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <input type="search" name="mobile-query" placeholder="Найти товар" aria-label="Найти товар" autocomplete="off" />
+          </form>
+        </header>
+
+        <section class="mobile-search-section mobile-search-services-section">
+          <h2>Игры и игровые сервисы</h2>
+          <div class="mobile-search-cards" aria-label="Игры и игровые сервисы">
+            <a class="mobile-search-card" href="#"><img src="./assets/service-steam.png" alt="" /><strong>Steam</strong></a>
+            <a class="mobile-search-card" href="#"><img src="./assets/service-telegram.png" alt="" /><strong>Telegram</strong></a>
+            <a class="mobile-search-card" href="#"><img src="./assets/service-roblox.png" alt="" /><strong>Roblox</strong></a>
+            <a class="mobile-search-card" href="#"><img src="./assets/service-brawl.png" alt="" /><strong>Brawl...</strong></a>
+            <a class="mobile-search-card mobile-search-more" href="#">
+              <span><img src="./assets/more-service.svg" alt="" /></span>
+              <strong>еще 841</strong>
+            </a>
+          </div>
+        </section>
+
+        <section class="mobile-search-section mobile-search-new-section">
+          <h2>Новинки и предзаказы</h2>
+          <div class="mobile-search-cards mobile-search-game-cards" aria-label="Новинки и предзаказы">
+            <a class="mobile-search-card" href="#"><img src="./assets/article-paradise.png" alt="" /><span>Gothic 1<br />Remake</span></a>
+            <a class="mobile-search-card" href="#"><img src="./assets/article-sale.png" alt="" /><span>Forza<br />Horizon 6</span></a>
+            <a class="mobile-search-card" href="#"><img src="./assets/product-pubg.png" alt="" /><span>Assassin's<br />Creed:...</span></a>
+            <a class="mobile-search-card" href="#"><img src="./assets/article-mobile.png" alt="" /><span>007 First<br />Light</span></a>
+            <a class="mobile-search-card" href="#"><img src="./assets/article-sale.png" alt="" /><span>Call of Duty:<br />Modern...</span></a>
+          </div>
+        </section>
+
+        <nav class="mobile-search-platforms" aria-label="Разделы каталога">
+          <a href="#"><span>Steam</span><span aria-hidden="true">›</span></a>
+          <a href="#"><span>PlayStation</span><span aria-hidden="true">›</span></a>
+          <a href="#"><span>Xbox</span><span aria-hidden="true">›</span></a>
+          <a href="#"><span>Nintendo</span><span aria-hidden="true">›</span></a>
+          <a href="#"><span>Battle.net</span><span aria-hidden="true">›</span></a>
+          <a href="#"><span>Подборки</span><span aria-hidden="true">›</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="auth-modal-layer" id="authModal" data-auth-screen="login" aria-hidden="true" inert>
+      <div class="auth-modal-dialog" role="dialog" aria-modal="true" aria-label="Авторизация">
+        <div class="auth-toast auth-toast-success" aria-live="polite">
+          <img src="./assets/auth-check.svg" alt="" />
+          <span>Письмо отправлено на почту</span>
+        </div>
+        <div class="auth-toast auth-toast-error" aria-live="polite">
+          <img src="./assets/auth-error.svg" alt="" />
+          <span>Ошибка отправки письма</span>
+        </div>
+
+        <button class="auth-close" type="button" aria-label="Закрыть" data-auth-close>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="m4.5 4.5 7 7m0-7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <img class="auth-logo" src="./assets/logo.svg" alt="PlayPapa" />
+
+        <section class="auth-view auth-view-login" aria-label="Вход">
+          <h2>С возвращением!</h2>
+          <div class="auth-tabs" role="tablist" aria-label="Авторизация">
+            <button class="auth-tab" type="button" role="tab" data-auth-screen-target="login">Вход</button>
+            <button class="auth-tab" type="button" role="tab" data-auth-screen-target="register">Регистрация</button>
+          </div>
+          <form class="auth-form" data-auth-form="login">
+            <label class="auth-field">
+              <img src="./assets/auth-user.svg" alt="" />
+              <input type="text" name="login" placeholder="Логин" autocomplete="username" />
+            </label>
+            <label class="auth-field">
+              <img src="./assets/auth-lock.svg" alt="" />
+              <input type="password" name="password" placeholder="Пароль" autocomplete="current-password" />
+            </label>
+            <button class="auth-link auth-forgot" type="button" data-auth-screen-target="recover">Забыли пароль?</button>
+            <button class="auth-primary" type="submit">Войти</button>
+          </form>
+          <div class="auth-social-block">
+            <div class="auth-divider"><span>Другие методы входа</span></div>
+            <div class="auth-socials" aria-label="Другие методы входа">
+              <button class="auth-social auth-social-telegram" type="button" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></button>
+              <button class="auth-social auth-social-vk" type="button" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></button>
+              <button class="auth-social auth-social-steam" type="button" aria-label="Steam"><img src="./assets/auth-steam.svg" alt="" /></button>
+              <button class="auth-social auth-social-yandex" type="button" aria-label="Яндекс"><img src="./assets/auth-yandex.svg" alt="" /></button>
+            </div>
+            <p class="auth-recaptcha">Защищено reCAPTCHA · <a href="#">Политика</a> и <a href="#">Условия</a></p>
+          </div>
+        </section>
+
+        <section class="auth-view auth-view-register" aria-label="Регистрация">
+          <h2>Создание аккаунта</h2>
+          <div class="auth-tabs" role="tablist" aria-label="Авторизация">
+            <button class="auth-tab" type="button" role="tab" data-auth-screen-target="login">Вход</button>
+            <button class="auth-tab" type="button" role="tab" data-auth-screen-target="register">Регистрация</button>
+          </div>
+          <form class="auth-form" data-auth-form="register">
+            <label class="auth-field">
+              <img src="./assets/auth-user.svg" alt="" />
+              <input type="text" name="register-login" placeholder="Логин" autocomplete="username" />
+            </label>
+            <label class="auth-field">
+              <img src="./assets/auth-mail.svg" alt="" />
+              <input type="email" name="register-email" placeholder="E-mail" autocomplete="email" />
+            </label>
+            <label class="auth-field">
+              <img src="./assets/auth-lock.svg" alt="" />
+              <input type="password" name="register-password" placeholder="Пароль" autocomplete="new-password" />
+            </label>
+            <label class="auth-field">
+              <img src="./assets/auth-lock.svg" alt="" />
+              <input type="password" name="register-password-repeat" placeholder="Повторите пароль" autocomplete="new-password" />
+            </label>
+            <label class="auth-consent">
+              <input type="checkbox" checked />
+              <span aria-hidden="true"></span>
+              <b>Я принимаю <a href="#">условия</a> и <a href="#">политику конфиденциальности</a>.</b>
+            </label>
+            <button class="auth-primary" type="submit">Создать аккаунт</button>
+          </form>
+          <div class="auth-social-block">
+            <div class="auth-divider"><span>Другие методы входа</span></div>
+            <div class="auth-socials" aria-label="Другие методы входа">
+              <button class="auth-social auth-social-telegram" type="button" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></button>
+              <button class="auth-social auth-social-vk" type="button" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></button>
+              <button class="auth-social auth-social-steam" type="button" aria-label="Steam"><img src="./assets/auth-steam.svg" alt="" /></button>
+              <button class="auth-social auth-social-yandex" type="button" aria-label="Яндекс"><img src="./assets/auth-yandex.svg" alt="" /></button>
+            </div>
+            <p class="auth-recaptcha">Защищено reCAPTCHA · <a href="#">Политика</a> и <a href="#">Условия</a></p>
+          </div>
+        </section>
+
+        <section class="auth-view auth-view-recover" aria-label="Восстановление пароля">
+          <button class="auth-back" type="button" data-auth-screen-target="login">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10.5 3.5 6 8l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>Назад ко входу</span>
+          </button>
+          <h2>Восстановление пароля</h2>
+          <p class="auth-subtitle">Введите e-mail - пришлем ссылку для сброса пароля.</p>
+          <form class="auth-form" data-auth-form="recover">
+            <label class="auth-field">
+              <img src="./assets/auth-mail.svg" alt="" />
+              <input type="email" name="recover-email" placeholder="you@mail.ru" autocomplete="email" />
+            </label>
+            <button class="auth-primary" type="submit">Отправить ссылку</button>
+          </form>
+          <div class="auth-social-block">
+            <div class="auth-divider"><span>Другие методы входа</span></div>
+            <div class="auth-socials" aria-label="Другие методы входа">
+              <button class="auth-social auth-social-telegram" type="button" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></button>
+              <button class="auth-social auth-social-vk" type="button" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></button>
+              <button class="auth-social auth-social-steam" type="button" aria-label="Steam"><img src="./assets/auth-steam.svg" alt="" /></button>
+              <button class="auth-social auth-social-yandex" type="button" aria-label="Яндекс"><img src="./assets/auth-yandex.svg" alt="" /></button>
+            </div>
+            <p class="auth-recaptcha">Защищено reCAPTCHA · <a href="#">Политика</a> и <a href="#">Условия</a></p>
+          </div>
+        </section>
+
+        <section class="auth-view auth-view-success" aria-label="Письмо отправлено">
+          <div class="auth-status auth-status-success"><img src="./assets/auth-check.svg" alt="" /></div>
+          <h2>Проверьте почту</h2>
+          <p class="auth-message">Мы отправили ссылку для сброса пароля на <strong>you@mail.ru</strong>. Перейдите по ней, чтобы задать новый пароль.</p>
+          <button class="auth-text-action" type="button" data-auth-screen-target="recover">Не пришло письмо? Отправить повторно</button>
+          <button class="auth-secondary" type="button" data-auth-screen-target="login">Вернуться ко входу</button>
+        </section>
+
+        <section class="auth-view auth-view-error" aria-label="Ошибка отправки">
+          <div class="auth-status auth-status-error"><img src="./assets/auth-error.svg" alt="" /></div>
+          <h2>Не удалось отправить</h2>
+          <p class="auth-message">Письмо не отправлено - возможно, неверный адрес или проблема со связью. Проверьте e-mail и попробуйте снова.</p>
+          <button class="auth-primary" type="button" data-auth-screen-target="recover">Попробовать снова</button>
+          <button class="auth-support" type="button">Написать в поддержку</button>
+        </section>
+      </div>
+    </section>
+
+    <div data-mobile-panel></div>
+    <script src="./assets/mobile-panel.js"></script>
+
+    <script>
+      const root = document.documentElement;
+      const themeSwitch = document.querySelector(".theme-switch");
+      const themeButtons = document.querySelectorAll(".theme-btn[data-theme]");
+
+      const preloader = document.getElementById("pagePreloader");
+      if (preloader) {
+        const preloaderStart = window.__preloaderStart || performance.now();
+        const minPreloaderTime = 600;
+        const maxPreloaderTime = 3000;
+        let preloaderHidden = false;
+
+        const hidePreloader = () => {
+          if (preloaderHidden) return;
+          preloaderHidden = true;
+          preloader.classList.add("is-hiding");
+          document.body.classList.remove("preloader-active");
+          window.setTimeout(() => preloader.remove(), 260);
+        };
+
+        const requestPreloaderHide = () => {
+          const elapsed = performance.now() - preloaderStart;
+          window.setTimeout(hidePreloader, Math.max(minPreloaderTime - elapsed, 0));
+        };
+
+        window.setTimeout(hidePreloader, Math.max(maxPreloaderTime - (performance.now() - preloaderStart), 0));
+
+        if (document.readyState === "complete") {
+          requestPreloaderHide();
+        } else {
+          window.addEventListener("load", requestPreloaderHide, { once: true });
+        }
+      }
+
+      const setTheme = (theme, animate = false) => {
+        if (animate) {
+          document.body.classList.remove("theme-animating");
+          void document.body.offsetWidth;
+          document.body.classList.add("theme-animating");
+        }
+
+        root.dataset.theme = theme;
+        try {
+          localStorage.setItem("playpapa-theme", theme);
+        } catch {}
+
+        themeButtons.forEach((button) => {
+          const active = button.dataset.theme === theme;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        if (animate) window.setTimeout(() => document.body.classList.remove("theme-animating"), 560);
+      };
+
+      setTheme(root.dataset.theme === "dark" ? "dark" : "light");
+      themeButtons.forEach((button) => {
+        button.addEventListener("click", () => setTheme(button.dataset.theme, true));
+      });
+      themeSwitch?.addEventListener("click", (event) => {
+        if (event.target.closest(".theme-btn")) return;
+        setTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+      });
+
+      const mobileSearchLayer = document.getElementById("mobileSearch");
+      const mobileSearchTrigger = document.querySelector("[data-mobile-search-trigger]");
+      const mobileSearchBack = document.getElementById("mobileSearchBack");
+
+      const setMobileSearchOpen = (open) => {
+        if (!mobileSearchLayer) return;
+        mobileSearchLayer.classList.toggle("is-open", open);
+        mobileSearchLayer.setAttribute("aria-hidden", open ? "false" : "true");
+        mobileSearchLayer.toggleAttribute("inert", !open);
+        mobileSearchTrigger?.setAttribute("aria-expanded", open ? "true" : "false");
+        document.body.classList.toggle("mobile-search-open", open);
+        if (open) mobileSearchLayer.scrollTop = 0;
+      };
+
+      mobileSearchTrigger?.addEventListener("click", (event) => {
+        event.preventDefault();
+        setProfileOpen(false);
+        setCatalogOpen(false);
+        setMobileSearchOpen(true);
+      });
+
+      mobileSearchBack?.addEventListener("click", () => {
+        setMobileSearchOpen(false);
+        mobileSearchTrigger?.focus();
+      });
+
+      mobileSearchLayer?.querySelector(".mobile-search-form")?.addEventListener("submit", (event) => event.preventDefault());
+      mobileSearchLayer?.querySelectorAll('a[href="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !mobileSearchLayer?.classList.contains("is-open")) return;
+        setMobileSearchOpen(false);
+        mobileSearchTrigger?.focus();
+      });
+
+      const profileMenu = document.querySelector(".profile-menu");
+      const profileButton = profileMenu?.querySelector(".profile-btn");
+      const profilePopover = document.getElementById("profilePopover");
+
+      const setProfileOpen = (open, returnFocus = false) => {
+        if (!profileMenu || !profilePopover || !profileButton) return;
+        profileMenu.classList.toggle("is-open", open);
+        profileButton.setAttribute("aria-expanded", open ? "true" : "false");
+        profilePopover.setAttribute("aria-hidden", open ? "false" : "true");
+        profilePopover.toggleAttribute("inert", !open);
+        document.body.classList.toggle("profile-open", open);
+        if (returnFocus) profileButton.focus();
+      };
+
+      profileButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const shouldOpen = !profileMenu?.classList.contains("is-open");
+        setProfileOpen(shouldOpen);
+      });
+
+      profilePopover?.querySelectorAll(".profile-menu-item:not(:disabled)").forEach((item) => {
+        item.addEventListener("click", () => setProfileOpen(false));
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!profileMenu?.classList.contains("is-open") || profileMenu.contains(event.target)) return;
+        setProfileOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !profileMenu?.classList.contains("is-open")) return;
+        setProfileOpen(false, true);
+      });
+
+      const catalogLayer = document.getElementById("catalogMegaMenu");
+      const catalogButton = document.querySelector(".catalog-btn:not([href])");
+      const catalogTriggers = [catalogButton, ...document.querySelectorAll("[data-catalog-trigger]")].filter(Boolean);
+      const catalogSideLinks = document.querySelectorAll(".catalog-side-link");
+      const catalogFeaturedItems = [
+        ["service-steam.png", "Пополнение Steam"],
+        ["service-brawl.png", "Game Pass"],
+        ["service-steam.png", "Пополнение PSN"],
+        ["service-brawl.png", "PS Plus"],
+        ["service-pubg.png", "Grand Theft Auto V"],
+        ["service-roblox.png", "Minecraft"],
+        ["service-playstation.png", "Diablo 4"],
+        ["service-mobile.png", "ARC Raiders"],
+        ["service-chatgpt.png", "Dead by Daylight"],
+      ];
+      const catalogNewItems = [
+        ["article-paradise.png", "Gothic 1 Remake"],
+        ["article-sale.png", "Forza Horizon 6"],
+        ["product-pubg.png", "Assassin's Creed: Black..."],
+        ["article-mobile.png", "007 First Light"],
+        ["article-sale.png", "Call of Duty: Modern..."],
+        ["product-pubg.png", "Marvel's Wolverine"],
+        ["article-paradise.png", "UFC 6"],
+        ["article-sale.png", "Subnautica 2"],
+        ["product-pubg.png", "SILENT HILL: Townfall"],
+      ];
+
+      const catalogItemMarkup = ([image, label]) => `
+        <a class="catalog-showcase-item" href="#" aria-label="${label}">
+          <img src="./assets/${image}" alt="">
+          <span>${label}</span>
+        </a>
+      `;
+
+      const catalogFeatured = document.getElementById("catalogFeatured");
+      const catalogNew = document.getElementById("catalogNew");
+      if (catalogFeatured) catalogFeatured.innerHTML = catalogFeaturedItems.map(catalogItemMarkup).join("");
+      if (catalogNew) catalogNew.innerHTML = catalogNewItems.map(catalogItemMarkup).join("");
+
+      const setCatalogOpen = (open) => {
+        if (!catalogLayer) return;
+        catalogLayer.classList.toggle("is-open", open);
+        catalogLayer.setAttribute("aria-hidden", open ? "false" : "true");
+        catalogLayer.toggleAttribute("inert", !open);
+        document.body.classList.toggle("catalog-open", open);
+        catalogTriggers.forEach((trigger) => trigger.setAttribute("aria-expanded", open ? "true" : "false"));
+      };
+
+      catalogTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", (event) => {
+          event.preventDefault();
+          setProfileOpen(false);
+          setMobileSearchOpen(false);
+          setCatalogOpen(!catalogLayer?.classList.contains("is-open"));
+        });
+      });
+
+      catalogSideLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          catalogSideLinks.forEach((item) => item.classList.toggle("is-active", item === link));
+        });
+      });
+
+      catalogLayer?.querySelectorAll('a[href="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!catalogLayer?.classList.contains("is-open")) return;
+        if (catalogLayer.contains(event.target) || catalogTriggers.some((trigger) => trigger.contains(event.target))) return;
+        setCatalogOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !catalogLayer?.classList.contains("is-open")) return;
+        setCatalogOpen(false);
+        catalogButton?.focus();
+      });
+
+      const authModal = document.getElementById("authModal");
+      const authDialog = authModal?.querySelector(".auth-modal-dialog");
+      const authScreens = new Set(["login", "register", "recover", "success", "error"]);
+      let authReturnFocus = null;
+
+      const syncAuthScreenState = (screen = "login") => {
+        if (!authModal || !authScreens.has(screen)) return;
+        authModal.dataset.authScreen = screen;
+        authModal.querySelectorAll(".auth-tab").forEach((tab) => {
+          const active = tab.dataset.authScreenTarget === screen;
+          tab.setAttribute("aria-selected", active ? "true" : "false");
+          tab.tabIndex = active ? 0 : -1;
+        });
+        authModal.querySelectorAll(".auth-view").forEach((view) => {
+          const active = view.classList.contains(`auth-view-${screen}`);
+          view.setAttribute("aria-hidden", active ? "false" : "true");
+        });
+      };
+
+      const setAuthScreen = (screen = "login") => {
+        if (!authModal || !authScreens.has(screen)) return;
+        syncAuthScreenState(screen);
+      };
+
+      const setAuthOpen = (open, screen = "login", trigger = null) => {
+        if (!authModal) return;
+        if (open) {
+          authReturnFocus = trigger || document.activeElement;
+          setProfileOpen(false);
+          setCatalogOpen(false);
+          setMobileSearchOpen(false);
+          setAuthScreen(screen);
+        }
+        authModal.classList.toggle("is-open", open);
+        authModal.setAttribute("aria-hidden", open ? "false" : "true");
+        authModal.toggleAttribute("inert", !open);
+        document.body.classList.toggle("auth-modal-open", open);
+        if (open) {
+          window.setTimeout(() => authModal.querySelector("[data-auth-close]")?.focus(), 80);
+        } else if (authReturnFocus && typeof authReturnFocus.focus === "function") {
+          authReturnFocus.focus();
+          authReturnFocus = null;
+        }
+      };
+
+      document.querySelectorAll("[data-auth-open]").forEach((trigger) => {
+        trigger.addEventListener("click", (event) => {
+          event.preventDefault();
+          setAuthOpen(true, trigger.dataset.authOpen || "login", trigger);
+        });
+      });
+
+      authModal?.querySelectorAll("[data-auth-screen-target]").forEach((control) => {
+        control.addEventListener("click", () => setAuthScreen(control.dataset.authScreenTarget || "login"));
+      });
+
+      authModal?.querySelectorAll("[data-auth-close]").forEach((control) => {
+        control.addEventListener("click", () => setAuthOpen(false));
+      });
+
+      authModal?.addEventListener("pointerdown", (event) => {
+        if (event.target !== authModal || authDialog?.contains(event.target)) return;
+        setAuthOpen(false);
+      });
+
+      authModal?.querySelectorAll(".auth-form").forEach((form) => {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (form.dataset.authForm === "recover") {
+            const email = form.querySelector('input[type="email"]')?.value.trim().toLowerCase() || "";
+            setAuthScreen(email.includes("error") || email.includes("fail") ? "error" : "success");
+          }
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !authModal?.classList.contains("is-open")) return;
+        setAuthOpen(false);
+      });
+
+      const initialAuthScreen = (() => {
+        const param = new URLSearchParams(window.location.search).get("auth");
+        const hash = window.location.hash.startsWith("#auth-") ? window.location.hash.replace("#auth-", "") : "";
+        return authScreens.has(param) ? param : authScreens.has(hash) ? hash : "";
+      })();
+      setAuthScreen("login");
+      if (initialAuthScreen) setAuthOpen(true, initialAuthScreen);
+
+      if (window.matchMedia("(pointer: coarse)").matches) {
+        let lastTouchEnd = 0;
+        const stopZoom = (event) => {
+          event.preventDefault();
+        };
+        const stopMultiTouch = (event) => {
+          if (event.touches && event.touches.length > 1) event.preventDefault();
+        };
+        document.addEventListener("gesturestart", stopZoom, { passive: false });
+        document.addEventListener("gesturechange", stopZoom, { passive: false });
+        document.addEventListener("gestureend", stopZoom, { passive: false });
+        document.addEventListener("touchstart", stopMultiTouch, { passive: false });
+        document.addEventListener("touchmove", stopMultiTouch, { passive: false });
+        document.addEventListener(
+          "touchend",
+          (event) => {
+            const now = Date.now();
+            if (now - lastTouchEnd < 320) event.preventDefault();
+            lastTouchEnd = now;
+          },
+          { passive: false }
+        );
+      }
+
+      const amountInput = document.querySelector('input[name="amount"]');
+      const amountField = document.querySelector(".amount-field");
+      const topupRow = document.querySelector(".topup-row");
+      const servicesCard = document.querySelector(".services-card") || topupRow;
+      const topupQuickPopover = document.getElementById("topupQuickPopover");
+      const payButton = document.querySelector(".pay-btn");
+      const payCurrencyIcon = payButton?.querySelector(".pay-currency-icon");
+      const promoToggleButton = document.querySelector(".promo-small");
+      const promoToggleLabel = promoToggleButton?.querySelector(".promo-small-label");
+      const topupDetails = document.getElementById("topupDetails");
+      const topupPromoSection = document.getElementById("topupPromoSection");
+      const topupPaymentSection = document.getElementById("topupPaymentSection");
+      const topupPromoInput = document.getElementById("topupPromoInput");
+      const topupPromoApply = document.querySelector(".topup-promo-apply");
+      const topupPromoBenefit = document.querySelector(".topup-promo-benefit");
+      const topupPromoSaving = document.querySelector("[data-promo-saving]");
+      const topupQuickAmounts = document.querySelectorAll("[data-quick-amount]");
+      const topupPaymentMethods = document.querySelectorAll(".topup-payment-method");
+      const topupCredit = document.querySelector("[data-topup-credit]");
+      const topupFeeBadge = document.querySelector("[data-topup-fee-badge]");
+      const topupFinalPay = document.querySelector(".topup-final-pay");
+      const maxTopupAmount = 100000;
+      let promoSectionOpen = false;
+      let paymentSectionOpen = false;
+      let promoApplied = false;
+      let selectedPaymentFee = 0;
+      let quickPopoverOpen = false;
+
+      const formatRubles = (value) => new Intl.NumberFormat("ru-RU").format(Math.max(0, Math.round(value)));
+
+      const syncQuickPopover = () => {
+        topupQuickPopover?.classList.toggle("is-open", quickPopoverOpen);
+        topupQuickPopover?.setAttribute("aria-hidden", quickPopoverOpen ? "false" : "true");
+        topupQuickPopover?.toggleAttribute("inert", !quickPopoverOpen);
+        amountInput?.setAttribute("aria-expanded", quickPopoverOpen ? "true" : "false");
+        servicesCard?.classList.toggle("has-quick-popover", quickPopoverOpen);
+      };
+
+      const syncTopupExpansion = () => {
+        const detailsOpen = promoSectionOpen || paymentSectionOpen;
+        topupDetails?.classList.toggle("is-open", detailsOpen);
+        topupDetails?.setAttribute("aria-hidden", detailsOpen ? "false" : "true");
+        topupDetails?.toggleAttribute("inert", !detailsOpen);
+
+        topupPromoSection?.classList.toggle("is-visible", promoSectionOpen);
+        topupPromoSection?.setAttribute("aria-hidden", promoSectionOpen ? "false" : "true");
+        topupPromoSection?.toggleAttribute("inert", !promoSectionOpen);
+        promoToggleButton?.setAttribute("aria-expanded", promoSectionOpen ? "true" : "false");
+        if (promoToggleLabel) promoToggleLabel.textContent = promoSectionOpen ? "Скрыть промокод" : "Ввести промокод";
+
+        topupPaymentSection?.classList.toggle("is-visible", paymentSectionOpen);
+        topupPaymentSection?.setAttribute("aria-hidden", paymentSectionOpen ? "false" : "true");
+        topupPaymentSection?.toggleAttribute("inert", !paymentSectionOpen);
+        payButton?.setAttribute("aria-expanded", paymentSectionOpen ? "true" : "false");
+        servicesCard?.classList.toggle("is-payment-open", paymentSectionOpen);
+      };
+
+      const syncAmount = () => {
+        if (!amountInput) return;
+        let value = amountInput.value.replace(/\D/g, "");
+        if (value) value = String(Math.min(Number(value), maxTopupAmount));
+        amountInput.value = value;
+        amountInput.style.setProperty("--amount-digits", String(Math.max(value.length, 3)));
+        const numericAmount = Number(value || 0);
+
+        if (payButton && payCurrencyIcon) {
+          payButton.textContent = `Оплатить ${value || 0}`;
+          payButton.append(payCurrencyIcon);
+        }
+
+        topupQuickAmounts.forEach((button) => {
+          button.classList.toggle("is-active", Number(button.dataset.quickAmount) === numericAmount);
+        });
+
+        if (topupCredit) topupCredit.textContent = `${formatRubles(numericAmount)} ₽`;
+        const amountToPay = numericAmount * (1 + selectedPaymentFee / 100);
+        if (topupFinalPay) topupFinalPay.textContent = `Оплатить ${formatRubles(amountToPay)}₽`;
+        if (topupFeeBadge) {
+          topupFeeBadge.textContent = selectedPaymentFee ? `+${selectedPaymentFee}% комиссия` : "Без комиссии";
+          topupFeeBadge.classList.toggle("has-fee", selectedPaymentFee > 0);
+        }
+
+        if (topupPromoSaving) topupPromoSaving.textContent = `${formatRubles(numericAmount * 0.05)} ₽`;
+      };
+
+      amountInput?.addEventListener("input", syncAmount);
+      amountInput?.addEventListener("focus", () => {
+        quickPopoverOpen = true;
+        syncQuickPopover();
+      });
+      amountInput?.addEventListener("click", () => {
+        quickPopoverOpen = true;
+        syncQuickPopover();
+      });
+      amountInput?.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        quickPopoverOpen = false;
+        syncQuickPopover();
+        amountInput.blur();
+      });
+      amountInput?.addEventListener("blur", () => {
+        if (!amountInput.value) amountInput.value = "500";
+        syncAmount();
+      });
+
+      promoToggleButton?.addEventListener("click", () => {
+        promoSectionOpen = !promoSectionOpen;
+        syncTopupExpansion();
+      });
+
+      payButton?.addEventListener("click", () => {
+        quickPopoverOpen = false;
+        syncQuickPopover();
+        paymentSectionOpen = true;
+        syncTopupExpansion();
+      });
+
+      topupQuickAmounts.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (!amountInput) return;
+          amountInput.value = button.dataset.quickAmount || "500";
+          syncAmount();
+          if (button.closest(".topup-quick-popover") && (!paymentSectionOpen || window.matchMedia("(min-width: 768px)").matches)) {
+            quickPopoverOpen = false;
+            syncQuickPopover();
+          }
+        });
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!quickPopoverOpen || amountField?.contains(event.target)) return;
+        if (paymentSectionOpen && window.matchMedia("(max-width: 767px)").matches) return;
+        quickPopoverOpen = false;
+        syncQuickPopover();
+      });
+
+      topupPaymentMethods.forEach((method) => {
+        method.addEventListener("click", () => {
+          selectedPaymentFee = Number(method.dataset.fee || 0);
+          topupPaymentMethods.forEach((item) => {
+            const selected = item === method;
+            item.classList.toggle("is-selected", selected);
+            item.setAttribute("aria-checked", selected ? "true" : "false");
+          });
+          syncAmount();
+        });
+      });
+
+      topupPromoApply?.addEventListener("click", () => {
+        if (!topupPromoInput?.value.trim()) {
+          topupPromoInput?.focus();
+          return;
+        }
+        promoApplied = true;
+        topupPromoBenefit?.classList.add("is-visible");
+        topupPromoBenefit?.setAttribute("aria-hidden", "false");
+        topupPromoApply.textContent = "Применено";
+        syncAmount();
+      });
+
+      topupPromoInput?.addEventListener("input", () => {
+        if (!promoApplied) return;
+        promoApplied = false;
+        topupPromoBenefit?.classList.remove("is-visible");
+        topupPromoBenefit?.setAttribute("aria-hidden", "true");
+        if (topupPromoApply) topupPromoApply.textContent = "Применить";
+      });
+
+      syncTopupExpansion();
+      syncQuickPopover();
+      syncAmount();
+
+      document.querySelectorAll(".filter-group-toggle").forEach((button) => {
+        const group = button.closest(".filter-group");
+        if (!group) return;
+        button.addEventListener("click", () => {
+          group.classList.toggle("is-collapsed");
+          button.setAttribute("aria-expanded", group.classList.contains("is-collapsed") ? "false" : "true");
+        });
+      });
+
+      const mobileFilterButton = document.querySelector(".catalog-mobile-filter-btn");
+      const mobileFilterClose = document.querySelector(".catalog-mobile-filter-close");
+      const filterPanel = document.querySelector(".catalog-filter-panel");
+      const mobileFilterbar = document.querySelector(".catalog-mobile-filterbar");
+      const mobileSortButton = document.querySelector(".catalog-mobile-sort");
+      const mobileSortLabel = document.querySelector(".catalog-mobile-sort-label");
+      const mobileSortPanel = document.querySelector(".catalog-mobile-sort-panel");
+      const mobileFilterQuery = window.matchMedia("(max-width: 767px)");
+      const setMobileSortOpen = (open) => {
+        if (!mobileSortButton || !mobileSortPanel || !mobileFilterbar) return;
+        mobileFilterbar.classList.toggle("is-sort-open", open);
+        mobileSortPanel.classList.toggle("is-open", open);
+        mobileSortPanel.setAttribute("aria-hidden", open ? "false" : "true");
+        mobileSortPanel.toggleAttribute("inert", !open);
+        mobileSortButton.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+
+      const setMobileFilterOpen = (open) => {
+        if (!filterPanel || !mobileFilterButton) return;
+        document.body.classList.toggle("catalog-mobile-filter-open", open);
+        mobileFilterButton.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) setMobileSortOpen(false);
+      };
+
+      mobileFilterButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setMobileFilterOpen(!document.body.classList.contains("catalog-mobile-filter-open"));
+      });
+
+      mobileFilterClose?.addEventListener("click", () => setMobileFilterOpen(false));
+
+      filterPanel?.addEventListener("click", (event) => {
+        if (mobileFilterQuery.matches) event.stopPropagation();
+      });
+
+      mobileSortButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (!mobileFilterQuery.matches) return;
+        setMobileFilterOpen(false);
+        setMobileSortOpen(!mobileSortPanel?.classList.contains("is-open"));
+      });
+
+      mobileSortPanel?.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+
+      mobileSortPanel?.querySelectorAll("[data-sort-label]").forEach((button) => {
+        button.addEventListener("click", () => {
+          mobileSortPanel.querySelectorAll("[data-sort-label]").forEach((item) => item.classList.toggle("is-selected", item === button));
+          if (mobileSortLabel) mobileSortLabel.textContent = button.dataset.sortLabel || button.textContent.trim();
+          setMobileSortOpen(false);
+        });
+      });
+
+      document.addEventListener("click", () => {
+        if (document.body.classList.contains("catalog-mobile-filter-open")) setMobileFilterOpen(false);
+        if (mobileSortPanel?.classList.contains("is-open")) setMobileSortOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMobileFilterOpen(false);
+          setMobileSortOpen(false);
+        }
+      });
+
+      filterPanel?.querySelectorAll(".filter-apply, .filter-reset").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (mobileFilterQuery.matches) setMobileFilterOpen(false);
+        });
+      });
+
+      const syncFilterCheckState = () => {
+        document.querySelectorAll(".filter-check").forEach((label) => {
+          const input = label.querySelector('input[type="checkbox"]');
+          label.classList.toggle("is-checked", Boolean(input?.checked));
+        });
+      };
+
+      document.querySelectorAll('.filter-check input[type="checkbox"]').forEach((input) => {
+        input.addEventListener("change", syncFilterCheckState);
+      });
+      syncFilterCheckState();
+
+      mobileFilterQuery.addEventListener?.("change", (event) => {
+        if (!event.matches) {
+          setMobileFilterOpen(false);
+          setMobileSortOpen(false);
+        }
+      });
+
+      let catalogPriceTouched = false;
+      let getCatalogPriceFilter = () => ({ enabled: false, min: null, max: null });
+      let resetCatalogPriceFilter = () => {};
+      let updateCatalogFilterBadges = () => {};
+      const priceFilter = document.querySelector("[data-price-filter]");
+      if (priceFilter) {
+        const minInput = priceFilter.querySelector("[data-price-min-input]");
+        const maxInput = priceFilter.querySelector("[data-price-max-input]");
+        const range = priceFilter.querySelector(".filter-range");
+        const minLimit = Number(priceFilter.dataset.minPrice || 0);
+        const maxLimit = Number(priceFilter.dataset.maxPrice || 1000000);
+        const step = Number(priceFilter.dataset.priceStep || 1);
+        let minPrice = Number(minInput?.value.replace(/\D/g, "") || minLimit);
+        let maxPrice = Number(maxInput?.value.replace(/\D/g, "") || maxLimit);
+        let activeHandle = null;
+
+        const clampPrice = (value) => Math.min(maxLimit, Math.max(minLimit, Math.round(value / step) * step));
+        const priceToPercent = (value) => ((value - minLimit) / (maxLimit - minLimit)) * 100;
+        const clientXToPrice = (clientX) => {
+          if (!range) return minLimit;
+          const rect = range.getBoundingClientRect();
+          const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+          return clampPrice(minLimit + ratio * (maxLimit - minLimit));
+        };
+
+        const syncPriceFilter = (source, writeInputs = true) => {
+          minPrice = clampPrice(minPrice);
+          maxPrice = clampPrice(maxPrice);
+          if (minPrice > maxPrice) {
+            if (source === "min") minPrice = maxPrice;
+            else maxPrice = minPrice;
+          }
+
+          if (writeInputs && minInput) minInput.value = String(minPrice);
+          if (writeInputs && maxInput) maxInput.value = String(maxPrice);
+          if (range) {
+            range.style.setProperty("--price-start", `${priceToPercent(minPrice)}%`);
+            range.style.setProperty("--price-end", `${priceToPercent(maxPrice)}%`);
+          }
+        };
+
+        getCatalogPriceFilter = () => ({
+          enabled: catalogPriceTouched || minPrice !== minLimit || maxPrice !== maxLimit,
+          min: minPrice,
+          max: maxPrice,
+        });
+
+        resetCatalogPriceFilter = () => {
+          catalogPriceTouched = false;
+          minPrice = minLimit;
+          maxPrice = maxLimit;
+          syncPriceFilter();
+        };
+
+        const setPriceFromPointer = (event, handle) => {
+          catalogPriceTouched = true;
+          const nextPrice = clientXToPrice(event.clientX);
+          if (handle === "min") minPrice = Math.min(nextPrice, maxPrice);
+          else maxPrice = Math.max(nextPrice, minPrice);
+          syncPriceFilter(handle);
+          updateCatalogFilterBadges();
+        };
+
+        minInput?.addEventListener("input", () => {
+          catalogPriceTouched = true;
+          const value = minInput.value.replace(/\D/g, "");
+          minInput.value = value;
+          if (!value) return;
+          minPrice = Number(value);
+          syncPriceFilter("min", false);
+          updateCatalogFilterBadges();
+        });
+
+        maxInput?.addEventListener("input", () => {
+          catalogPriceTouched = true;
+          const value = maxInput.value.replace(/\D/g, "");
+          maxInput.value = value;
+          if (!value) return;
+          maxPrice = Number(value);
+          syncPriceFilter("max", false);
+          updateCatalogFilterBadges();
+        });
+
+        minInput?.addEventListener("blur", () => syncPriceFilter("min"));
+        maxInput?.addEventListener("blur", () => syncPriceFilter("max"));
+
+        range?.addEventListener("pointerdown", (event) => {
+          event.preventDefault();
+          const nextPrice = clientXToPrice(event.clientX);
+          activeHandle = Math.abs(nextPrice - minPrice) <= Math.abs(nextPrice - maxPrice) ? "min" : "max";
+          range.setPointerCapture?.(event.pointerId);
+          setPriceFromPointer(event, activeHandle);
+        });
+
+        range?.addEventListener("pointermove", (event) => {
+          if (!activeHandle) return;
+          setPriceFromPointer(event, activeHandle);
+        });
+
+        const releasePriceHandle = (event) => {
+          if (!activeHandle) return;
+          range?.releasePointerCapture?.(event.pointerId);
+          activeHandle = null;
+        };
+
+        range?.addEventListener("pointerup", releasePriceHandle);
+        range?.addEventListener("pointercancel", releasePriceHandle);
+
+        syncPriceFilter();
+      }
+
+      const services = [
+        ["service-steam.png", "Steam"],
+        ["service-telegram.png", "Telegram"],
+        ["service-roblox.png", "Roblox"],
+        ["service-brawl.png", "Brawl Stars"],
+        ["service-pubg.png", "PUBG Mob..."],
+        ["service-appstore.png", "App Store"],
+        ["service-chatgpt.png", "ChatGPT"],
+        ["service-playstation.png", "PlayStation"],
+        ["service-tiktok.png", "TikTok"],
+        ["service-mobile.png", "Mobile Leg..."],
+      ];
+
+      const servicesRow = document.getElementById("servicesRow");
+      if (servicesRow) {
+        services.forEach(([icon, label, active]) => {
+          servicesRow.insertAdjacentHTML(
+            "beforeend",
+            `<button class="service-item ${active ? "is-active" : ""}"><img src="./assets/${icon}" alt=""><span>${label}</span></button>`
+          );
+        });
+        servicesRow.insertAdjacentHTML(
+          "beforeend",
+          `<button class="service-item more-service"><span class="more-icon"><img class="more-icon-img" src="./assets/more-service.svg" alt=""></span><span>еще 841</span></button>`
+        );
+      }
+
+      const discountPattern = ["red", "red", "red", "red", "red", "red", "red", "red"];
+      const escapeHtml = (value) =>
+        String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      const catalogProducts = Array.isArray(window.playpapaCatalog?.products) ? window.playpapaCatalog.products : [];
+      const catalogState = window.playpapaCatalogState || {};
+      const catalogApiUrl = "/catalog/items";
+      const activeCatalogCategory = catalogState.category || "all";
+      const catalogSearchInput = document.querySelector("[data-catalog-search]");
+      const fallbackProducts = [
+        {
+          name: "DOOM 2016 STEAM KEY РФ+СНГ",
+          image_url: "./assets/product-pubg.png",
+          price_label: "49,99 ₽",
+          url: "./product.html",
+          catalog_kind: "keys",
+          catalog_kinds: ["keys"],
+        },
+      ];
+      const sourceProducts = catalogProducts.length ? catalogProducts : fallbackProducts;
+      const officialProducts = Array.isArray(window.playpapaCatalog?.official_products) && window.playpapaCatalog.official_products.length
+        ? window.playpapaCatalog.official_products
+        : sourceProducts.slice(0, 10);
+      let loadedCatalogProducts = sourceProducts.slice();
+      let catalogTotalCount = Number(window.playpapaCatalog?.total ?? loadedCatalogProducts.length);
+      let catalogNextOffset = Number(window.playpapaCatalog?.next_offset ?? loadedCatalogProducts.length);
+      let catalogHasMore = Boolean(window.playpapaCatalog?.has_more ?? catalogTotalCount > loadedCatalogProducts.length);
+      let catalogLoading = false;
+      let catalogRequestId = 0;
+      let catalogSearchQuery = (catalogSearchInput?.value || catalogState.query || "").trim().toLowerCase();
+      let catalogSortValue = catalogState.sort || "popular";
+      const catalogPageSize = 24;
+      const filterInputs = Array.from(document.querySelectorAll("[data-filter-type]"));
+      const filterApplyBadges = Array.from(document.querySelectorAll(".filter-apply span"));
+      const mobileFilterBadge = document.querySelector(".catalog-mobile-filter-btn b");
+      const mobileTags = document.querySelector(".catalog-mobile-tags");
+      const catalogSortButton = document.querySelector(".catalog-sort");
+      const sortOptions = [
+        ["popular", "Популярные"],
+        ["price_asc", "Сначала дешёвые"],
+        ["price_desc", "Сначала дорогие"],
+        ["new", "Сначала новинки"],
+        ["rating", "По рейтингу"],
+      ];
+      const sortLabels = Object.fromEntries(sortOptions);
+      const productWord = (count) => {
+        const mod10 = count % 10;
+        const mod100 = count % 100;
+        if (mod10 === 1 && mod100 !== 11) return "товар";
+        if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "товара";
+        return "товаров";
+      };
+
+      const productMarkup = (product, color, index) => `
+        <article class="product-card">
+          <div class="product-cover">
+            <img src="${escapeHtml(product.image_url || "./assets/product-pubg.png")}" alt="">
+            ${product.discount_label ? `<span class="discount ${color}">${escapeHtml(product.discount_label)}</span>` : ""}
+          </div>
+          <div class="product-body">
+            <h3>${escapeHtml(product.name || "Товар PlayPapa")}</h3>
+            <div class="price-line"><strong>${escapeHtml(product.price_label || "Цена уточняется")}</strong></div>
+            <a href="${escapeHtml(product.url || "./product.html")}">Купить</a>
+          </div>
+        </article>
+      `;
+
+      const emptyCatalogMarkup = () => `
+        <div class="catalog-empty">
+          <strong>Ничего не найдено</strong>
+          <span>Попробуйте другую категорию или измените запрос.</span>
+        </div>
+      `;
+
+      const renderCatalogGrid = (grid, products, startIndex, emptyAllowed = false, countOverride = null) => {
+        const count = countOverride ?? Number(grid.dataset.count || 5);
+        const slice = products.slice(startIndex, startIndex + count);
+        if (slice.length === 0) {
+          grid.innerHTML = emptyAllowed ? emptyCatalogMarkup() : "";
+          return;
+        }
+
+        const items = slice.map((product, i) => productMarkup(product, discountPattern[(startIndex + i) % discountPattern.length], startIndex + i)).join("");
+        grid.innerHTML = items;
+      };
+
+      const catalogTotal = document.querySelector(".catalog-total");
+      const officialGrid = document.querySelector(".catalog-feature-grid");
+      const officialScrollButtons = document.querySelectorAll("[data-official-scroll]");
+      const catalogLoader = document.querySelector(".catalog-loader");
+      const catalogTopupRow = document.querySelector(".catalog-topup-row");
+
+      const renderCatalogProducts = () => {
+        const products = loadedCatalogProducts;
+        document.querySelectorAll("[data-products]").forEach((grid) => {
+          const slot = grid.dataset.products || "";
+          if (slot === "catalog-featured") {
+            renderCatalogGrid(grid, officialProducts, 0, false, 10);
+            return;
+          }
+
+          if (slot === "catalog-results-grid-primary") {
+            renderCatalogGrid(grid, products, 0, true, 12);
+            return;
+          }
+
+          if (slot === "catalog-results-grid-secondary") {
+            renderCatalogGrid(grid, products, 12, false, Math.max(0, products.length - 12));
+            return;
+          }
+
+          renderCatalogGrid(grid, products, 0);
+        });
+
+        if (catalogTotal) {
+          catalogTotal.textContent = `Всего ${catalogTotalCount} ${productWord(catalogTotalCount)}`;
+        }
+
+        if (catalogLoader) {
+          catalogLoader.hidden = !catalogLoading && !catalogHasMore;
+        }
+
+        if (catalogTopupRow) {
+          catalogTopupRow.hidden = activeCatalogCategory !== "all";
+        }
+      };
+
+      const selectedFilterValues = (type) =>
+        filterInputs
+          .filter((input) => input.dataset.filterType === type && input.checked)
+          .map((input) => input.value)
+          .filter(Boolean);
+
+      const buildCatalogParams = (offset = 0) => {
+        const params = new URLSearchParams();
+        params.set("offset", String(offset));
+        params.set("limit", String(catalogPageSize));
+        params.set("sort", catalogSortValue);
+        if (activeCatalogCategory !== "all") params.set("category", activeCatalogCategory);
+        if (catalogSearchQuery) params.set("q", catalogSearchQuery);
+
+        const types = selectedFilterValues("type");
+        const genres = selectedFilterValues("genre");
+        if (types.length) params.set("type", types.join(","));
+        if (genres.length) params.set("genre", genres.join(","));
+
+        const price = getCatalogPriceFilter();
+        if (price.enabled) {
+          params.set("min_price", String(price.min));
+          params.set("max_price", String(price.max));
+        }
+
+        return params;
+      };
+
+      const setCatalogLoading = (loading) => {
+        catalogLoading = loading;
+        renderCatalogProducts();
+      };
+
+      const updateCatalogSortUi = () => {
+        const label = sortLabels[catalogSortValue] || sortLabels.popular;
+        if (mobileSortLabel) mobileSortLabel.textContent = label;
+        if (catalogSortButton) catalogSortButton.textContent = label;
+        mobileSortPanel?.querySelectorAll("[data-sort-value]").forEach((button) => {
+          button.classList.toggle("is-selected", button.dataset.sortValue === catalogSortValue);
+        });
+      };
+
+      const fetchCatalogPage = async ({ offset = 0, append = false } = {}) => {
+        const requestId = ++catalogRequestId;
+        setCatalogLoading(true);
+
+        try {
+          const response = await fetch(`${catalogApiUrl}?${buildCatalogParams(offset).toString()}`, {
+            headers: { Accept: "application/json" },
+          });
+          if (!response.ok) throw new Error(`Catalog API returned ${response.status}`);
+
+          const payload = await response.json();
+          if (requestId !== catalogRequestId) return;
+
+          const nextProducts = Array.isArray(payload.products) ? payload.products : [];
+          loadedCatalogProducts = append ? loadedCatalogProducts.concat(nextProducts) : nextProducts;
+          catalogTotalCount = Number(payload.total ?? loadedCatalogProducts.length);
+          catalogNextOffset = Number(payload.next_offset ?? loadedCatalogProducts.length);
+          catalogHasMore = Boolean(payload.has_more);
+        } catch (error) {
+          console.warn(error);
+          if (!append) {
+            loadedCatalogProducts = [];
+            catalogTotalCount = 0;
+            catalogNextOffset = 0;
+            catalogHasMore = false;
+          }
+        } finally {
+          if (requestId === catalogRequestId) {
+            setCatalogLoading(false);
+          }
+        }
+      };
+
+      const applyCatalogFilters = () => {
+        catalogNextOffset = 0;
+        catalogHasMore = true;
+        fetchCatalogPage({ offset: 0, append: false });
+      };
+
+      const loadMoreCatalogProducts = () => {
+        if (catalogLoading || !catalogHasMore) return;
+        fetchCatalogPage({ offset: catalogNextOffset, append: true });
+      };
+
+      const selectedFilterLabels = () =>
+        filterInputs
+          .filter((input) => input.checked)
+          .map((input) => input.closest(".filter-check")?.querySelector("span")?.textContent?.trim())
+          .filter(Boolean);
+
+      const renderMobileTags = () => {
+        if (!mobileTags) return;
+        const tags = [];
+        if (activeCatalogCategory !== "all") {
+          const activeChip = Array.from(document.querySelectorAll("[data-catalog-category]")).find((chip) => chip.dataset.catalogCategory === activeCatalogCategory);
+          tags.push(activeChip?.textContent?.trim() || "Категория");
+        }
+        if (catalogSearchQuery) tags.push(`Поиск: ${catalogSearchQuery}`);
+        tags.push(...selectedFilterLabels());
+        const price = getCatalogPriceFilter();
+        if (price.enabled) tags.push(`${price.min}-${price.max} ₽`);
+
+        if (!tags.length) {
+          mobileTags.innerHTML = '<button type="button" disabled>Все товары</button>';
+          return;
+        }
+
+        mobileTags.innerHTML = `${tags.map((tag) => `<button type="button" disabled>${escapeHtml(tag)}</button>`).join("")}<button type="button" data-catalog-reset>Сбросить</button>`;
+      };
+
+      updateCatalogFilterBadges = () => {
+        const checkedCount = filterInputs.filter((input) => input.checked).length;
+        const price = getCatalogPriceFilter();
+        const count = checkedCount + (price.enabled ? 1 : 0) + (activeCatalogCategory !== "all" ? 1 : 0);
+        filterApplyBadges.forEach((badge) => {
+          badge.textContent = String(count);
+          badge.hidden = count === 0;
+        });
+        if (mobileFilterBadge) {
+          mobileFilterBadge.textContent = String(count);
+          mobileFilterBadge.hidden = count === 0;
+        }
+        renderMobileTags();
+      };
+
+      const resetCatalogFilters = () => {
+        if (activeCatalogCategory !== "all") {
+          window.location.href = "/catalog";
+          return;
+        }
+        filterInputs.forEach((input) => {
+          input.checked = false;
+        });
+        catalogSearchQuery = "";
+        if (catalogSearchInput) catalogSearchInput.value = "";
+        resetCatalogPriceFilter();
+        catalogSortValue = "popular";
+        syncFilterCheckState();
+        updateCatalogSortUi();
+        updateCatalogFilterBadges();
+        window.history.replaceState(null, "", "/catalog");
+        applyCatalogFilters();
+      };
+
+      const setCatalogSort = (value, reload = true) => {
+        catalogSortValue = sortLabels[value] ? value : "popular";
+        updateCatalogSortUi();
+        if (reload) applyCatalogFilters();
+      };
+
+      renderCatalogProducts();
+      updateCatalogSortUi();
+      updateCatalogFilterBadges();
+
+      const goToCatalogSearch = () => {
+        catalogSearchQuery = (catalogSearchInput?.value || "").trim().toLowerCase();
+        applyCatalogFilters();
+      };
+
+      let catalogSearchTimer = 0;
+      catalogSearchInput?.addEventListener("input", () => {
+        catalogSearchQuery = catalogSearchInput.value.trim().toLowerCase();
+        window.clearTimeout(catalogSearchTimer);
+        catalogSearchTimer = window.setTimeout(() => {
+          updateCatalogFilterBadges();
+          applyCatalogFilters();
+        }, 280);
+      });
+
+      catalogSearchInput?.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        window.clearTimeout(catalogSearchTimer);
+        goToCatalogSearch();
+      });
+
+      filterInputs.forEach((input) => {
+        input.addEventListener("change", updateCatalogFilterBadges);
+      });
+
+      document.querySelectorAll(".filter-apply").forEach((button) => {
+        button.addEventListener("click", () => {
+          updateCatalogFilterBadges();
+          applyCatalogFilters();
+        });
+      });
+
+      document.querySelectorAll(".filter-reset").forEach((button) => {
+        button.addEventListener("click", () => {
+          resetCatalogFilters();
+        });
+      });
+
+      mobileTags?.addEventListener("click", (event) => {
+        if (event.target.closest("[data-catalog-reset]")) resetCatalogFilters();
+      });
+
+      mobileSortPanel?.querySelectorAll("[data-sort-value]").forEach((button) => {
+        button.addEventListener("click", () => setCatalogSort(button.dataset.sortValue || "popular"));
+      });
+
+      catalogSortButton?.addEventListener("click", () => {
+        const currentIndex = Math.max(0, sortOptions.findIndex(([value]) => value === catalogSortValue));
+        const next = sortOptions[(currentIndex + 1) % sortOptions.length][0];
+        setCatalogSort(next);
+      });
+
+      document.querySelectorAll(".catalog-sort-icon").forEach((button, index) => {
+        button.addEventListener("click", () => {
+          if (index === 0) {
+            setCatalogSort(catalogSortValue === "price_asc" ? "price_desc" : "price_asc");
+            return;
+          }
+          setCatalogSort("popular");
+        });
+      });
+
+      if ("IntersectionObserver" in window && catalogLoader) {
+        const catalogObserver = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) loadMoreCatalogProducts();
+        }, { rootMargin: "420px 0px" });
+        catalogObserver.observe(catalogLoader);
+      } else {
+        window.addEventListener("scroll", () => {
+          if (window.innerHeight + window.scrollY < document.documentElement.scrollHeight - 520) return;
+          loadMoreCatalogProducts();
+        }, { passive: true });
+      }
+
+      const officialScrollStep = () => {
+        if (!officialGrid) return;
+        const firstCard = officialGrid.querySelector(".product-card");
+        const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 230;
+        const gap = Number.parseFloat(getComputedStyle(officialGrid).columnGap || "16");
+        return cardWidth + gap;
+      };
+
+      const scrollOfficialGrid = (direction) => {
+        if (!officialGrid) return;
+        const step = officialScrollStep() || 246;
+        const maxLeft = Math.max(0, officialGrid.scrollWidth - officialGrid.clientWidth);
+        const nextLeft = direction === "prev" ? officialGrid.scrollLeft - step : officialGrid.scrollLeft + step;
+        const target = direction === "prev"
+          ? (nextLeft <= 2 ? maxLeft : nextLeft)
+          : (nextLeft >= maxLeft - 2 ? 0 : nextLeft);
+        officialGrid.scrollTo({ left: target, behavior: "smooth" });
+      };
+
+      officialScrollButtons.forEach((button) => {
+        button.addEventListener("click", () => scrollOfficialGrid(button.dataset.officialScroll === "prev" ? "prev" : "next"));
+      });
+
+      if (officialGrid) {
+        let officialDragPointer = null;
+        let officialDragStartX = 0;
+        let officialDragStartLeft = 0;
+        let officialDragMoved = false;
+        let officialSuppressClick = false;
+        const isOfficialInteractiveTarget = (target) => Boolean(target.closest("a, button, input, select, textarea, label"));
+
+        const finishOfficialDrag = (event) => {
+          if (officialDragPointer === null || event.pointerId !== officialDragPointer) return;
+          officialGrid.releasePointerCapture?.(event.pointerId);
+          officialGrid.classList.remove("is-dragging");
+          officialSuppressClick = officialDragMoved;
+          officialDragPointer = null;
+          window.setTimeout(() => {
+            officialDragMoved = false;
+            officialSuppressClick = false;
+          }, 0);
+        };
+
+        officialGrid.addEventListener("pointerdown", (event) => {
+          if (event.button !== undefined && event.button !== 0) return;
+          if (isOfficialInteractiveTarget(event.target)) return;
+          officialDragPointer = event.pointerId;
+          officialDragStartX = event.clientX;
+          officialDragStartLeft = officialGrid.scrollLeft;
+          officialDragMoved = false;
+          officialGrid.setPointerCapture?.(event.pointerId);
+          officialGrid.classList.add("is-dragging");
+        });
+
+        officialGrid.addEventListener("pointermove", (event) => {
+          if (officialDragPointer === null || event.pointerId !== officialDragPointer) return;
+          const delta = event.clientX - officialDragStartX;
+          if (Math.abs(delta) > 4) officialDragMoved = true;
+          officialGrid.scrollLeft = officialDragStartLeft - delta;
+        });
+
+        officialGrid.addEventListener("pointerup", finishOfficialDrag);
+        officialGrid.addEventListener("pointercancel", finishOfficialDrag);
+        officialGrid.addEventListener("click", (event) => {
+          if (!officialSuppressClick) return;
+          event.preventDefault();
+          event.stopPropagation();
+        }, true);
+      }
+    </script>
+    <script src="./assets/playpapa-auth.js"></script>
+
+  </body>
+</html>
