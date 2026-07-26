@@ -616,6 +616,20 @@ body.referrals-page [data-mobile-panel] {
   flex: 0 0 auto;
 }
 
+[data-referral-state="applied"] .referrals-invite-inner {
+  justify-content: flex-start;
+  gap: 0;
+}
+
+[data-referral-state="applied"] .referrals-invite-copy {
+  flex: 0 1 auto;
+  max-width: 445px;
+}
+
+[data-referral-state="applied"] .referrals-invite-applied {
+  margin-left: auto;
+}
+
 .referrals-invite-applied-cells {
   display: flex;
   gap: 8px;
@@ -863,6 +877,10 @@ body.referrals-page [data-mobile-panel] {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+  }
+
+  [data-referral-state="applied"] .referrals-invite-applied {
+    margin-left: 0;
   }
 
   .referrals-invite-input,
