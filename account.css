@@ -501,51 +501,74 @@ body.account-page [data-mobile-panel] {
 .account-field-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   min-height: 50px;
-  padding: 0 16px;
+  padding-right: 16px;
   border-radius: 10px;
   background: #eff1f5;
 }
 
-.account-field-value {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.account-field-row:focus-within {
+  outline: 2px solid rgba(38, 139, 243, 0.35);
+  outline-offset: 0;
+}
+
+.account-field-input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 50px;
+  padding: 0 0 0 16px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
   color: #2c3242;
+  font: inherit;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
-.account-field-value img {
-  width: 20px;
-  height: 20px;
-  flex: 0 0 auto;
+.account-field-input::placeholder {
+  color: #8a94a6;
 }
 
-.account-field-value.is-masked {
-  letter-spacing: 0;
+.account-field-input:focus {
+  outline: none;
 }
 
-.account-password-dots {
-  display: inline-block;
-  width: 55px;
-  height: 4px;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle, #2c3242 1.5px, transparent 1.6px) 0 50% / 6px 4px repeat-x;
+.account-field-input--user,
+.account-field-input--mail,
+.account-field-input--lock {
+  padding-left: 44px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 16px center;
+  background-size: 20px 20px;
+}
+
+.account-field-input--user {
+  background-image: url("./assets/account-page/field-user.svg");
+}
+
+.account-field-input--mail {
+  background-image: url("./assets/account-page/field-mail.svg");
+}
+
+.account-field-input--lock {
+  background-image: url("./assets/account-page/field-lock.svg");
 }
 
 .account-mini-btn {
+  flex: 0 0 auto;
   min-height: 23px;
-  padding: 4px 10px;
+  padding: 8px 10px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 5px;
   background: #fff;
-  color: var(--blue);
-  font-size: 8px;
-  font-weight: 700;
+  color: #a0a8b5;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
   cursor: pointer;
 }
 
@@ -777,7 +800,7 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-password-grid .account-field-row {
-  justify-content: flex-start;
+  padding-right: 0;
 }
 
 @media (max-width: 1100px) {
