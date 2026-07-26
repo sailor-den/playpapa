@@ -118,20 +118,25 @@
       <div class="shell">
         <div class="referrals-layout">
           <section class="referrals-card referrals-promo-card" aria-labelledby="referralsPromoTitle">
-            <div class="referrals-card-pattern" aria-hidden="true"></div>
+            <div class="referrals-card-pattern" aria-hidden="true">
+              <img src="./assets/referrals-page/promo-pattern.png" alt="" />
+            </div>
             <h1 class="referrals-promo-title" id="referralsPromoTitle">
-              Приглашай друзей в PlayPapa<br />
-              <span class="referrals-promo-title-mark">получай бонусы!</span>
+              <span class="referrals-promo-title-line">Приглашай друзей в PlayPapa</span>
+              <span class="referrals-promo-title-accent-row">
+                <img class="referrals-promo-title-arrow" src="./assets/referrals-page/promo-arrow.svg" alt="" />
+                <span class="referrals-promo-title-mark">получай бонусы!</span>
+              </span>
             </h1>
 
             <div class="referrals-benefits">
               <div class="referrals-benefit">
-                <img class="referrals-benefit-icon" src="./assets/blogger-icon-coupon.svg" alt="" />
-                <p>Ты получаешь +25% от пополнений друга в виде бонусов</p>
+                <img class="referrals-benefit-icon" src="./assets/referrals-page/benefit-discount.svg" alt="" />
+                <p>Ты получаешь <span class="referrals-benefit-mark">+25%</span> от пополнений друга в виде бонусов</p>
               </div>
               <div class="referrals-benefit">
-                <img class="referrals-benefit-icon" src="./assets/auth-user.svg" alt="" />
-                <p>Приглашенный друг получает N бонусов после регистрации</p>
+                <img class="referrals-benefit-icon" src="./assets/referrals-page/benefit-user.svg" alt="" />
+                <p>Приглашенный друг получает N&nbsp;бонусов после регистрации</p>
               </div>
             </div>
 
@@ -143,7 +148,7 @@
                 <div class="referrals-code-cell">Y</div>
               </div>
               <button class="referrals-copy-btn" type="button" data-referral-copy>
-                <img src="./assets/blogger-icon-copy.svg" alt="" />
+                <img src="./assets/referrals-page/copy-icon.svg" alt="" />
                 <span>Копировать</span>
               </button>
             </div>
@@ -165,20 +170,20 @@
               </div>
               <button class="referrals-withdraw-btn" type="button">
                 <span>Вывести</span>
-                <img src="./assets/blogger-icon-wallet.svg" alt="" />
+                <img src="./assets/referrals-page/withdraw-icon.svg" alt="" />
               </button>
             </div>
 
             <div class="referrals-metrics">
               <div class="referrals-metric">
-                <div class="referrals-metric-icon"><img src="./assets/blogger-icon-wallet.svg" alt="" /></div>
+                <div class="referrals-metric-icon"><img src="./assets/referrals-page/wallet-icon.svg" alt="" /></div>
                 <div class="referrals-metric-copy">
                   <span>Всего депозитов</span>
                   <strong>14 892</strong>
                 </div>
               </div>
               <div class="referrals-metric">
-                <div class="referrals-metric-icon"><img src="./assets/profile-menu-referrals.svg" alt="" /></div>
+                <div class="referrals-metric-icon is-referrals"><img src="./assets/referrals-page/metric-referrals-icon.svg" alt="" /></div>
                 <div class="referrals-metric-copy">
                   <span>Всего рефералов</span>
                   <strong>126</strong>
@@ -190,7 +195,7 @@
               <h2>История:</h2>
               <button class="referrals-link-btn" type="button">
                 <span>Посмотреть полностью</span>
-                <img src="./assets/account-page/chevron-link.svg" alt="" />
+                <img src="./assets/referrals-page/link-chevron.svg" alt="" />
               </button>
             </div>
 
@@ -199,7 +204,7 @@
                 <div class="referrals-history-user">
                   <img src="./assets/review-avatar.png" alt="" />
                   <div class="referrals-history-user-copy">
-                    <b>Bizidin <span>cегодня в 11:48</span></b>
+                    <b>Bizidin <span>сегодня в 11:48</span></b>
                     <small>приобрел игру DOOM 2016</small>
                   </div>
                 </div>
@@ -210,13 +215,13 @@
                 <div class="referrals-history-user">
                   <img src="./assets/review-avatar.png" alt="" />
                   <div class="referrals-history-user-copy">
-                    <b>Bizidin <span>cегодня в 11:48</span></b>
+                    <b>Bizidin <span>сегодня в 11:48</span></b>
                     <small>ваш новый реферал</small>
                   </div>
                 </div>
                 <span class="referrals-history-badge is-profile">
                   <span>+</span>
-                  <img src="./assets/profile-gray.svg" alt="" />
+                  <img src="./assets/referrals-page/referral-profile-icon.svg" alt="" />
                 </span>
               </article>
               <div class="referrals-history-divider" aria-hidden="true"></div>
@@ -224,7 +229,7 @@
                 <div class="referrals-history-user">
                   <img src="./assets/review-avatar.png" alt="" />
                   <div class="referrals-history-user-copy">
-                    <b>Bizidin <span>cегодня в 11:48</span></b>
+                    <b>Bizidin <span>сегодня в 11:48</span></b>
                     <small>приобрел игру DOOM 2016</small>
                   </div>
                 </div>
@@ -235,9 +240,12 @@
         </div>
 
         <section class="referrals-invite-banner" data-referral-state="default" aria-label="Применить реферальный код">
-          <img class="referrals-invite-art" src="./assets/referrals-page/invite-art.png" alt="" />
+          <div class="referrals-invite-pattern" aria-hidden="true">
+            <img src="./assets/referrals-page/invite-pattern.png" alt="" />
+          </div>
+          <img class="referrals-invite-art" src="./assets/referrals-page/invite-mascot.png" alt="" />
           <div class="referrals-invite-inner">
-            <p class="referrals-invite-copy">Уже есть реферальный код от друзей? Примени и получи бонусы</p>
+            <p class="referrals-invite-copy">Уже есть реферальный код от друзей? <span class="referrals-invite-accent">Примени и получи бонусы</span></p>
             <form class="referrals-invite-form" action="#">
               <input class="referrals-invite-input" type="text" placeholder="Введите код" aria-label="Введите код" />
               <button class="referrals-invite-submit" type="button" data-referral-apply>Использовать</button>
@@ -246,9 +254,12 @@
         </section>
 
         <section class="referrals-invite-banner" data-referral-state="applied" hidden inert aria-label="Реферальный код применен">
-          <img class="referrals-invite-art" src="./assets/referrals-page/invite-art.png" alt="" />
+          <div class="referrals-invite-pattern" aria-hidden="true">
+            <img src="./assets/referrals-page/invite-pattern.png" alt="" />
+          </div>
+          <img class="referrals-invite-art" src="./assets/referrals-page/invite-mascot.png" alt="" />
           <div class="referrals-invite-inner">
-            <p class="referrals-invite-copy">Реферальный код от пользователя DimaMaslennikov уже применен!</p>
+            <p class="referrals-invite-copy">Реферальный код от пользователя <em>DimaMaslennikov</em> уже применен!</p>
             <div class="referrals-invite-applied">
               <div class="referrals-invite-applied-cells" aria-label="Примененный код">
                 <div class="referrals-code-cell">3</div>
@@ -257,9 +268,7 @@
                 <div class="referrals-code-cell">2</div>
               </div>
               <span class="referrals-invite-applied-badge">
-                <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                  <path d="M9 1.5 11.1 6.9 17 7.5 12.5 11.4 13.8 17.2 9 14.3 4.2 17.2 5.5 11.4 1 7.5 6.9 6.9 9 1.5Z" fill="currentColor" />
-                </svg>
+                <img src="./assets/referrals-page/applied-check.svg" alt="" />
                 <span>Уже применен</span>
               </span>
             </div>
@@ -272,9 +281,7 @@
             <article class="referrals-faq-item">
               <button class="referrals-faq-trigger" type="button" aria-expanded="false">
                 <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">?</span>Сколько я получу за друга?</span>
-                <span class="referrals-faq-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
-                </span>
+                <span class="referrals-faq-arrow" aria-hidden="true"><img src="./assets/steam-page/faq-arrow-down.svg" alt="" /></span>
               </button>
               <div class="referrals-faq-panel">
                 <div class="referrals-faq-panel-inner"><div>Вы получаете 25% от пополнений приглашенного друга в виде бонусов на ваш счет.</div></div>
@@ -283,9 +290,7 @@
             <article class="referrals-faq-item is-open">
               <button class="referrals-faq-trigger" type="button" aria-expanded="true">
                 <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">?</span>Когда приходит выплата?</span>
-                <span class="referrals-faq-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
-                </span>
+                <span class="referrals-faq-arrow" aria-hidden="true"><img src="./assets/steam-page/faq-arrow-down.svg" alt="" /></span>
               </button>
               <div class="referrals-faq-panel">
                 <div class="referrals-faq-panel-inner">
