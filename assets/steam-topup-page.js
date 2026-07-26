@@ -74,4 +74,24 @@
       trigger.setAttribute("aria-expanded", open ? "true" : "false");
     });
   });
+
+  document.querySelectorAll(".steam-topup-amount-field").forEach((field) => {
+    const input = field.querySelector("input");
+    const clearButton = field.querySelector(".steam-topup-input-clear");
+
+    const syncAmountClear = () => {
+      const hasValue = Boolean(input?.value.trim());
+      field.classList.toggle("has-value", hasValue);
+    };
+
+    clearButton?.addEventListener("click", () => {
+      if (!input) return;
+      input.value = "";
+      input.focus();
+      syncAmountClear();
+    });
+
+    input?.addEventListener("input", syncAmountClear);
+    syncAmountClear();
+  });
 })();

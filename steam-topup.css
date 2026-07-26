@@ -12,6 +12,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-ticker {
+  width: 100%;
   height: 30px;
   overflow: hidden;
   background: linear-gradient(10.63deg, #ff8d28 0.88%, #ffcc31 100%);
@@ -24,7 +25,7 @@ body.steam-topup-page [data-mobile-panel] {
   width: max-content;
   min-height: 26px;
   padding: 2px 0;
-  animation: steam-ticker-scroll 40s linear infinite;
+  /* animation: steam-ticker-scroll 40s linear infinite; */
 }
 
 .steam-topup-ticker-item {
@@ -36,7 +37,7 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-ticker-copy {
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 19.5px;
 }
@@ -51,12 +52,12 @@ body.steam-topup-page [data-mobile-panel] {
   border-radius: 5px;
   background: #fff;
   color: #ff8d28;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
   line-height: 1;
 }
 
-@keyframes steam-ticker-scroll {
+/* @keyframes steam-ticker-scroll {
   from {
     transform: translateX(0);
   }
@@ -64,7 +65,7 @@ body.steam-topup-page [data-mobile-panel] {
   to {
     transform: translateX(-50%);
   }
-}
+} */
 
 .steam-topup-main-col {
   min-width: 0;
@@ -110,12 +111,17 @@ body.steam-topup-page [data-mobile-panel] {
   align-items: center;
   gap: 6px;
   min-height: 22px;
-  padding: 0 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--heading);
+  padding: 1px 8px;
+  border-radius: 20px;
+  background: #e2f5e9;
+  color: #16a34a;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
+  line-height: 19.5px;
+}
+
+.steam-topup-banner-live strong {
+  font-weight: 600;
 }
 
 .steam-topup-banner-live::before {
@@ -123,14 +129,14 @@ body.steam-topup-page [data-mobile-panel] {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--green);
+  background: #16a34a;
 }
 
 .steam-topup-tabs {
   margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0;
+  gap: 17px;
   padding: 3px;
   border-radius: 10px;
   background: var(--surface);
@@ -149,7 +155,7 @@ body.steam-topup-page [data-mobile-panel] {
   background: transparent;
   color: #8a94a6;
   font: inherit;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
@@ -160,7 +166,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-tab.is-active[data-tab="login"] {
-  background: var(--blue);
+  background: #268bf3;
   color: #fff;
 }
 
@@ -188,14 +194,18 @@ body.steam-topup-page [data-mobile-panel] {
   position: absolute;
   top: 0;
   right: 0;
-  min-height: 22px;
-  padding: 0 15px;
+  width: 103px;
+  height: 22px;
+  padding: 0;
   border-radius: 0 10px 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #f2810d;
   color: #fff;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 800;
-  line-height: 22px;
+  line-height: 1;
   pointer-events: none;
 }
 
@@ -205,10 +215,11 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-form-card {
   margin-top: 16px;
-  border-radius: 16px;
-  padding: 24px 30px 30px;
+  border: 1px solid #f0f2f5;
+  border-radius: 12px;
+  padding: 20px 30px;
   background: var(--surface);
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .steam-topup-form-panel[hidden] {
@@ -226,13 +237,14 @@ body.steam-topup-page [data-mobile-panel] {
 .steam-topup-field-row h2,
 .steam-topup-field-row label {
   margin: 0;
-  color: var(--heading);
+  color: #2c3242;
   font-size: 16px;
   font-weight: 700;
+  line-height: 14px;
 }
 
 .steam-topup-field-row .required {
-  color: var(--red);
+  color: #ff8d28;
 }
 
 .steam-topup-help-link {
@@ -246,7 +258,7 @@ body.steam-topup-page [data-mobile-panel] {
   background: transparent;
   color: #a0a8b5;
   font: inherit;
-  font-size: 10px;
+  font-size: 8.5px;
   font-weight: 600;
   letter-spacing: -0.03em;
   cursor: pointer;
@@ -268,33 +280,34 @@ body.steam-topup-page [data-mobile-panel] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .steam-topup-region {
   min-height: 48px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--field);
-  color: var(--text);
+  background: #f4f5f7;
+  color: #8a94a6;
   font: inherit;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease);
 }
 
 .steam-topup-region:hover {
-  background: var(--button-soft);
+  background: #eef1f5;
 }
 
 .steam-topup-region.is-active {
-  border-color: var(--blue);
-  background: var(--surface);
+  border-color: #268bf3;
+  background: #eef5ff;
+  color: #2c3242;
 }
 
 .steam-topup-region-info {
@@ -312,13 +325,13 @@ body.steam-topup-page [data-mobile-panel] {
 .steam-topup-input {
   width: 100%;
   min-height: 50px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 16px;
-  background: var(--field);
+  gap: 8px;
+  padding: 12px 16px;
+  background: #eff1f5;
   transition: box-shadow 0.2s var(--ease);
 }
 
@@ -337,99 +350,170 @@ body.steam-topup-page [data-mobile-panel] {
   border: 0;
   outline: 0;
   background: transparent;
-  color: var(--text);
+  color: #2c3242;
   font: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .steam-topup-input input::placeholder {
-  color: var(--muted);
+  color: #8a94a6;
 }
 
 .steam-topup-balance-label {
-  margin: 0 0 8px;
-  color: var(--heading);
+  margin: 0 0 20px;
+  color: #2c3242;
   font-size: 16px;
   font-weight: 700;
+  line-height: 14px;
 }
 
-.steam-topup-amount-row {
+.steam-topup-amount-block {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px;
-  margin-bottom: 8px;
+  column-gap: 8px;
+  row-gap: 8px;
+  align-items: start;
 }
 
 .steam-topup-amount-field {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  height: 50px;
   min-height: 50px;
   margin-bottom: 0;
+  padding: 7px 7px 7px 16px;
+}
+
+.steam-topup-amount-field input {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.steam-topup-input-clear {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 10px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: #c8cbd0;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.steam-topup-input-clear img {
+  width: 16px;
+  height: 16px;
+}
+
+.steam-topup-input-clear:hover {
+  background: rgba(44, 50, 66, 0.06);
+  color: #8a94a6;
+}
+
+.steam-topup-input-clear:focus-visible {
+  outline: 2px solid #268bf3;
+  outline-offset: 1px;
+}
+
+.steam-topup-amount-field:not(.has-value) .steam-topup-input-clear {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .steam-topup-currency-tabs {
+  grid-column: 2;
+  grid-row: 1;
   min-height: 50px;
   padding: 7px;
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  background: var(--field);
+  gap: 8px;
+  background: #eff1f5;
 }
 
 .steam-topup-currency-tabs button {
   width: 36px;
   height: 36px;
   border: 0;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--muted-strong);
+  border-radius: 10px;
+  background: #fff;
+  color: #c8cbd0;
   font: inherit;
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
 
-.steam-topup-currency-tabs button:hover,
+.steam-topup-currency-tabs button:hover:not(.is-active) {
+  color: #8a94a6;
+}
+
 .steam-topup-currency-tabs button.is-active {
-  background: var(--surface);
-  color: var(--heading);
+  background: #268bf3;
+  color: #fff;
+}
+
+.steam-topup-amount-footer {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .steam-topup-quick-amounts {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .steam-topup-quick-amounts button {
   min-height: 34px;
-  padding: 0 16px;
-  border: 2px solid transparent;
-  border-radius: 999px;
-  background: var(--field);
-  color: var(--text);
+  padding: 8px 13px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #f4f5f7;
+  color: #8a94a6;
   font: inherit;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 
-.steam-topup-quick-amounts button:hover,
+.steam-topup-quick-amounts button:hover:not(.is-active) {
+  background: #eef1f5;
+}
+
 .steam-topup-quick-amounts button.is-active {
-  background: var(--surface);
-  color: var(--blue);
-  border-color: var(--blue);
+  background: #eef5ff;
+  color: #2c3242;
+  border-color: #268bf3;
 }
 
 .steam-topup-min-note {
   margin: 0;
+  flex: 0 0 auto;
+  max-width: 143px;
   text-align: right;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
+  color: #a0a8b5;
+  font-size: 8.5px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-right: 10px;
 }
 
 .steam-topup-form-panel[data-tab-panel="gift"] {
@@ -470,7 +554,7 @@ body.steam-topup-page [data-mobile-panel] {
   left: 10px;
   right: 10px;
   height: 70px;
-  border: 2px solid rgba(38, 139, 243, 0.3);
+  /* border: 2px solid rgba(38, 139, 243, 0.3); */
   border-radius: 10px;
   padding: 8px;
   overflow: hidden;
@@ -492,7 +576,7 @@ body.steam-topup-page [data-mobile-panel] {
   position: absolute;
   left: 8px;
   bottom: 8px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
@@ -536,7 +620,7 @@ body.steam-topup-page [data-mobile-panel] {
   display: block;
   margin-bottom: 6px;
   color: #2c3242;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
@@ -550,7 +634,7 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-gift-current {
   color: #4c9a2a;
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 800;
   line-height: 1;
 }
@@ -590,37 +674,113 @@ body.steam-topup-page [data-mobile-panel] {
 .steam-topup-premo-banner {
   position: relative;
   overflow: hidden;
-  min-height: 90px;
   margin-top: 16px;
-  border: 1px solid #eef1f5;
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
+  border: 1px solid #f0f2f5;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.steam-topup-premo-banner > img {
-  width: 100%;
-  height: 90px;
-  object-fit: cover;
+.steam-topup-promo-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.steam-topup-promo-pattern img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: left center;
 }
 
-.steam-topup-promo-label,
-.steam-topup-promo-copy,
+.steam-topup-promo-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 90px;
+  padding: 0 15px 0 169px;
+}
+
 .steam-topup-promo-mascot {
-  display: none;
+  position: absolute;
+  top: 8px;
+  left: 34px;
+  width: 109px;
+  height: 109px;
+  transform: rotate(-11.45deg);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.steam-topup-promo-copy {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.steam-topup-promo-label {
+  color: #268bf3;
+  font-size: 13px;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.22;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.steam-topup-promo-title {
+  margin: 0;
+  color: #2c3242;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.steam-topup-promo-accent {
+  color: #6eb83f;
+  font-style: italic;
 }
 
 .steam-topup-promo-btn {
-  display: none;
+  flex: 0 0 auto;
+  width: 210px;
+  min-height: 60px;
+  border: 0;
+  border-radius: 12px;
+  background: #eef5ff;
+  color: #268bf3;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.steam-topup-promo-btn:hover {
+  background: #dceaff;
+}
+
+.steam-topup-promo-btn:active {
+  background: #cfe3ff;
 }
 
 
 .steam-topup-sidebar > h2 {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   color: var(--heading);
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .steam-topup-sidebar .topup-payment-methods {
@@ -630,20 +790,33 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-sidebar .topup-payment-method {
   height: 50px;
-  padding: 7px;
-  border-radius: 10px;
+  padding: 7px 9px 7px 7px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4f5f7;
   box-shadow: none;
 }
 
 .steam-topup-sidebar .topup-payment-method:hover {
   transform: none;
   box-shadow: none;
-  background: var(--button-soft);
+  background: #eef1f5;
+}
+
+.steam-topup-sidebar .topup-payment-method.is-selected {
+  border-color: #6eb83f;
+  background: #f4f5f7;
 }
 
 .steam-topup-sidebar .topup-payment-icon {
   width: 36px;
   height: 36px;
+  flex: 0 0 36px;
+  border-radius: 10px;
+  background: #fff;
 }
 
 .steam-topup-sidebar .topup-payment-icon img {
@@ -651,18 +824,41 @@ body.steam-topup-page [data-mobile-panel] {
   max-height: 24px;
 }
 
+.steam-topup-sidebar .topup-payment-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
 .steam-topup-sidebar .topup-payment-copy b {
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  color: #2c3242;
 }
 
 .steam-topup-sidebar .topup-payment-copy small {
-  margin-top: 2px;
+  margin-top: 0;
   font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  color: #8a94a6;
 }
 
 .steam-topup-sidebar .topup-payment-check {
   width: 24px;
   height: 24px;
+  flex: 0 0 24px;
+  margin-left: auto;
+  border-radius: 6px;
+  background: #e2e4e7;
+}
+
+.steam-topup-sidebar .topup-payment-method.is-selected .topup-payment-check {
+  background: #6eb83f;
+  color: #fff;
 }
 
 .steam-topup-sidebar .topup-payment-check svg {
@@ -673,68 +869,106 @@ body.steam-topup-page [data-mobile-panel] {
 .steam-topup-cashback {
   position: relative;
   overflow: hidden;
-  min-height: 42px;
+  height: 42px;
   margin: 16px 0;
   border-radius: 10px;
-  padding: 9px 84px 9px 9px;
+  padding: 0 0 0 9px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: linear-gradient(90deg, #fff3bf 0%, #ffe27a 100%);
+  gap: 8px;
+  background: linear-gradient(54.73deg, #ffcc31 0.88%, #ff8d28 100%);
 }
 
 .steam-topup-cashback-badge {
-  min-height: 24px;
-  padding: 0 8px;
-  border-radius: 999px;
+  flex: 0 0 auto;
+  height: 24px;
+  padding: 0 5px;
+  border-radius: 3px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: #fff;
-  color: var(--heading);
-  font-size: 12px;
-  font-weight: 800;
+  color: #2c3242;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1;
   white-space: nowrap;
 }
 
-.steam-topup-cashback p {
+.steam-topup-cashback-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
   margin: 0;
-  color: var(--heading);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.25;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.steam-topup-cashback-copy strong,
+.steam-topup-cashback-copy span {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.steam-topup-cashback-copy strong {
+  font-weight: 800;
 }
 
 .steam-topup-cashback img {
   position: absolute;
-  right: -8px;
-  top: -10px;
-  width: 84px;
-  height: 84px;
+  right: 0;
+  top: 50%;
+  width: 68px;
+  height: 68px;
   object-fit: contain;
   pointer-events: none;
+  user-select: none;
+  transform: translateY(calc(-50% - 2px));
 }
 
 .steam-topup-promo-link {
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   min-height: 26px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
+  padding: 6px 4px 1px;
   border: 0;
-  border-radius: 999px;
-  display: inline-flex;
+  border-bottom: 1px dashed #a9cdf6;
+  border-radius: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   background: transparent;
-  color: var(--blue);
+  color: #268bf3;
   font: inherit;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
+  line-height: 21px;
   cursor: default;
 }
 
-.steam-topup-promo-link svg {
+.steam-topup-promo-link img {
   width: 13px;
   height: 13px;
+  flex: 0 0 auto;
+}
+
+.steam-topup-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 .steam-topup-summary-lines {
@@ -744,25 +978,27 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-summary-line {
   min-height: 30px;
+  padding: 8px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  color: var(--muted-strong);
-  font-size: 13px;
-  font-weight: 600;
+  color: #8a94a6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
 }
 
 .steam-topup-summary-line strong {
-  color: var(--heading);
+  color: #2c3242;
   font-size: 14px;
   font-weight: 700;
+  line-height: 14px;
 }
 
 .steam-topup-summary-divider {
   height: 1px;
-  margin: 8px 0;
-  background: var(--line);
+  background: #f0f2f5;
 }
 
 .steam-topup-summary-total {
@@ -770,19 +1006,20 @@ body.steam-topup-page [data-mobile-panel] {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  color: var(--heading);
-  font-size: 15px;
-  font-weight: 800;
+  color: #2c3242;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 14px;
 }
 
 .steam-topup-summary-total strong {
   color: #6eb83f;
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .steam-topup-toggle-row {
-  margin: 16px 0;
+  margin: 0 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -790,9 +1027,10 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-toggle-row span {
-  color: var(--heading);
-  font-size: 15px;
-  font-weight: 700;
+  color: #2c3242;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
 }
 
 .steam-topup-toggle {
@@ -832,93 +1070,186 @@ body.steam-topup-page [data-mobile-panel] {
   overflow: hidden;
   margin-bottom: 16px;
   border-radius: 12px;
-  padding: 16px;
-  background: var(--field);
+  padding: 10px 16px 16px;
+  min-height: 172px;
+  background: #eef5ff;
+}
+
+.steam-topup-premium-box-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.steam-topup-premium-box-pattern img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .steam-topup-premium-box-head {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .steam-topup-premium-box-head h3 {
   margin: 0;
-  color: var(--heading);
-  font-size: 13px;
-  font-weight: 800;
+  color: #268bf3;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 19.5px;
   text-transform: uppercase;
 }
 
 .steam-topup-premium-box-head button {
   min-height: 26px;
-  padding: 0 12px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--blue);
+  padding: 8px 10px;
+  border: 1px solid #f4f5f7;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  color: #a0a8b5;
   font: inherit;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
   transition: background 0.2s var(--ease);
 }
 
 .steam-topup-premium-box-head button:hover {
-  background: var(--button-soft);
+  background: #f8f9fb;
+}
+
+.steam-topup-premium-box-head button img {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  transform: rotate(-90deg);
 }
 
 .steam-topup-premium-line,
 .steam-topup-premium-total {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   min-height: 30px;
-  color: var(--muted-strong);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.steam-topup-premium-line strong,
-.steam-topup-premium-total strong {
-  color: var(--heading);
+  padding: 8px 0;
+  color: #2c3242;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
+  line-height: 12px;
 }
 
-.steam-topup-premium-total strong:last-child {
+.steam-topup-premium-pass-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.steam-topup-premium-pass-price strong {
+  color: #2c3242;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.steam-topup-premium-pass-price s {
+  color: #a0a8b5;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-decoration: line-through;
+}
+
+.steam-topup-premium-total {
+  min-height: 41px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.steam-topup-premium-total > strong {
   min-width: 104px;
   min-height: 41px;
-  padding: 0 14px;
+  padding: 6px 14px;
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--surface);
-  font-size: 18px;
-  font-weight: 900;
+  background: #6eb83f;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.steam-topup-premium-cashback-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.steam-topup-premium-cashback-value strong {
+  color: #ff8d28;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.steam-topup-premium-cashback-value img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
 }
 
 .steam-topup-buy-btn {
   width: 100%;
   min-height: 60px;
   border: 0;
-  border-radius: 12px;
-  background: var(--blue);
+  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #268bf3;
   color: #fff;
   font: inherit;
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 24px;
   cursor: pointer;
-  box-shadow: var(--shadow-blue);
+  box-shadow: 0 12px 12px rgba(47, 134, 235, 0.32);
   transition: background 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
+.steam-topup-buy-btn img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
 .steam-topup-buy-btn:hover {
-  background: var(--blue-dark);
+  background: #1f7ae0;
 }
 
 .steam-topup-consent {
@@ -926,10 +1257,10 @@ body.steam-topup-page [data-mobile-panel] {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  color: var(--muted);
+  color: #8a94a6;
   font-size: 11px;
-  font-weight: 600;
-  line-height: 1.35;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
 .steam-topup-consent input {
@@ -943,55 +1274,54 @@ body.steam-topup-page [data-mobile-panel] {
   height: 18px;
   margin-top: 1px;
   border-radius: 5px;
-  border: 2px solid var(--line);
+  border: 0;
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  background: var(--surface);
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
-}
-
-.steam-topup-consent input:checked + .steam-topup-consent-box {
-  border-color: var(--blue);
-  background: var(--blue);
-  color: #fff;
+  background: #eff1f5;
+  color: #8a94a6;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
 
 .steam-topup-consent input:checked + .steam-topup-consent-box::after {
   content: "✓";
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .steam-topup-consent a {
-  color: var(--blue);
+  color: #268bf3;
   text-decoration: none;
 }
 
 .steam-topup-policy {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.45;
+  margin: 11px -16px -16px;
+  padding: 18px 47px;
+  border-radius: 0 0 16px 16px;
+  background: #f4f6fa;
+  color: #a0a8b5;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: normal;
   text-align: center;
 }
 
 .steam-topup-faq {
-  margin-top: 24px;
-  border-radius: 16px;
+  margin-top: 94px;
+  border: 1px solid #f0f2f5;
+  border-radius: 12px;
   padding: 17px;
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .steam-topup-faq > h2 {
   margin: 0 0 16px;
-  color: var(--heading);
-  font-size: 24px;
-  font-weight: 900;
+  color: #2c3242;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .steam-topup-faq-list {
@@ -1000,60 +1330,67 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-faq-item {
-  border-radius: 12px;
-  background: var(--field);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .steam-topup-faq-trigger {
   width: 100%;
-  min-height: 56px;
   border: 0;
   padding: 14px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: transparent;
+  background: #f4f5f7;
   text-align: left;
   cursor: pointer;
-  transition: background 0.2s var(--ease);
+  transition: background-color 0.2s var(--ease);
 }
 
 .steam-topup-faq-trigger:hover {
-  background: var(--button-soft);
+  background: #eef0f4;
 }
 
 .steam-topup-faq-trigger-copy {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: var(--heading);
-  font-size: 16px;
-  font-weight: 700;
+  color: #2c3242;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
 }
 
 .steam-topup-faq-icon {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--blue);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.steam-topup-faq-arrow {
-  width: 28px;
-  height: 28px;
   border-radius: 8px;
   display: grid;
   place-items: center;
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
+  background: #268bf3;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.steam-topup-faq-arrow {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   transition: transform 0.22s var(--ease);
+}
+
+.steam-topup-faq-arrow img {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .steam-topup-faq-item.is-open .steam-topup-faq-arrow {
@@ -1075,15 +1412,15 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-faq-panel-inner > div {
-  margin: 0 14px 14px;
-  border: 1px solid var(--line);
+  margin: 8px 0 0;
+  border: 1px solid #f0f2f5;
   border-radius: 12px;
   padding: 21px;
-  background: var(--surface);
-  color: var(--muted-strong);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.55;
+  background: #f8f9fb;
+  color: #8a94a6;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.625;
 }
 
 .steam-topup-reviews {
