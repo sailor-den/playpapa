@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Реферальная программа — PlayPapa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="./assets/blogger-playpapa-logo.svg" />
+    <link rel="stylesheet" href="./frame.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./referrals.css" />
+    <link rel="stylesheet" href="./auth-local.css" />
+  </head>
+  <body class="referrals-page">
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="logo-link" href="./index.html">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+        </a>
+
+        <div class="theme-switch" aria-label="Переключение темы">
+          <button class="theme-btn is-active" type="button" data-theme="light" aria-label="Светлая тема" aria-pressed="true">
+            <img src="./assets/white-theme.svg" alt="" />
+          </button>
+          <button class="theme-btn" type="button" data-theme="dark" aria-label="Темная тема" aria-pressed="false">
+            <img src="./assets/dark-theme.svg" alt="" />
+          </button>
+        </div>
+
+        <button class="catalog-btn" type="button" aria-label="Каталог" aria-expanded="false" aria-controls="catalogMegaMenu">
+          <img src="./assets/catalog.svg" alt="" />
+          <span>Каталог</span>
+        </button>
+
+        <form class="search-form" action="#">
+          <input type="search" placeholder="Игра, приложение или услуга..." />
+          <button class="search-favorite" type="button" aria-label="Избранное">
+            <img src="./assets/favorite.svg" alt="" />
+          </button>
+          <button class="search-submit" type="submit" aria-label="Найти">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+          </button>
+        </form>
+
+        <button class="bonus-btn" type="button" aria-label="Бонусы">
+          <img src="./assets/bonus.svg" alt="Бонусы" />
+        </button>
+
+        <div class="profile-menu">
+          <button class="profile-btn" type="button" aria-label="Профиль" aria-expanded="false" aria-controls="profilePopover">
+            <img src="./assets/profile.svg" alt="" />
+            <span class="profile-toggle-indicator" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none">
+                <path d="m2 2 4 4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+
+          <section class="profile-popover" id="profilePopover" aria-hidden="true" aria-label="Меню профиля" inert>
+            <div class="profile-popover-heading">
+              <h2>Вы не авторизованы</h2>
+              <p>
+                <span>Войдите, чтобы видеть бонусы и</span>
+                <span>рефералов</span>
+              </p>
+            </div>
+
+            <nav class="profile-popover-nav" aria-label="Разделы профиля">
+              <a class="profile-menu-item" href="./account.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-profile.svg" alt="" />
+                <span>Профиль</span>
+              </a>
+              <a class="profile-menu-item" href="./referrals.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-referrals.svg" alt="" />
+                <span>Рефералы</span>
+              </a>
+              <button class="profile-menu-item" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-bonus.svg" alt="" />
+                <span>Бонусы</span>
+              </button>
+              <button class="profile-menu-item profile-help" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-help.svg" alt="" />
+                <span>Помощь</span>
+              </button>
+              <a class="profile-menu-item profile-login" href="./login.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-login.svg" alt="" />
+                <span>Войти</span>
+              </a>
+            </nav>
+          </section>
+        </div>
+      </div>
+
+      <div class="catalog-layer" id="catalogMegaMenu" aria-hidden="true" inert>
+        <div class="shell catalog-mega" role="dialog" aria-label="Каталог товаров">
+          <aside class="catalog-sidebar" aria-label="Разделы каталога">
+            <button class="catalog-side-link is-active" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 8.2h9a4.5 4.5 0 0 1 4.2 6.1l-1.1 2.8a2.2 2.2 0 0 1-3.7.7l-1.2-1.5H9.3l-1.2 1.5a2.2 2.2 0 0 1-3.7-.7l-1.1-2.8a4.5 4.5 0 0 1 4.2-6.1Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 11v3m-1.5-1.5h3M16.5 11.7h.01m2 2h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Игры и игровые сервисы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+          </aside>
+          <div class="catalog-content">
+            <section class="catalog-showcase" aria-labelledby="catalogFeaturedTitle">
+              <h2 id="catalogFeaturedTitle">Игры и игровые сервисы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogFeatured"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="referrals-main">
+      <div class="shell">
+        <div class="referrals-layout">
+          <section class="referrals-card referrals-promo-card" aria-labelledby="referralsPromoTitle">
+            <div class="referrals-card-pattern" aria-hidden="true"></div>
+            <h1 class="referrals-promo-title" id="referralsPromoTitle">
+              Приглашай друзей в PlayPapa<br />
+              <span class="referrals-promo-title-mark">получай бонусы!</span>
+            </h1>
+
+            <div class="referrals-benefits">
+              <div class="referrals-benefit">
+                <img class="referrals-benefit-icon" src="./assets/blogger-icon-coupon.svg" alt="" />
+                <p>Ты получаешь +25% от пополнений друга в виде бонусов</p>
+              </div>
+              <div class="referrals-benefit">
+                <img class="referrals-benefit-icon" src="./assets/auth-user.svg" alt="" />
+                <p>Приглашенный друг получает N бонусов после регистрации</p>
+              </div>
+            </div>
+
+            <div class="referrals-code-row">
+              <div class="referrals-code-cells" aria-label="Ваш реферальный код">
+                <div class="referrals-code-cell">А</div>
+                <div class="referrals-code-cell">В</div>
+                <div class="referrals-code-cell">Т</div>
+                <div class="referrals-code-cell">Y</div>
+              </div>
+              <button class="referrals-copy-btn" type="button" data-referral-copy>
+                <img src="./assets/blogger-icon-copy.svg" alt="" />
+                <span>Копировать</span>
+              </button>
+            </div>
+
+            <h2 class="referrals-steps-title">Как это работает:</h2>
+            <div class="referrals-steps">
+              <div class="referrals-step"><span class="referrals-step-num">1</span><span>Скопируй код</span></div>
+              <div class="referrals-step"><span class="referrals-step-num">2</span><span>Друг регистрируется</span></div>
+              <div class="referrals-step"><span class="referrals-step-num">3</span><span>Ты получаешь бонус</span></div>
+            </div>
+          </section>
+
+          <aside class="referrals-card referrals-stats-card" aria-label="Статистика рефералов">
+            <div class="referrals-card-pattern" aria-hidden="true"></div>
+            <div class="referrals-earned">
+              <div class="referrals-earned-copy">
+                <span>Всего заработано:</span>
+                <strong>4 892₽</strong>
+              </div>
+              <button class="referrals-withdraw-btn" type="button">
+                <span>Вывести</span>
+                <img src="./assets/blogger-icon-wallet.svg" alt="" />
+              </button>
+            </div>
+
+            <div class="referrals-metrics">
+              <div class="referrals-metric">
+                <div class="referrals-metric-icon"><img src="./assets/blogger-icon-wallet.svg" alt="" /></div>
+                <div class="referrals-metric-copy">
+                  <span>Всего депозитов</span>
+                  <strong>14 892</strong>
+                </div>
+              </div>
+              <div class="referrals-metric">
+                <div class="referrals-metric-icon"><img src="./assets/profile-menu-referrals.svg" alt="" /></div>
+                <div class="referrals-metric-copy">
+                  <span>Всего рефералов</span>
+                  <strong>126</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="referrals-history-head">
+              <h2>История:</h2>
+              <button class="referrals-link-btn" type="button">
+                <span>Посмотреть полностью</span>
+                <img src="./assets/account-page/chevron-link.svg" alt="" />
+              </button>
+            </div>
+
+            <div class="referrals-history-list">
+              <article class="referrals-history-item">
+                <div class="referrals-history-user">
+                  <img src="./assets/review-avatar.png" alt="" />
+                  <div class="referrals-history-user-copy">
+                    <b>Bizidin <span>cегодня в 11:48</span></b>
+                    <small>приобрел игру DOOM 2016</small>
+                  </div>
+                </div>
+                <span class="referrals-history-badge">+10.99 ₽</span>
+              </article>
+              <div class="referrals-history-divider" aria-hidden="true"></div>
+              <article class="referrals-history-item">
+                <div class="referrals-history-user">
+                  <img src="./assets/review-avatar.png" alt="" />
+                  <div class="referrals-history-user-copy">
+                    <b>Bizidin <span>cегодня в 11:48</span></b>
+                    <small>ваш новый реферал</small>
+                  </div>
+                </div>
+                <span class="referrals-history-badge is-profile">
+                  <span>+</span>
+                  <img src="./assets/profile-gray.svg" alt="" />
+                </span>
+              </article>
+              <div class="referrals-history-divider" aria-hidden="true"></div>
+              <article class="referrals-history-item">
+                <div class="referrals-history-user">
+                  <img src="./assets/review-avatar.png" alt="" />
+                  <div class="referrals-history-user-copy">
+                    <b>Bizidin <span>cегодня в 11:48</span></b>
+                    <small>приобрел игру DOOM 2016</small>
+                  </div>
+                </div>
+                <span class="referrals-history-badge">+10.99 ₽</span>
+              </article>
+            </div>
+          </aside>
+        </div>
+
+        <section class="referrals-invite-banner" data-referral-state="default" aria-label="Применить реферальный код">
+          <img class="referrals-invite-art" src="./assets/referrals-page/invite-art.png" alt="" />
+          <div class="referrals-invite-inner">
+            <p class="referrals-invite-copy">Уже есть реферальный код от друзей? Примени и получи бонусы</p>
+            <form class="referrals-invite-form" action="#">
+              <input class="referrals-invite-input" type="text" placeholder="Введите код" aria-label="Введите код" />
+              <button class="referrals-invite-submit" type="button" data-referral-apply>Использовать</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="referrals-invite-banner" data-referral-state="applied" hidden inert aria-label="Реферальный код применен">
+          <img class="referrals-invite-art" src="./assets/referrals-page/invite-art.png" alt="" />
+          <div class="referrals-invite-inner">
+            <p class="referrals-invite-copy">Реферальный код от пользователя DimaMaslennikov уже применен!</p>
+            <div class="referrals-invite-applied">
+              <div class="referrals-invite-applied-cells" aria-label="Примененный код">
+                <div class="referrals-code-cell">3</div>
+                <div class="referrals-code-cell">7</div>
+                <div class="referrals-code-cell">9</div>
+                <div class="referrals-code-cell">2</div>
+              </div>
+              <span class="referrals-invite-applied-badge">
+                <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M9 1.5 11.1 6.9 17 7.5 12.5 11.4 13.8 17.2 9 14.3 4.2 17.2 5.5 11.4 1 7.5 6.9 6.9 9 1.5Z" fill="currentColor" />
+                </svg>
+                <span>Уже применен</span>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section class="referrals-card referrals-faq" aria-labelledby="referralsFaqTitle">
+          <h2 id="referralsFaqTitle">FAQ</h2>
+          <div class="referrals-faq-list">
+            <article class="referrals-faq-item">
+              <button class="referrals-faq-trigger" type="button" aria-expanded="false">
+                <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">?</span>Сколько я получу за друга?</span>
+                <span class="referrals-faq-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+                </span>
+              </button>
+              <div class="referrals-faq-panel">
+                <div class="referrals-faq-panel-inner"><div>Вы получаете 25% от пополнений приглашенного друга в виде бонусов на ваш счет.</div></div>
+              </div>
+            </article>
+            <article class="referrals-faq-item is-open">
+              <button class="referrals-faq-trigger" type="button" aria-expanded="true">
+                <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">?</span>Когда приходит выплата?</span>
+                <span class="referrals-faq-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+                </span>
+              </button>
+              <div class="referrals-faq-panel">
+                <div class="referrals-faq-panel-inner">
+                  <div>Each social media can only be linked to one platform account. You can go to Personal Center -&gt; Account Settings to link to another platform account. Once you have linked your social media account, you can log in to the trading platform using either account. Please note that linking a social media account to a platform account is an irreversible process. You will not be able to unlink your social media account in the future.</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer class="shell site-footer">
+        <div class="footer-top">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+          <nav>
+            <a href="#">Стать продавцом</a>
+            <a href="#">Бонусы</a>
+            <a href="#">Поддержка</a>
+            <a href="#">Гарантии</a>
+            <a href="#">Отзывы</a>
+          </nav>
+        </div>
+        <div class="footer-mid">
+          <div class="footer-social">
+            <b>PlayPapa</b>
+            <a class="social-icon" href="#" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></a>
+            <a class="footer-channel" href="#">Polk Zone</a>
+            <a class="social-icon" href="#" aria-label="TikTok"><img src="./assets/footer-tiktok.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="YouTube"><img src="./assets/footer-youtube.svg" alt="" /></a>
+          </div>
+          <div class="payments">
+            <span><img src="./assets/payment-visa.svg" alt="VISA" /></span>
+            <span><img src="./assets/payment-mir.svg" alt="МИР" /></span>
+            <span><img src="./assets/payment-mastercard.svg" alt="Mastercard" /></span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <nav>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Соглашение</a>
+            <a href="#">Договор-оферта</a>
+          </nav>
+          <span>© 2026 PlayPapa</span>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const profileMenu = document.querySelector(".profile-menu");
+      const profileButton = profileMenu?.querySelector(".profile-btn");
+      const profilePopover = document.getElementById("profilePopover");
+      const setProfileOpen = (open, returnFocus = false) => {
+        if (!profileMenu || !profilePopover || !profileButton) return;
+        profileMenu.classList.toggle("is-open", open);
+        profileButton.setAttribute("aria-expanded", open ? "true" : "false");
+        profilePopover.setAttribute("aria-hidden", open ? "false" : "true");
+        profilePopover.toggleAttribute("inert", !open);
+        document.body.classList.toggle("profile-open", open);
+        if (returnFocus) profileButton.focus();
+      };
+      profileButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setProfileOpen(!profileMenu?.classList.contains("is-open"));
+      });
+      document.addEventListener("pointerdown", (event) => {
+        if (!profileMenu?.classList.contains("is-open") || profileMenu.contains(event.target)) return;
+        setProfileOpen(false);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        setProfileOpen(false, true);
+      });
+      const catalogLayer = document.getElementById("catalogMegaMenu");
+      const catalogButton = document.querySelector(".catalog-btn:not([href])");
+      catalogButton?.addEventListener("click", () => {
+        const open = !document.body.classList.contains("catalog-open");
+        document.body.classList.toggle("catalog-open", open);
+        catalogLayer?.setAttribute("aria-hidden", open ? "false" : "true");
+        catalogLayer?.toggleAttribute("inert", !open);
+        catalogButton.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    </script>
+    <script src="./assets/referrals-page.js"></script>
+  </body>
+</html>

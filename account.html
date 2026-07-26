@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Личный кабинет — PlayPapa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="./assets/blogger-playpapa-logo.svg" />
+    <link rel="stylesheet" href="./frame.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./account.css" />
+    <link rel="stylesheet" href="./auth-local.css" />
+  </head>
+  <body class="account-page">
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="logo-link" href="./index.html">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+        </a>
+        <div class="theme-switch" aria-label="Переключение темы">
+          <button class="theme-btn is-active" type="button" data-theme="light" aria-label="Светлая тема" aria-pressed="true">
+            <img src="./assets/white-theme.svg" alt="" />
+          </button>
+          <button class="theme-btn" type="button" data-theme="dark" aria-label="Темная тема" aria-pressed="false">
+            <img src="./assets/dark-theme.svg" alt="" />
+          </button>
+        </div>
+        <button class="catalog-btn" type="button" aria-label="Каталог" aria-expanded="false" aria-controls="catalogMegaMenu">
+          <img src="./assets/catalog.svg" alt="" />
+          <span>Каталог</span>
+        </button>
+        <form class="search-form" action="#">
+          <input type="search" placeholder="Игра, приложение или услуга..." />
+          <button class="search-favorite" type="button" aria-label="Избранное">
+            <img src="./assets/favorite.svg" alt="" />
+          </button>
+          <button class="search-submit" type="submit" aria-label="Найти">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+          </button>
+        </form>
+        <button class="bonus-btn" type="button" aria-label="Бонусы">
+          <img src="./assets/bonus.svg" alt="Бонусы" />
+        </button>
+        <div class="profile-menu">
+          <button class="profile-btn" type="button" aria-label="Профиль" aria-expanded="false" aria-controls="profilePopover">
+            <img src="./assets/profile.svg" alt="" />
+            <span class="profile-toggle-indicator" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none"><path d="m2 2 4 4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+          </button>
+          <section class="profile-popover" id="profilePopover" aria-hidden="true" aria-label="Меню профиля" inert>
+            <nav class="profile-popover-nav" aria-label="Разделы профиля">
+              <a class="profile-menu-item" href="./account.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-profile.svg" alt="" />
+                <span>Профиль</span>
+              </a>
+              <a class="profile-menu-item" href="./referrals.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-referrals.svg" alt="" />
+                <span>Рефералы</span>
+              </a>
+              <button class="profile-menu-item" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-bonus.svg" alt="" />
+                <span>Бонусы</span>
+              </button>
+            </nav>
+          </section>
+        </div>
+      </div>
+      <div class="catalog-layer" id="catalogMegaMenu" aria-hidden="true" inert>
+        <div class="shell catalog-mega" role="dialog" aria-label="Каталог товаров">
+          <div class="catalog-content">
+            <section class="catalog-showcase" aria-labelledby="catalogFeaturedTitle">
+              <h2 id="catalogFeaturedTitle">Игры и игровые сервисы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogFeatured"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="account-main">
+      <div class="shell account-layout">
+        <aside class="account-sidebar" aria-label="Навигация личного кабинета">
+          <div class="account-nav-group">
+            <button class="account-nav-item is-active" type="button" data-account-nav="home" aria-current="page">
+              <img src="./assets/account-page/icon-home.svg" alt="" />
+              <span>Главная</span>
+            </button>
+            <button class="account-nav-item" type="button" data-account-nav="history">
+              <img src="./assets/account-page/icon-history.svg" alt="" />
+              <span>История</span>
+            </button>
+            <button class="account-nav-item" type="button" data-account-nav="settings">
+              <img src="./assets/account-page/icon-settings.svg" alt="" />
+              <span>Настройки</span>
+            </button>
+          </div>
+          <button class="account-nav-item account-nav-logout" type="button" data-account-nav="logout">
+            <img src="./assets/account-page/icon-logout.svg" alt="" />
+            <span>Выход</span>
+          </button>
+        </aside>
+
+        <div class="account-content">
+          <section class="account-screen" data-account-screen="home">
+            <div class="account-card account-bonus-bar">
+              <div class="account-card-pattern" aria-hidden="true"></div>
+              <div class="account-bonus-icon"><img src="./assets/bonus.svg" alt="" /></div>
+              <div class="account-bonus-copy">
+                <span>Доступно бонусов:</span>
+                <strong>3 400 Б</strong>
+              </div>
+              <div class="account-bonus-actions">
+                <button class="account-action-btn is-primary" type="button">Пополнить</button>
+                <button class="account-action-btn" type="button" data-account-go-history>История операций</button>
+              </div>
+            </div>
+
+            <div class="account-home-grid">
+              <div class="account-card account-bonus-rules">
+                <div class="account-card-pattern" aria-hidden="true"></div>
+                <div class="account-section-head">
+                  <h2>Как работают бонусы?</h2>
+                  <button class="account-link-btn" type="button">
+                    <span>Подробнее об условиях</span>
+                    <img src="./assets/account-page/chevron-link.svg" alt="" />
+                  </button>
+                </div>
+                <div class="account-bonus-rules-list">
+                  <div class="account-bonus-rule"><span class="account-step-num">1</span><span>При оплате заказа 1 бонус = 1 ₽</span></div>
+                  <div class="account-bonus-rule"><span class="account-step-num">2</span><span>Начисляем за каждую покупку</span></div>
+                  <div class="account-bonus-rule"><span class="account-step-num">3</span><span>Дарим за прокрут колеса удачи - раз в сутки бесплатно</span></div>
+                  <div class="account-bonus-rule"><span class="account-step-num">4</span><span>Бонусы не сгорают, пока вы заходите хотя бы раз в 90 дней</span></div>
+                </div>
+              </div>
+
+              <div class="account-card">
+                <div class="account-card-pattern" aria-hidden="true"></div>
+                <div class="account-section-head">
+                  <h2>
+                    <svg viewBox="0 0 22 22" width="22" height="22" fill="none" aria-hidden="true"><rect x="3" y="4" width="16" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 9h8M7 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    Мои покупки:
+                  </h2>
+                  <button class="account-link-btn" type="button" data-account-go-history>
+                    <span>Все покупки</span>
+                    <img src="./assets/account-page/chevron-link.svg" alt="" />
+                  </button>
+                </div>
+                <div class="account-purchases">
+                  <div class="account-purchase-group">
+                    <p class="account-purchase-date">сегодня</p>
+                    <article class="account-purchase-row">
+                      <div class="account-purchase-main">
+                        <img src="./assets/product-doom.jpg" alt="" />
+                        <div><b>DOOM 2016</b><span>12 июня 2026</span></div>
+                      </div>
+                      <div class="account-purchase-badges">
+                        <span class="account-badge is-price">49.99 ₽</span>
+                        <span class="account-badge is-bonus">+ 5 Б</span>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="account-purchase-group">
+                    <p class="account-purchase-date">вчера</p>
+                    <article class="account-purchase-row">
+                      <div class="account-purchase-main">
+                        <img src="./assets/product-doom.jpg" alt="" />
+                        <div><b>DOOM 2016</b><span>12 июня 2026</span></div>
+                      </div>
+                      <div class="account-purchase-badges"><span class="account-badge is-price">49.99 ₽</span></div>
+                    </article>
+                    <article class="account-purchase-row">
+                      <div class="account-purchase-main">
+                        <img src="./assets/product-doom.jpg" alt="" />
+                        <div><b>DOOM 2016</b><span>12 июня 2026</span></div>
+                      </div>
+                      <div class="account-purchase-badges">
+                        <span class="account-badge is-key" aria-label="Ключ"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 1a4.5 4.5 0 0 0-3.2 7.67L3 14l1.33 1.33 5.17-5.3A4.5 4.5 0 1 0 11.5 1Zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"/></svg></span>
+                        <span class="account-badge is-price">49.99 ₽</span>
+                        <span class="account-badge is-bonus">+ 5 Б</span>
+                      </div>
+                    </article>
+                    <article class="account-purchase-row">
+                      <div class="account-purchase-main">
+                        <img src="./assets/product-doom.jpg" alt="" />
+                        <div><b>DOOM 2016</b><span>12 июня 2026</span></div>
+                      </div>
+                      <div class="account-purchase-badges">
+                        <span class="account-badge is-price">49.99 ₽</span>
+                        <span class="account-badge is-bonus">+ 5 Б</span>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="account-card account-settings-preview">
+              <div class="account-card-pattern" aria-hidden="true"></div>
+              <div class="account-section-head">
+                <h2>
+                  <img src="./assets/account-page/icon-settings.svg" alt="" />
+                  Настройки
+                </h2>
+              </div>
+              <div class="account-settings-preview-grid">
+                <div class="account-field-block">
+                  <label>Логин:</label>
+                  <div class="account-field-row">
+                    <span class="account-field-value"><img src="./assets/auth-user.svg" alt="" />GhostMode_24</span>
+                    <button class="account-mini-btn" type="button">Изменить</button>
+                  </div>
+                </div>
+                <div class="account-field-block">
+                  <label>E-mail:</label>
+                  <div class="account-field-row">
+                    <span class="account-field-value"><img src="./assets/auth-mail.svg" alt="" />ivan.petrov@gmail.com</span>
+                    <button class="account-mini-btn" type="button">Изменить</button>
+                  </div>
+                </div>
+                <div class="account-field-block">
+                  <label>Пароль:</label>
+                  <div class="account-field-row">
+                    <span class="account-field-value is-masked"><img src="./assets/auth-lock.svg" alt="" />*********</span>
+                    <button class="account-mini-btn" type="button">Изменить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="account-screen" data-account-screen="history" hidden inert>
+            <div class="account-card account-history-card">
+              <div class="account-card-pattern" aria-hidden="true"></div>
+              <div class="account-section-head" style="padding-top: 24px;">
+                <h2>
+                  <img src="./assets/account-page/icon-history.svg" alt="" />
+                  История
+                </h2>
+              </div>
+              <div class="account-history-tabs" role="tablist" aria-label="Разделы истории">
+                <button class="account-history-tab is-active" type="button" role="tab" aria-selected="true">Покупки</button>
+                <button class="account-history-tab" type="button" role="tab" aria-selected="false">Начисления</button>
+                <button class="account-history-tab" type="button" role="tab" aria-selected="false">Товары за бонусы</button>
+                <button class="account-history-tab" type="button" role="tab" aria-selected="false">Выигрыши с колеса</button>
+              </div>
+              <div class="account-history-table-head">
+                <span>Наименование товара:</span>
+                <span>Дата:</span>
+                <span>Сумма:</span>
+                <span aria-hidden="true"></span>
+                <span>Статус:</span>
+                <span aria-hidden="true"></span>
+              </div>
+              <div class="account-history-row">
+                <span>Grand Theft Auto VI</span>
+                <span class="account-history-date">12:43 <span>13.08.2026</span></span>
+                <span class="account-badge is-price">49.99 ₽</span>
+                <span aria-hidden="true"></span>
+                <span class="account-status is-cancelled">Отменен</span>
+                <span aria-hidden="true"></span>
+              </div>
+              <div class="account-history-row">
+                <span>Grand Theft Auto VI</span>
+                <span class="account-history-date">12:43 <span>13.08.2026</span></span>
+                <span class="account-badge is-price">49.99 ₽</span>
+                <span aria-hidden="true"></span>
+                <span class="account-status is-pending">Ожидается оплата</span>
+                <span aria-hidden="true"></span>
+              </div>
+              <div class="account-history-row">
+                <span>Grand Theft Auto VI</span>
+                <span class="account-history-date">12:43 <span>13.08.2026</span></span>
+                <span class="account-badge is-price">49.99 ₽</span>
+                <span class="account-badge is-key" aria-label="Ключ"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 1a4.5 4.5 0 0 0-3.2 7.67L3 14l1.33 1.33 5.17-5.3A4.5 4.5 0 1 0 11.5 1Zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"/></svg></span>
+                <span class="account-status is-success">Успешно</span>
+                <button class="account-copy-icon" type="button" aria-label="Копировать">
+                  <img src="./assets/blogger-icon-copy.svg" alt="" />
+                </button>
+              </div>
+              <div class="account-history-row">
+                <span>Grand Theft Auto VI</span>
+                <span class="account-history-date">12:43 <span>13.08.2026</span></span>
+                <span class="account-badge is-price">49.99 ₽</span>
+                <span aria-hidden="true"></span>
+                <span class="account-status is-pending">Ожидается оплата</span>
+                <span aria-hidden="true"></span>
+              </div>
+              <div class="account-history-row">
+                <span>Grand Theft Auto VI</span>
+                <span class="account-history-date">12:43 <span>13.08.2026</span></span>
+                <span class="account-badge is-price">49.99 ₽</span>
+                <span class="account-badge is-key" aria-label="Ключ"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 1a4.5 4.5 0 0 0-3.2 7.67L3 14l1.33 1.33 5.17-5.3A4.5 4.5 0 1 0 11.5 1Zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"/></svg></span>
+                <span class="account-status is-success">Успешно</span>
+                <button class="account-copy-icon" type="button" aria-label="Копировать">
+                  <img src="./assets/blogger-icon-copy.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="account-screen" data-account-screen="settings" hidden inert>
+            <div class="account-card account-settings-card">
+              <div class="account-card-pattern" aria-hidden="true"></div>
+              <div class="account-settings-top">
+                <div class="account-section-head" style="padding: 0;">
+                  <h2>
+                    <img src="./assets/account-page/icon-settings.svg" alt="" />
+                    Настройки
+                  </h2>
+                </div>
+                <span class="account-saved-badge">
+                  <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7.5 9.2 8.6 10.3 11 7.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.6"/></svg>
+                  Изменения сохранены
+                </span>
+              </div>
+              <div class="account-profile-row">
+                <div class="account-avatar"><img src="./assets/account-page/avatar.png" alt="" /></div>
+                <button class="account-action-btn" type="button">Изменить фото</button>
+              </div>
+              <div class="account-settings-grid">
+                <div class="account-field-block">
+                  <label>Логин:</label>
+                  <div class="account-field-row">
+                    <span class="account-field-value"><img src="./assets/auth-user.svg" alt="" />GhostMode_24</span>
+                    <button class="account-mini-btn" type="button">Изменить</button>
+                  </div>
+                </div>
+                <div class="account-field-block">
+                  <label>E-mail:</label>
+                  <div class="account-field-row">
+                    <span class="account-field-value"><img src="./assets/auth-mail.svg" alt="" />ivan.petrov@gmail.com</span>
+                    <button class="account-mini-btn" type="button">Изменить</button>
+                  </div>
+                </div>
+                <div class="account-field-block">
+                  <label>Пароль:</label>
+                  <div class="account-field-row">
+                    <span class="account-field-value is-masked"><img src="./assets/auth-lock.svg" alt="" />*********</span>
+                    <button class="account-mini-btn" type="button">Изменить</button>
+                  </div>
+                </div>
+              </div>
+              <div class="account-settings-actions">
+                <button class="account-action-btn is-primary" type="button">Сохранить изменения</button>
+                <button class="account-action-btn" type="button">Сбросить</button>
+              </div>
+            </div>
+
+            <div class="account-card account-password-card">
+              <div class="account-card-pattern" aria-hidden="true"></div>
+              <div class="account-settings-top">
+                <div class="account-section-head" style="padding: 0;">
+                  <h2>
+                    <svg viewBox="0 0 22 22" width="22" height="22" fill="none" aria-hidden="true"><rect x="4" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 9V6a3 3 0 1 1 6 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
+                    Смена пароля
+                  </h2>
+                </div>
+                <span class="account-saved-badge">
+                  <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7.5 9.2 8.6 10.3 11 7.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.6"/></svg>
+                  Изменения сохранены
+                </span>
+              </div>
+              <div class="account-password-grid">
+                <div class="account-field-block">
+                  <label>Введите текущий пароль:</label>
+                  <div class="account-field-row"><img src="./assets/auth-lock.svg" alt="" width="20" height="20" /></div>
+                </div>
+                <div class="account-field-block">
+                  <label>Введите новый пароль:</label>
+                  <div class="account-field-row"><img src="./assets/auth-lock.svg" alt="" width="20" height="20" /></div>
+                </div>
+                <div class="account-field-block">
+                  <label>Повторите новый пароль:</label>
+                  <div class="account-field-row"><img src="./assets/auth-lock.svg" alt="" width="20" height="20" /></div>
+                </div>
+              </div>
+              <div class="account-settings-actions">
+                <button class="account-action-btn is-primary" type="button">Сохранить изменения</button>
+                <button class="account-action-btn" type="button">Сбросить</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="shell site-footer">
+        <div class="footer-top">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+          <nav>
+            <a href="#">Стать продавцом</a>
+            <a href="#">Бонусы</a>
+            <a href="#">Поддержка</a>
+            <a href="#">Гарантии</a>
+            <a href="#">Отзывы</a>
+          </nav>
+        </div>
+        <div class="footer-mid">
+          <div class="footer-social">
+            <b>PlayPapa</b>
+            <a class="social-icon" href="#" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></a>
+            <a class="footer-channel" href="#">Polk Zone</a>
+            <a class="social-icon" href="#" aria-label="TikTok"><img src="./assets/footer-tiktok.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="YouTube"><img src="./assets/footer-youtube.svg" alt="" /></a>
+          </div>
+          <div class="payments">
+            <span><img src="./assets/payment-visa.svg" alt="VISA" /></span>
+            <span><img src="./assets/payment-mir.svg" alt="МИР" /></span>
+            <span><img src="./assets/payment-mastercard.svg" alt="Mastercard" /></span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <nav>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Соглашение</a>
+            <a href="#">Договор-оферта</a>
+          </nav>
+          <span>© 2026 PlayPapa</span>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const profileMenu = document.querySelector(".profile-menu");
+      const profileButton = profileMenu?.querySelector(".profile-btn");
+      const profilePopover = document.getElementById("profilePopover");
+      const setProfileOpen = (open, returnFocus = false) => {
+        if (!profileMenu || !profilePopover || !profileButton) return;
+        profileMenu.classList.toggle("is-open", open);
+        profileButton.setAttribute("aria-expanded", open ? "true" : "false");
+        profilePopover.setAttribute("aria-hidden", open ? "false" : "true");
+        profilePopover.toggleAttribute("inert", !open);
+        if (returnFocus) profileButton.focus();
+      };
+      profileButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setProfileOpen(!profileMenu?.classList.contains("is-open"));
+      });
+      document.addEventListener("pointerdown", (event) => {
+        if (!profileMenu?.classList.contains("is-open") || profileMenu.contains(event.target)) return;
+        setProfileOpen(false);
+      });
+    </script>
+    <script src="./assets/account-page.js"></script>
+  </body>
+</html>

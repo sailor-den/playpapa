@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Пополнение баланса Steam — PlayPapa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="./assets/blogger-playpapa-logo.svg" />
+    <link rel="stylesheet" href="./frame.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./steam-topup.css" />
+    <link rel="stylesheet" href="./auth-local.css" />
+  </head>
+  <body class="steam-topup-page">
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="logo-link" href="./index.html">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+        </a>
+
+        <div class="theme-switch" aria-label="Переключение темы">
+          <button class="theme-btn is-active" type="button" data-theme="light" aria-label="Светлая тема" aria-pressed="true">
+            <img src="./assets/white-theme.svg" alt="" />
+          </button>
+          <button class="theme-btn" type="button" data-theme="dark" aria-label="Темная тема" aria-pressed="false">
+            <img src="./assets/dark-theme.svg" alt="" />
+          </button>
+        </div>
+
+        <button class="catalog-btn" type="button" aria-label="Каталог" aria-expanded="false" aria-controls="catalogMegaMenu">
+          <img src="./assets/catalog.svg" alt="" />
+          <span>Каталог</span>
+        </button>
+
+        <form class="search-form" action="#">
+          <input type="search" placeholder="Игра, приложение или услуга..." />
+          <button class="search-favorite" type="button" aria-label="Избранное">
+            <img src="./assets/favorite.svg" alt="" />
+          </button>
+          <button class="search-submit" type="submit" aria-label="Найти">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+          </button>
+        </form>
+
+        <button class="bonus-btn" type="button" aria-label="Бонусы">
+          <img src="./assets/bonus.svg" alt="Бонусы" />
+        </button>
+
+        <div class="profile-menu">
+          <button class="profile-btn" type="button" aria-label="Профиль" aria-expanded="false" aria-controls="profilePopover">
+            <img src="./assets/profile.svg" alt="" />
+            <span class="profile-toggle-indicator" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none">
+                <path d="m2 2 4 4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+
+          <section class="profile-popover" id="profilePopover" aria-hidden="true" aria-label="Меню профиля" inert>
+            <div class="profile-popover-heading">
+              <h2>Вы не авторизованы</h2>
+              <p>
+                <span>Войдите, чтобы видеть бонусы и</span>
+                <span>рефералов</span>
+              </p>
+            </div>
+
+            <nav class="profile-popover-nav" aria-label="Разделы профиля">
+              <a class="profile-menu-item" href="./account.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-profile.svg" alt="" />
+                <span>Профиль</span>
+              </a>
+              <a class="profile-menu-item" href="./referrals.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-referrals.svg" alt="" />
+                <span>Рефералы</span>
+              </a>
+              <button class="profile-menu-item" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-bonus.svg" alt="" />
+                <span>Бонусы</span>
+              </button>
+              <button class="profile-menu-item profile-help" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-help.svg" alt="" />
+                <span>Помощь</span>
+              </button>
+              <button class="profile-menu-item profile-login" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-login.svg" alt="" />
+                <span>Войти</span>
+              </button>
+            </nav>
+          </section>
+        </div>
+      </div>
+
+      <div class="catalog-layer" id="catalogMegaMenu" aria-hidden="true" inert>
+        <div class="shell catalog-mega" role="dialog" aria-label="Каталог товаров">
+          <aside class="catalog-sidebar" aria-label="Разделы каталога">
+            <button class="catalog-side-link is-active" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 8.2h9a4.5 4.5 0 0 1 4.2 6.1l-1.1 2.8a2.2 2.2 0 0 1-3.7.7l-1.2-1.5H9.3l-1.2 1.5a2.2 2.2 0 0 1-3.7-.7l-1.1-2.8a4.5 4.5 0 0 1 4.2-6.1Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 11v3m-1.5-1.5h3M16.5 11.7h.01m2 2h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Игры и игровые сервисы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2.8 8.1 5.5L12 21.2 3.9 8.3 12 2.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m3.9 8.3 5.1.2 3-5.7 3 5.7 5.1-.2M9 8.5l3 12.7 3-12.7" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <span>Игровые ценности</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6.2" y="2.5" width="11.6" height="19" rx="2.2" stroke="currentColor" stroke-width="1.8"/><path d="M10 5h4m-2 13.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Мобильные игры</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3.4 12h17.2M12 3c2.2 2.5 3.3 5.5 3.3 9S14.2 18.5 12 21c-2.2-2.5-3.3-5.5-3.3-9S9.8 5.5 12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+              <span>Сервисы и соцсети</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+            <button class="catalog-side-link" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.2" width="18" height="12.3" rx="1.8" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 20h7M12 16.5V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Программы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+          </aside>
+
+          <div class="catalog-content">
+            <section class="catalog-showcase" aria-labelledby="catalogFeaturedTitle">
+              <h2 id="catalogFeaturedTitle">Игры и игровые сервисы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogFeatured"></div>
+            </section>
+
+            <section class="catalog-showcase catalog-new" aria-labelledby="catalogNewTitle">
+              <h2 id="catalogNewTitle">Новинки и предзаказы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogNew"></div>
+            </section>
+
+            <div class="catalog-platforms">
+              <section class="catalog-link-group">
+                <h3>Steam <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="./steam-topup.html">Пополнение баланса</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Коллекционные карточки</a>
+                <a href="#">Смена региона</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>PlayStation <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">PS Plus</a>
+                <a href="#">EA Play</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Xbox <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Пополнение баланса</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">Xbox Game Pass</a>
+                <a href="#">Услуги</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Nintendo <span aria-hidden="true">›</span></h3>
+                <a href="#">Игры и DLC</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">NS Online</a>
+              </section>
+              <section class="catalog-link-group">
+                <h3>Battle.net <span aria-hidden="true">›</span></h3>
+                <a href="#">World of Warcraft</a>
+                <a href="#">Подарочные карты</a>
+                <a href="#">Прямое пополнение</a>
+                <a href="#">Новые аккаунты</a>
+                <a href="#">Смена региона</a>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="steam-topup-main">
+      <div class="steam-topup-ticker" aria-hidden="true">
+        <div class="steam-topup-ticker-track">
+          <span class="steam-topup-ticker-item"><span class="steam-topup-ticker-copy">10 минут назад user783 пополнил на</span><span class="steam-topup-ticker-badge">2500 ₽</span></span>
+          <span class="steam-topup-ticker-item"><span class="steam-topup-ticker-copy">10 минут назад user783 пополнил на</span><span class="steam-topup-ticker-badge">2500 ₽</span></span>
+          <span class="steam-topup-ticker-item"><span class="steam-topup-ticker-copy">10 минут назад user783 пополнил на</span><span class="steam-topup-ticker-badge">2500 ₽</span></span>
+          <span class="steam-topup-ticker-item"><span class="steam-topup-ticker-copy">10 минут назад user783 пополнил на</span><span class="steam-topup-ticker-badge">2500 ₽</span></span>
+          <span class="steam-topup-ticker-item"><span class="steam-topup-ticker-copy">10 минут назад user783 пополнил на</span><span class="steam-topup-ticker-badge">2500 ₽</span></span>
+          <span class="steam-topup-ticker-item"><span class="steam-topup-ticker-copy">10 минут назад user783 пополнил на</span><span class="steam-topup-ticker-badge">2500 ₽</span></span>
+        </div>
+      </div>
+
+      <div class="shell">
+        <div class="steam-topup-layout">
+          <div class="steam-topup-main-col">
+            <div class="steam-topup-banner">
+              <img src="./assets/steam-page/steam-banner.jpg" alt="" />
+              <span class="steam-topup-banner-live">Сейчас пополняют: 45</span>
+            </div>
+
+            <div class="steam-topup-tabs" role="tablist" aria-label="Способ пополнения">
+              <button class="steam-topup-tab is-active" type="button" role="tab" aria-selected="true" data-tab="login">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" fill="currentColor"/><path d="M6 20v-1a6 6 0 0 1 12 0v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                По логину
+                <span class="steam-topup-tab-badge">0% комиссия</span>
+              </button>
+              <button class="steam-topup-tab" type="button" role="tab" aria-selected="false" data-tab="gift">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.65 3.85938H9.91V6.87938C9.91 7.26938 9.59 7.57938 9.21 7.57938C8.83 7.57938 8.51 7.26938 8.51 6.87938V3.85938H7.35C3.4 3.85938 2.1 5.03937 2.01 8.72937C2 8.90937 2.08 9.09937 2.21 9.22937C2.34 9.36937 2.51 9.43937 2.71 9.43937C4.11 9.43937 5.26 10.5994 5.26 11.9994C5.26 13.3994 4.11 14.5594 2.71 14.5594C2.52 14.5594 2.34 14.6294 2.21 14.7694C2.08 14.8994 2 15.0894 2.01 15.2694C2.1 18.9594 3.4 20.1394 7.35 20.1394H8.51V17.1194C8.51 16.7294 8.83 16.4194 9.21 16.4194C9.59 16.4194 9.91 16.7294 9.91 17.1194V20.1394H16.65C20.75 20.1394 22 18.8894 22 14.7894V9.20938C22 5.10938 20.75 3.85938 16.65 3.85938ZM18.47 11.8994L17.54 12.7994C17.5 12.8294 17.49 12.8894 17.5 12.9394L17.72 14.2094C17.76 14.4394 17.67 14.6794 17.47 14.8194C17.28 14.9594 17.03 14.9794 16.82 14.8694L15.67 14.2694C15.63 14.2494 15.57 14.2494 15.53 14.2694L14.38 14.8694C14.29 14.9194 14.19 14.9394 14.09 14.9394C13.96 14.9394 13.84 14.8994 13.73 14.8194C13.54 14.6794 13.44 14.4494 13.48 14.2094L13.7 12.9394C13.71 12.8894 13.69 12.8394 13.66 12.7994L12.73 11.8994C12.56 11.7394 12.5 11.4894 12.57 11.2694C12.64 11.0394 12.83 10.8794 13.07 10.8494L14.35 10.6594C14.4 10.6494 14.44 10.6194 14.47 10.5794L15.04 9.41938C15.15 9.20938 15.36 9.07938 15.6 9.07938C15.84 9.07938 16.05 9.20938 16.15 9.41938L16.72 10.5794C16.74 10.6294 16.78 10.6594 16.83 10.6594L18.11 10.8494C18.35 10.8794 18.54 11.0494 18.61 11.2694C18.7 11.4894 18.64 11.7294 18.47 11.8994Z" fill="currentColor"/></svg>
+                Подарочная карта
+              </button>
+            </div>
+
+            <section class="steam-topup-form-panel steam-topup-form-card" data-tab-panel="login" aria-label="Пополнение по логину">
+              <div class="steam-topup-field-row">
+                <h2>Регион Steam:</h2>
+                <button class="steam-topup-help-link" type="button">
+                  Региональные ограничения
+                  <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="m3 2 4 3-4 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </button>
+              </div>
+              <div class="steam-topup-regions" role="radiogroup" aria-label="Регион Steam">
+                <button class="steam-topup-region is-active" type="button" role="radio" aria-checked="true">Россия</button>
+                <button class="steam-topup-region" type="button" role="radio" aria-checked="false">Казахстан</button>
+                <button class="steam-topup-region" type="button" role="radio" aria-checked="false">СНГ <span class="steam-topup-region-info">i</span></button>
+              </div>
+
+              <div class="steam-topup-field-row">
+                <label>Логин Steam:<span class="required">*</span></label>
+                <button class="steam-topup-help-link" type="button">
+                  Где найти Steam?
+                  <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="m3 2 4 3-4 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </button>
+              </div>
+              <label class="steam-topup-input">
+                <img src="./assets/auth-steam.svg" alt="" />
+                <input type="text" placeholder="Введите логин Steam" autocomplete="username" />
+              </label>
+
+              <p class="steam-topup-balance-label">Придёт на баланс:</p>
+              <div class="steam-topup-amount-row">
+                <label class="steam-topup-input steam-topup-amount-field">
+                  <img src="./assets/currency-ruble.svg" alt="" />
+                  <input type="text" value="5000 ₽" aria-label="Сумма пополнения" />
+                </label>
+                <div class="steam-topup-currency-tabs" role="group" aria-label="Валюта">
+                  <button type="button" aria-label="Рубль" class="is-active">₽</button>
+                  <button type="button" aria-label="Тенге">₸</button>
+                  <button type="button" aria-label="Доллар">$</button>
+                </div>
+              </div>
+              <div class="steam-topup-quick-amounts" aria-label="Быстрый выбор суммы">
+                <button type="button">500 ₽</button>
+                <button type="button">1000 ₽</button>
+                <button type="button">2500 ₽</button>
+                <button type="button" class="is-active">5000 ₽</button>
+              </div>
+              <p class="steam-topup-min-note">минимальная сумма - 100 ₽</p>
+            </section>
+
+            <section class="steam-topup-form-panel steam-topup-form-card" data-tab-panel="gift" hidden inert aria-label="Подарочная карта">
+              <div class="steam-topup-field-row">
+                <h2>Регион Steam:</h2>
+                <button class="steam-topup-help-link" type="button">
+                  Региональные ограничения
+                  <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="m3 2 4 3-4 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </button>
+              </div>
+              <div class="steam-topup-regions" role="radiogroup" aria-label="Регион Steam">
+                <button class="steam-topup-region is-active" type="button" role="radio" aria-checked="true">Россия</button>
+                <button class="steam-topup-region" type="button" role="radio" aria-checked="false">Казахстан</button>
+                <button class="steam-topup-region" type="button" role="radio" aria-checked="false">СНГ <span class="steam-topup-region-info">i</span></button>
+              </div>
+
+              <div class="steam-topup-field-row">
+                <label>Укажите email:</label>
+              </div>
+              <label class="steam-topup-input">
+                <img src="./assets/auth-mail.svg" alt="" />
+                <input type="email" placeholder="Email" autocomplete="email" />
+              </label>
+
+              <div class="steam-topup-field-row">
+                <h2>Выберите подарочную карту:</h2>
+              </div>
+              <div class="steam-topup-gift-grid" role="radiogroup" aria-label="Номинал подарочной карты">
+                <button class="steam-topup-gift-card" type="button" role="radio" aria-checked="false">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>0.16 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">0.16 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">50 ₽</span><span class="steam-topup-gift-old">249 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+                <button class="steam-topup-gift-card is-selected" type="button" role="radio" aria-checked="true">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>0.32 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">0.32 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">99 ₽</span><span class="steam-topup-gift-old">499 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+                <button class="steam-topup-gift-card" type="button" role="radio" aria-checked="false">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>0.64 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">0.64 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">199 ₽</span><span class="steam-topup-gift-old">999 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+                <button class="steam-topup-gift-card" type="button" role="radio" aria-checked="false">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>1 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">1 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">299 ₽</span><span class="steam-topup-gift-old">1499 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+                <button class="steam-topup-gift-card" type="button" role="radio" aria-checked="false">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>2 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">2 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">599 ₽</span><span class="steam-topup-gift-old">2999 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+                <button class="steam-topup-gift-card" type="button" role="radio" aria-checked="false">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>5 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">5 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">1499 ₽</span><span class="steam-topup-gift-old">7499 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+                <button class="steam-topup-gift-card" type="button" role="radio" aria-checked="false">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>10 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">10 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">2999 ₽</span><span class="steam-topup-gift-old">14999 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+                <button class="steam-topup-gift-card" type="button" role="radio" aria-checked="false">
+                  <span class="steam-topup-gift-discount">10%</span>
+                  <span class="steam-topup-gift-card-top"><small>подарочная карта:</small><strong>20 usd</strong><img src="./assets/steam-page/steam-gift-card-art.png" alt="" /></span>
+                  <span class="steam-topup-gift-card-bottom"><strong class="steam-topup-gift-usd">20 usd</strong><span class="steam-topup-gift-card-price"><span class="steam-topup-gift-current">5999 ₽</span><span class="steam-topup-gift-old">29999 ₽</span></span></span>
+                  <span class="steam-topup-gift-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                </button>
+              </div>
+            </section>
+
+            <section class="steam-topup-premo-banner" aria-label="Premium-аккаунт">
+              <img src="./assets/steam-page/premium-banner.png" alt="" />
+              <button class="steam-topup-promo-btn" type="button">Подключить</button>
+            </section>
+          </div>
+
+          <aside class="steam-topup-sidebar" aria-label="Оплата">
+            <h2>Способ оплаты:</h2>
+            <div class="topup-payment-methods" role="radiogroup" aria-label="Способ оплаты">
+              <button class="topup-payment-method is-selected" type="button" role="radio" aria-checked="true">
+                <span class="topup-payment-icon"><img src="./assets/payment-sbp.svg" alt="" /></span>
+                <span class="topup-payment-copy"><b>СБП</b><small>Без комиссии</small></span>
+                <span class="topup-payment-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <button class="topup-payment-method" type="button" role="radio" aria-checked="false">
+                <span class="topup-payment-icon"><img src="./assets/payment-mir-option.svg" alt="" /></span>
+                <span class="topup-payment-copy"><b>Карта МИР</b><small>+2% комиссия</small></span>
+                <span class="topup-payment-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <button class="topup-payment-method" type="button" role="radio" aria-checked="false">
+                <span class="topup-payment-icon"><img src="./assets/payment-btc.svg" alt="" /></span>
+                <span class="topup-payment-copy"><b>Криптовалюта</b><small>Без комиссии</small></span>
+                <span class="topup-payment-check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+            </div>
+
+            <div class="steam-topup-cashback">
+              <span class="steam-topup-cashback-badge">1 бонус = 1 рубль</span>
+              <p>100% кешбэка на стоимость пропуска</p>
+              <img src="./assets/steam-page/premium-sidebar-coin.png" alt="" />
+            </div>
+
+            <button class="steam-topup-promo-link" type="button" tabindex="-1" aria-disabled="true">
+              Ввести промокод
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+
+            <div class="steam-topup-summary-lines">
+              <div class="steam-topup-summary-line"><span>Комиссия сервиса:</span><strong>0 ₽</strong></div>
+              <div class="steam-topup-summary-line"><span>Комиссия партнёра:</span><strong>3 ₽</strong></div>
+              <div class="steam-topup-summary-line"><span>Получите на кошелёк Steam:</span><strong>1000 ₽</strong></div>
+            </div>
+            <div class="steam-topup-summary-divider"></div>
+            <div class="steam-topup-summary-total"><span>Сумма к оплате:</span><strong>1003 ₽</strong></div>
+
+            <div class="steam-topup-toggle-row">
+              <span>Пополнить без комиссии</span>
+              <button class="steam-topup-toggle is-on" type="button" aria-pressed="true" aria-label="Пополнить без комиссии"></button>
+            </div>
+
+            <div class="steam-topup-premium-box">
+              <div class="steam-topup-premium-box-head">
+                <h3>Premium-аккаунт</h3>
+                <button type="button">Подробнее</button>
+              </div>
+              <div class="steam-topup-premium-line"><span>Стоимость пропуска:</span><strong>149 ₽/мес.</strong></div>
+              <div class="steam-topup-premium-line"><span>Кэшбек:</span><strong>56</strong></div>
+              <div class="steam-topup-premium-total"><span>Итого с пропуском:</span><strong>1000 ₽</strong></div>
+            </div>
+
+            <button class="steam-topup-buy-btn" type="button">Купить без комиссии</button>
+
+            <label class="steam-topup-consent">
+              <input type="checkbox" checked />
+              <span class="steam-topup-consent-box" aria-hidden="true"></span>
+              <span>Оформляя подписку за 49 ₽/мес., вы соглашаетесь с <a href="#">условиями</a></span>
+            </label>
+
+            <p class="steam-topup-policy">Текст про политику и тд текст про политику и тд текст про политику и тд Текст про политику и тд текст про политику и тд текст про политику и тд текст про политику и тд текст про политику и тд</p>
+          </aside>
+        </div>
+
+        <section class="steam-topup-faq" aria-labelledby="steamFaqTitle">
+          <h2 id="steamFaqTitle">Частые вопросы</h2>
+          <div class="steam-topup-faq-list">
+            <article class="steam-topup-faq-item">
+              <button class="steam-topup-faq-trigger" type="button" aria-expanded="false">
+                <span class="steam-topup-faq-trigger-copy"><span class="steam-topup-faq-icon">?</span>Как это работает?</span>
+                <span class="steam-topup-faq-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <div class="steam-topup-faq-panel"><div class="steam-topup-faq-panel-inner"><div>Ответ появится позже.</div></div></div>
+            </article>
+            <article class="steam-topup-faq-item">
+              <button class="steam-topup-faq-trigger" type="button" aria-expanded="false">
+                <span class="steam-topup-faq-trigger-copy"><span class="steam-topup-faq-icon">?</span>Какие регионы можно пополнить?</span>
+                <span class="steam-topup-faq-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <div class="steam-topup-faq-panel"><div class="steam-topup-faq-panel-inner"><div>Ответ появится позже.</div></div></div>
+            </article>
+            <article class="steam-topup-faq-item">
+              <button class="steam-topup-faq-trigger" type="button" aria-expanded="false">
+                <span class="steam-topup-faq-trigger-copy"><span class="steam-topup-faq-icon">?</span>Что делать, если я ошибся в логине?</span>
+                <span class="steam-topup-faq-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <div class="steam-topup-faq-panel"><div class="steam-topup-faq-panel-inner"><div>Ответ появится позже.</div></div></div>
+            </article>
+            <article class="steam-topup-faq-item">
+              <button class="steam-topup-faq-trigger" type="button" aria-expanded="false">
+                <span class="steam-topup-faq-trigger-copy"><span class="steam-topup-faq-icon">?</span>Какие лимиты на пополнение?</span>
+                <span class="steam-topup-faq-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <div class="steam-topup-faq-panel"><div class="steam-topup-faq-panel-inner"><div>Ответ появится позже.</div></div></div>
+            </article>
+            <article class="steam-topup-faq-item">
+              <button class="steam-topup-faq-trigger" type="button" aria-expanded="false">
+                <span class="steam-topup-faq-trigger-copy"><span class="steam-topup-faq-icon">?</span>Деньги не пришли на баланс — что делать?</span>
+                <span class="steam-topup-faq-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <div class="steam-topup-faq-panel"><div class="steam-topup-faq-panel-inner"><div>Ответ появится позже.</div></div></div>
+            </article>
+            <article class="steam-topup-faq-item is-open">
+              <button class="steam-topup-faq-trigger" type="button" aria-expanded="true">
+                <span class="steam-topup-faq-trigger-copy"><span class="steam-topup-faq-icon">?</span>Что даёт пропуск?</span>
+                <span class="steam-topup-faq-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </button>
+              <div class="steam-topup-faq-panel"><div class="steam-topup-faq-panel-inner"><div>Each social media can only be linked to one platform account. You can go to Personal Center -&gt; Account Settings to link to another platform account. Once you have linked your social media account, you can log in to the trading platform using either account. Please note that linking a social media account to a platform account is an irreversible process. You will not be able to unlink your social media account in the future.</div></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="reviews-section steam-topup-reviews">
+          <div class="section-head reviews-head">
+            <div>
+              <h2><img src="./assets/icon-reviews.svg" alt="" />Последние отзывы</h2>
+              <p>Все отзывы взяты с независимой площадки</p>
+            </div>
+            <a class="show-all" href="#">Все отзывы</a>
+          </div>
+          <div class="review-grid steam-topup-review-grid">
+            <article class="steam-review-card">
+              <div class="steam-review-head">
+                <div class="steam-review-user">
+                  <img src="./assets/review-avatar.png" alt="" />
+                  <div class="steam-review-meta">
+                    <b>Bizidin</b>
+                    <time>сегодня в 11:48</time>
+                    <span class="steam-review-badge">приобрел 3 игры</span>
+                  </div>
+                </div>
+                <div class="steam-review-rating"><span>★★★★★</span>5.0</div>
+              </div>
+              <p class="steam-review-text">Отзывчивый и приятный продавец, помог не только с товаром, но и с другим вопросом.<br />Рекомендую!</p>
+              <button class="steam-review-more" type="button">
+                показать ещё
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </button>
+              <div class="steam-review-product">
+                <img src="./assets/product-doom.jpg" alt="" />
+                <b>💥 DOOM 2016 💀 STEAM KEY 🔑 РФ+СНГ</b>
+                <span>49.99 ₽</span>
+              </div>
+            </article>
+            <article class="steam-review-card">
+              <div class="steam-review-head">
+                <div class="steam-review-user">
+                  <img src="./assets/review-avatar.png" alt="" />
+                  <div class="steam-review-meta">
+                    <b>Bizidin</b>
+                    <time>сегодня в 11:48</time>
+                    <span class="steam-review-badge">приобрел 3 игры</span>
+                  </div>
+                </div>
+                <div class="steam-review-rating"><span>★★★★★</span>5.0</div>
+              </div>
+              <p class="steam-review-text">Отзывчивый и приятный продавец, помог не только с товаром, но и с другим вопросом.<br />Рекомендую!</p>
+              <button class="steam-review-more" type="button">
+                показать ещё
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </button>
+              <div class="steam-review-product">
+                <img src="./assets/product-doom.jpg" alt="" />
+                <b>💥 DOOM 2016 💀 STEAM KEY 🔑 РФ+СНГ</b>
+                <span>49.99 ₽</span>
+              </div>
+            </article>
+            <article class="steam-review-card">
+              <div class="steam-review-head">
+                <div class="steam-review-user">
+                  <img src="./assets/review-avatar.png" alt="" />
+                  <div class="steam-review-meta">
+                    <b>Bizidin</b>
+                    <time>сегодня в 11:48</time>
+                    <span class="steam-review-badge">приобрел 3 игры</span>
+                  </div>
+                </div>
+                <div class="steam-review-rating"><span>★★★★★</span>5.0</div>
+              </div>
+              <p class="steam-review-text">Отзывчивый и приятный продавец, помог не только с товаром, но и с другим вопросом.<br />Рекомендую!</p>
+              <button class="steam-review-more" type="button">
+                показать ещё
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </button>
+              <div class="steam-review-product">
+                <img src="./assets/product-doom.jpg" alt="" />
+                <b>💥 DOOM 2016 💀 STEAM KEY 🔑 РФ+СНГ</b>
+                <span>49.99 ₽</span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer class="shell site-footer">
+        <div class="footer-top">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+          <nav>
+            <a href="#">Стать продавцом</a>
+            <a href="#">Бонусы</a>
+            <a href="#">Поддержка</a>
+            <a href="#">Гарантии</a>
+            <a href="#">Отзывы</a>
+          </nav>
+        </div>
+        <div class="footer-mid">
+          <div class="footer-social">
+            <b>PlayPapa</b>
+            <a class="social-icon" href="#" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></a>
+            <a class="footer-channel" href="#">Polk Zone</a>
+            <a class="social-icon" href="#" aria-label="TikTok"><img src="./assets/footer-tiktok.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="YouTube"><img src="./assets/footer-youtube.svg" alt="" /></a>
+          </div>
+          <div class="payments">
+            <span><img src="./assets/payment-visa.svg" alt="VISA" /></span>
+            <span><img src="./assets/payment-mir.svg" alt="МИР" /></span>
+            <span><img src="./assets/payment-mastercard.svg" alt="Mastercard" /></span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <nav>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Соглашение</a>
+            <a href="#">Договор-оферта</a>
+          </nav>
+          <span>© 2026 PlayPapa</span>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const profileMenu = document.querySelector(".profile-menu");
+      const profileButton = profileMenu?.querySelector(".profile-btn");
+      const profilePopover = document.getElementById("profilePopover");
+
+      const setProfileOpen = (open, returnFocus = false) => {
+        if (!profileMenu || !profilePopover || !profileButton) return;
+        profileMenu.classList.toggle("is-open", open);
+        profileButton.setAttribute("aria-expanded", open ? "true" : "false");
+        profilePopover.setAttribute("aria-hidden", open ? "false" : "true");
+        profilePopover.toggleAttribute("inert", !open);
+        document.body.classList.toggle("profile-open", open);
+        if (returnFocus) profileButton.focus();
+      };
+
+      profileButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setProfileOpen(!profileMenu?.classList.contains("is-open"));
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!profileMenu?.classList.contains("is-open") || profileMenu.contains(event.target)) return;
+        setProfileOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        setProfileOpen(false, true);
+      });
+
+      const catalogLayer = document.getElementById("catalogMegaMenu");
+      const catalogButton = document.querySelector(".catalog-btn:not([href])");
+      const catalogSideLinks = document.querySelectorAll(".catalog-side-link");
+      const catalogFeaturedItems = [
+        ["service-steam.png", "Пополнение Steam"],
+        ["service-brawl.png", "Game Pass"],
+        ["service-steam.png", "Пополнение PSN"],
+        ["service-brawl.png", "PS Plus"],
+        ["service-pubg.png", "Grand Theft Auto V"],
+        ["service-roblox.png", "Minecraft"],
+        ["service-playstation.png", "Diablo 4"],
+        ["service-mobile.png", "ARC Raiders"],
+        ["service-chatgpt.png", "Dead by Daylight"],
+      ];
+      const catalogNewItems = [
+        ["article-paradise.png", "Gothic 1 Remake"],
+        ["article-sale.png", "Forza Horizon 6"],
+        ["product-pubg.png", "Assassin's Creed: Black..."],
+        ["article-mobile.png", "007 First Light"],
+        ["article-sale.png", "Call of Duty: Modern..."],
+        ["product-pubg.png", "Marvel's Wolverine"],
+        ["article-paradise.png", "UFC 6"],
+        ["article-sale.png", "Subnautica 2"],
+        ["product-pubg.png", "SILENT HILL: Townfall"],
+      ];
+
+      const catalogItemMarkup = ([image, label]) => `
+        <a class="catalog-showcase-item" href="#" aria-label="${label}">
+          <img src="./assets/${image}" alt="">
+          <span>${label}</span>
+        </a>
+      `;
+
+      const catalogFeatured = document.getElementById("catalogFeatured");
+      const catalogNew = document.getElementById("catalogNew");
+      if (catalogFeatured) catalogFeatured.innerHTML = catalogFeaturedItems.map(catalogItemMarkup).join("");
+      if (catalogNew) catalogNew.innerHTML = catalogNewItems.map(catalogItemMarkup).join("");
+
+      const setCatalogOpen = (open) => {
+        if (!catalogLayer || !catalogButton) return;
+        catalogLayer.classList.toggle("is-open", open);
+        catalogLayer.setAttribute("aria-hidden", open ? "false" : "true");
+        catalogLayer.toggleAttribute("inert", !open);
+        document.body.classList.toggle("catalog-open", open);
+        catalogButton.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+
+      catalogButton?.addEventListener("click", (event) => {
+        event.preventDefault();
+        setProfileOpen(false);
+        setCatalogOpen(!catalogLayer?.classList.contains("is-open"));
+      });
+
+      catalogSideLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          catalogSideLinks.forEach((item) => item.classList.toggle("is-active", item === link));
+        });
+      });
+
+      catalogLayer?.querySelectorAll('a[href="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!catalogLayer?.classList.contains("is-open")) return;
+        if (catalogLayer.contains(event.target) || catalogButton?.contains(event.target)) return;
+        setCatalogOpen(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !catalogLayer?.classList.contains("is-open")) return;
+        setCatalogOpen(false);
+        catalogButton?.focus();
+      });
+
+      document.querySelectorAll('a[href="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => event.preventDefault());
+      });
+
+      document.querySelector(".search-form")?.addEventListener("submit", (event) => event.preventDefault());
+    </script>
+    <script src="./assets/steam-topup-page.js"></script>
+    <script src="./assets/playpapa-auth.js"></script>
+  </body>
+</html>

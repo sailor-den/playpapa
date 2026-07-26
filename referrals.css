@@ -1,0 +1,614 @@
+body.referrals-page {
+  background: var(--page);
+}
+
+body.referrals-page .mobile-bottom-nav,
+body.referrals-page [data-mobile-panel] {
+  display: none;
+}
+
+.referrals-main {
+  padding: 16px 0 48px;
+}
+
+.referrals-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 693px) minmax(0, 491px);
+  gap: 16px;
+  align-items: start;
+}
+
+.referrals-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.referrals-card-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background: radial-gradient(circle at 90% 10%, rgba(38, 139, 243, 0.12), transparent 42%);
+}
+
+.referrals-promo-card {
+  min-height: 456px;
+  padding: 34px;
+}
+
+.referrals-promo-title {
+  position: relative;
+  margin: 0;
+  max-width: 574px;
+  color: var(--heading);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.referrals-promo-title-mark {
+  position: relative;
+  display: inline-block;
+}
+
+.referrals-promo-title-mark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(255, 156, 53, 0.28);
+  z-index: -1;
+}
+
+.referrals-benefits {
+  position: relative;
+  margin-top: 22px;
+  display: grid;
+  gap: 18px;
+}
+
+.referrals-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.referrals-benefit-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.referrals-code-row {
+  position: relative;
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.referrals-code-cells {
+  display: flex;
+  gap: 8px;
+}
+
+.referrals-code-cell {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--field);
+  color: var(--heading);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.referrals-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 162px;
+  height: 50px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--field);
+  color: var(--heading);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.referrals-copy-btn:hover {
+  background: var(--button-soft);
+}
+
+.referrals-copy-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.referrals-steps-title {
+  position: relative;
+  margin: 34px 0 0;
+  color: var(--heading);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.referrals-steps {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+}
+
+.referrals-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.referrals-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 24px;
+  text-align: center;
+}
+
+.referrals-stats-card {
+  padding: 24px;
+}
+
+.referrals-earned {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: var(--field);
+}
+
+.referrals-earned-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.referrals-earned-copy span {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.referrals-earned-copy strong {
+  color: var(--heading);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.referrals-withdraw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 150px;
+  height: 50px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--blue);
+  box-shadow: var(--shadow-blue);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.referrals-withdraw-btn:hover {
+  background: var(--blue-dark);
+}
+
+.referrals-withdraw-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.referrals-metrics {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.referrals-metric {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.referrals-metric-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--field);
+  display: grid;
+  place-items: center;
+}
+
+.referrals-metric-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.referrals-metric-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.referrals-metric-copy span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.referrals-metric-copy strong {
+  color: var(--heading);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.referrals-history-head {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.referrals-history-head h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.referrals-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 26px;
+  padding: 8px 10px;
+  border: 1px solid #f4f5f7;
+  border-radius: 5px;
+  background: transparent;
+  color: #a0a8b5;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.referrals-link-btn:hover {
+  background: var(--field);
+}
+
+.referrals-link-btn img {
+  width: 10px;
+  height: 10px;
+}
+
+.referrals-history-list {
+  margin-top: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.referrals-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.referrals-history-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.referrals-history-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.referrals-history-user-copy {
+  min-width: 0;
+}
+
+.referrals-history-user-copy b {
+  display: block;
+  color: var(--heading);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.referrals-history-user-copy span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.referrals-history-user-copy small {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 5px 6px;
+  border-radius: 6px;
+  background: var(--field);
+  color: var(--muted-strong);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.referrals-history-badge {
+  flex: 0 0 auto;
+  min-height: 26px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #6eb83f;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.referrals-history-badge.is-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--field);
+  color: var(--heading);
+}
+
+.referrals-history-badge.is-profile img {
+  width: 16px;
+  height: 16px;
+}
+
+.referrals-history-divider {
+  height: 1px;
+  background: var(--line);
+}
+
+.referrals-invite-banner {
+  position: relative;
+  overflow: hidden;
+  margin-top: 16px;
+  min-height: 90px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #268bf3 0%, #ff9c35 100%);
+  box-shadow: var(--shadow-card);
+}
+
+.referrals-invite-art {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 213px;
+  height: auto;
+  pointer-events: none;
+}
+
+.referrals-invite-inner {
+  position: relative;
+  z-index: 1;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 16px 20px 16px 230px;
+}
+
+.referrals-invite-copy {
+  flex: 1;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.referrals-invite-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 0 0 auto;
+}
+
+.referrals-invite-input {
+  width: 292px;
+  max-width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.referrals-invite-submit {
+  min-width: 163px;
+  height: 50px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--heading);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.referrals-invite-submit:hover {
+  background: #f4f5f7;
+}
+
+.referrals-invite-applied {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  flex: 0 0 auto;
+}
+
+.referrals-invite-applied-cells {
+  display: flex;
+  gap: 8px;
+}
+
+.referrals-invite-applied-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 7px 14px 7px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.referrals-invite-applied-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.referrals-faq {
+  margin-top: 24px;
+  padding: 17px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.referrals-faq > h2 {
+  margin: 0 0 16px;
+  color: var(--heading);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.referrals-faq-list {
+  display: grid;
+  gap: 8px;
+}
+
+.referrals-faq-item {
+  border-radius: 12px;
+  background: var(--field);
+  overflow: hidden;
+}
+
+.referrals-faq-trigger {
+  width: 100%;
+  min-height: 56px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  text-align: left;
+}
+
+.referrals-faq-trigger:hover {
+  background: var(--button-soft);
+}
+
+.referrals-faq-trigger-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--heading);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.referrals-faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 28px;
+  text-align: center;
+}
+
+.referrals-faq-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+}
+
+.referrals-faq-item.is-open .referrals-faq-arrow {
+  transform: rotate(180deg);
+}
+
+.referrals-faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.22s var(--ease);
+}
+
+.referrals-faq-item.is-open .referrals-faq-panel {
+  grid-template-rows: 1fr;
+}
+
+.referrals-faq-panel-inner {
+  overflow: hidden;
+}
+
+.referrals-faq-panel-inner > div {
+  margin: 0 14px 14px;
+  padding: 21px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--muted-strong);
+  font-size: 14px;
+  line-height: 1.55;
+}
