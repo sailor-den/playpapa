@@ -98,11 +98,19 @@
   };
 
   window.spinTo = spinTo;
-  window.BONUS_WHEEL_SECTORS = SECTORS;
+  window.BONUS_WHEEL = {
+    spinTo,
+    SECTOR_COUNT,
+    SECTORS,
+  };
 
   spinButton?.addEventListener("click", () => {
     if (isSpinning) return;
-    spinTo(0).catch(() => {});
+    const detail = { spinTo };
+    document.dispatchEvent(new CustomEvent("bonus-wheel-spin-request", { detail }));
+    if (typeof window.onBonusWheelSpinClick === "function") {
+      window.onBonusWheelSpinClick(detail);
+    }
   });
 
   const padTime = (value) => String(value).padStart(2, "0");
@@ -113,6 +121,12 @@
     const midnight = new Date(now);
     midnight.setHours(24, 0, 0, 0);
     const diff = midnight.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      timerNode.textContent = "24:00:00";
+      return;
+    }
+
     const hours = Math.floor(diff / 3600000);
     const minutes = Math.floor((diff % 3600000) / 60000);
     const seconds = Math.floor((diff % 60000) / 1000);
@@ -132,6 +146,20 @@
       winnersNode.textContent = String(winnersCount);
     }, 60000);
   }
+
+  const initLiveTicker = () => {
+    const track = document.querySelector(".bonus-live-ticker__track");
+    if (!track || track.dataset.marqueeReady === "true") return;
+
+    const items = [...track.children];
+    items.forEach((item) => {
+      track.appendChild(item.cloneNode(true));
+    });
+
+    track.dataset.marqueeReady = "true";
+  };
+
+  initLiveTicker();
 
   let lockedScrollY = 0;
 
