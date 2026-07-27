@@ -110,7 +110,9 @@
     document.dispatchEvent(new CustomEvent("bonus-wheel-spin-request", { detail }));
     if (typeof window.onBonusWheelSpinClick === "function") {
       window.onBonusWheelSpinClick(detail);
+      return;
     }
+    spinTo(0).catch(() => {});
   });
 
   const padTime = (value) => String(value).padStart(2, "0");
