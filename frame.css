@@ -349,6 +349,11 @@ body.theme-animating .site-header::before {
   background: transparent;
 }
 
+a.bonus-btn {
+  display: inline-flex;
+  text-decoration: none;
+}
+
 .bonus-btn img {
   width: 60px;
   height: 44px;

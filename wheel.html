@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Колесо бонусов — PlayPapa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="./assets/blogger-playpapa-logo.svg" />
+    <link rel="stylesheet" href="./frame.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./wheel.css" />
+    <link rel="stylesheet" href="./auth-local.css" />
+  </head>
+  <body class="wheel-page">
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="logo-link" href="./index.html">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+        </a>
+
+        <div class="theme-switch" aria-label="Переключение темы">
+          <button class="theme-btn is-active" type="button" data-theme="light" aria-label="Светлая тема" aria-pressed="true">
+            <img src="./assets/white-theme.svg" alt="" />
+          </button>
+          <button class="theme-btn" type="button" data-theme="dark" aria-label="Темная тема" aria-pressed="false">
+            <img src="./assets/dark-theme.svg" alt="" />
+          </button>
+        </div>
+
+        <button class="catalog-btn" type="button" aria-label="Каталог" aria-expanded="false" aria-controls="catalogMegaMenu">
+          <img src="./assets/catalog.svg" alt="" />
+          <span>Каталог</span>
+        </button>
+
+        <form class="search-form" action="#">
+          <input type="search" placeholder="Игра, приложение или услуга..." />
+          <button class="search-favorite" type="button" aria-label="Избранное">
+            <img src="./assets/favorite.svg" alt="" />
+          </button>
+          <button class="search-submit" type="submit" aria-label="Найти">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+          </button>
+        </form>
+
+        <button class="bonus-btn" type="button" aria-label="Бонусы">
+          <img src="./assets/bonus.svg" alt="Бонусы" />
+        </button>
+
+        <div class="profile-menu">
+          <button class="profile-btn" type="button" aria-label="Профиль" aria-expanded="false" aria-controls="profilePopover">
+            <img src="./assets/profile.svg" alt="" />
+            <span class="profile-toggle-indicator" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none">
+                <path d="m2 2 4 4 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+
+          <section class="profile-popover" id="profilePopover" aria-hidden="true" aria-label="Меню профиля" inert>
+            <div class="profile-popover-heading">
+              <h2>Вы не авторизованы</h2>
+              <p>
+                <span>Войдите, чтобы видеть бонусы и</span>
+                <span>рефералов</span>
+              </p>
+            </div>
+
+            <nav class="profile-popover-nav" aria-label="Разделы профиля">
+              <a class="profile-menu-item" href="./account.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-profile.svg" alt="" />
+                <span>Профиль</span>
+              </a>
+              <a class="profile-menu-item" href="./referrals.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-referrals.svg" alt="" />
+                <span>Рефералы</span>
+              </a>
+              <button class="profile-menu-item" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-bonus.svg" alt="" />
+                <span>Бонусы</span>
+              </button>
+              <button class="profile-menu-item profile-help" type="button">
+                <img class="profile-menu-icon" src="./assets/profile-menu-help.svg" alt="" />
+                <span>Помощь</span>
+              </button>
+              <a class="profile-menu-item profile-login" href="./login.html">
+                <img class="profile-menu-icon" src="./assets/profile-menu-login.svg" alt="" />
+                <span>Войти</span>
+              </a>
+            </nav>
+          </section>
+        </div>
+      </div>
+
+      <div class="catalog-layer" id="catalogMegaMenu" aria-hidden="true" inert>
+        <div class="shell catalog-mega" role="dialog" aria-label="Каталог товаров">
+          <aside class="catalog-sidebar" aria-label="Разделы каталога">
+            <button class="catalog-side-link is-active" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 8.2h9a4.5 4.5 0 0 1 4.2 6.1l-1.1 2.8a2.2 2.2 0 0 1-3.7.7l-1.2-1.5H9.3l-1.2 1.5a2.2 2.2 0 0 1-3.7-.7l-1.1-2.8a4.5 4.5 0 0 1 4.2-6.1Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 11v3m-1.5-1.5h3M16.5 11.7h.01m2 2h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Игры и игровые сервисы</span>
+              <span class="catalog-chevron" aria-hidden="true">›</span>
+            </button>
+          </aside>
+          <div class="catalog-content">
+            <section class="catalog-showcase" aria-labelledby="catalogFeaturedTitle">
+              <h2 id="catalogFeaturedTitle">Игры и игровые сервисы <span aria-hidden="true">›</span></h2>
+              <div class="catalog-showcase-row" id="catalogFeatured"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="bonus-live-ticker" aria-hidden="true">
+      <div class="bonus-live-ticker__track">
+        <span class="bonus-live-ticker__item"><span class="bonus-live-ticker__copy">10 минут назад user783 выиграл игру</span><span class="bonus-live-ticker__badge">GTA 6</span></span>
+        <span class="bonus-live-ticker__item"><span class="bonus-live-ticker__copy">10 минут назад user783 выиграл игру</span><span class="bonus-live-ticker__badge">GTA 6</span></span>
+        <span class="bonus-live-ticker__item"><span class="bonus-live-ticker__copy">10 минут назад user783 выиграл игру</span><span class="bonus-live-ticker__badge">GTA 6</span></span>
+        <span class="bonus-live-ticker__item"><span class="bonus-live-ticker__copy">10 минут назад user783 выиграл игру</span><span class="bonus-live-ticker__badge">GTA 6</span></span>
+        <span class="bonus-live-ticker__item"><span class="bonus-live-ticker__copy">10 минут назад user783 выиграл игру</span><span class="bonus-live-ticker__badge">GTA 6</span></span>
+        <span class="bonus-live-ticker__item"><span class="bonus-live-ticker__copy">10 минут назад user783 выиграл игру</span><span class="bonus-live-ticker__badge">GTA 6</span></span>
+      </div>
+    </div>
+
+    <main class="bonuses-main">
+      <section class="bonus-hero shell" aria-labelledby="bonusHeroTitle">
+        <div class="bonus-hero__inner">
+          <div class="bonus-hero__head">
+            <div class="bonus-hero__title-block">
+              <div class="bonus-badge">
+                <img src="./assets/wheel-page/icon-check.svg" alt="" />
+                <span>Доступен 1 прокрут бесплатно</span>
+              </div>
+              <h1 class="bonus-hero__title" id="bonusHeroTitle">
+                Испытайте
+                <span class="bonus-hero__title-accent">свою удачу!</span>
+              </h1>
+            </div>
+
+            <div class="bonus-winners" aria-live="polite">
+              <span>Сегодня выиграли:</span>
+              <strong>
+                <img src="./assets/wheel-page/icon-people.svg" alt="" />
+                <span id="bonusWinnersCount">1248</span> человек
+              </strong>
+            </div>
+          </div>
+
+          <div class="bonus-wheel-stage">
+            <img class="bonus-wheel-stage__stars" src="./assets/wheel-page/wheel-stars.png" alt="" aria-hidden="true" />
+
+            <div class="bonus-wheel" id="bonusWheel">
+              <div class="bonus-wheel__rotor" id="bonusWheelRotor" aria-hidden="true">
+                <img class="bonus-wheel__disc" src="./assets/wheel-page/wheel-full.png" alt="" draggable="false" />
+              </div>
+              <button class="bonus-wheel__spin-btn" id="bonusSpinButton" type="button" aria-label="Крутить бесплатно">
+                <img class="bonus-wheel__spin-visual" src="./assets/wheel-page/wheel-center.png" alt="" draggable="false" />
+              </button>
+            </div>
+
+            <div class="bonus-wheel__fade" aria-hidden="true"></div>
+          </div>
+
+          <div class="bonus-timer" aria-live="polite">
+            <span>до бесплатной прокрутки:</span>
+            <strong id="bonusSpinTimer">00:00:00</strong>
+          </div>
+
+          <div class="bonus-premium">
+            <div class="bonus-premium__banner">
+              <div class="bonus-premium__copy">
+                <strong>Premium-аккаунт</strong>
+                <span>+1 прокрут ежедневно</span>
+              </div>
+              <button class="bonus-premium__topup" type="button">
+                <img src="./assets/wheel-page/icon-wallet.svg" alt="" />
+                <span>Пополнить от 2000 ₽</span>
+              </button>
+            </div>
+            <button class="bonus-premium__info" type="button" aria-label="Подробнее о Premium" data-bonus-open-premium-modal>
+              <img src="./assets/wheel-page/icon-info.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="shell">
+        <section class="bonus-card bonus-free-spin" aria-labelledby="bonusFreeSpinTitle">
+          <div class="bonus-free-spin__head">
+            <div class="bonus-card__head">
+              <img src="./assets/wheel-page/icon-free-spin.svg" alt="" />
+              <div>
+                <h2 id="bonusFreeSpinTitle">Бесплатная прокрутка</h2>
+                <p>Выполните условия для получения бесплатной прокрутки</p>
+              </div>
+            </div>
+            <div class="bonus-badge bonus-free-spin__badge">
+              <img src="./assets/wheel-page/icon-check.svg" alt="" />
+              <span>Доступен 1 прокрут бесплатно</span>
+            </div>
+            <button class="bonus-card__toggle" type="button" aria-label="Свернуть блок"></button>
+          </div>
+
+          <div class="bonus-free-spin__divider" aria-hidden="true"></div>
+
+          <div class="bonus-social-row">
+            <div class="bonus-social-card">
+              <div class="bonus-social-card__copy">
+                <img src="./assets/wheel-page/icon-vk.svg" alt="" />
+                <span>Подписаться на нас в VK</span>
+              </div>
+              <button type="button" data-bonus-open-subscribe-modal data-subscribe-channel="vk">Подписаться</button>
+            </div>
+
+            <div class="bonus-social-or" aria-hidden="true">ИЛИ</div>
+
+            <div class="bonus-social-card">
+              <div class="bonus-social-card__copy">
+                <img src="./assets/wheel-page/icon-telegram.svg" alt="" />
+                <span>Подписаться на нас в Telegram</span>
+              </div>
+              <button type="button" data-bonus-open-subscribe-modal data-subscribe-channel="telegram">Подписаться</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="bonus-card" aria-label="Реферальная программа">
+          <div class="bonus-referral-bar">
+            <div class="bonus-referral-bar__copy">
+              <div class="bonus-referral-bar__icon">
+                <img src="./assets/wheel-page/icon-referrals.svg" alt="" />
+              </div>
+              <div class="bonus-referral-bar__text">
+                <strong>Реферальная программа</strong>
+                <span>Приглашай друзей, и зарабатывай бонусы</span>
+              </div>
+            </div>
+            <button class="bonus-referral-bar__btn" type="button">Пригласить</button>
+          </div>
+        </section>
+
+        <section class="bonus-prizes" aria-labelledby="bonusPrizesTitle">
+          <div class="bonus-card__head">
+            <img src="./assets/wheel-page/icon-gift.svg" alt="" />
+            <div>
+              <h2 id="bonusPrizesTitle">Возможный выигрыш</h2>
+              <p>Cписок призов</p>
+            </div>
+          </div>
+
+          <div class="bonus-prizes__grid">
+            <article class="bonus-prize-card is-green">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-gta6.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Grand Theft Auto VI</h3>
+                <p>игра в подарок</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">00.00 ₽</span>
+                  <span class="bonus-prize-card__old">1 990 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-blue">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-sims4.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Sims 4</h3>
+                <p>ключ к игре</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">126 ₽</span>
+                  <span class="bonus-prize-card__icon-btn is-blue"><img src="./assets/wheel-page/icon-key.svg" alt="" /></span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-orange">
+              <img class="bonus-prize-card__art" src="./assets/wheel-page/prize-secret.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Cекретный приз</h3>
+                <p>Раскрывается только победителям</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__icon-btn is-orange"><img src="./assets/wheel-page/icon-question.svg" alt="" /></span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-green">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-minecraft.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Minecraft</h3>
+                <p>скидка на игру</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">126 ₽</span>
+                  <span class="bonus-prize-card__discount">-75%</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-blue">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-apex.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Apex legends</h3>
+                <p>ключ к игре</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">126 ₽</span>
+                  <span class="bonus-prize-card__icon-btn is-blue"><img src="./assets/wheel-page/icon-key.svg" alt="" /></span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-purple">
+              <img class="bonus-prize-card__art" src="./assets/wheel-page/prize-bonus-balance.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Бонусный баланс</h3>
+                <p>вы можете выиграть<br />до 5000 бонусов</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__badge"><img src="./assets/wheel-page/icon-star.svg" alt="" /> бонус</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-orange">
+              <img class="bonus-prize-card__art" src="./assets/wheel-page/prize-secret.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Cекретный приз</h3>
+                <p>Раскрывается только победителям</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__icon-btn is-orange"><img src="./assets/wheel-page/icon-question.svg" alt="" /></span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-green">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-gta6.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Grand Theft Auto VI</h3>
+                <p>игра в подарок</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">126 ₽</span>
+                  <span class="bonus-prize-card__discount">-75%</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-blue">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-sims4.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Sims 4</h3>
+                <p>ключ к игре</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">126 ₽</span>
+                  <span class="bonus-prize-card__icon-btn is-blue"><img src="./assets/wheel-page/icon-key.svg" alt="" /></span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-purple">
+              <img class="bonus-prize-card__art" src="./assets/wheel-page/prize-bonus-balance.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Бонусный баланс</h3>
+                <p>вы можете выиграть<br />до 5000 бонусов</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__badge"><img src="./assets/wheel-page/icon-star.svg" alt="" /> бонус</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-green">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-minecraft.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Minecraft</h3>
+                <p>скидка на игру</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">126 ₽</span>
+                  <span class="bonus-prize-card__discount">-75%</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bonus-prize-card is-blue">
+              <img class="bonus-prize-card__cover" src="./assets/wheel-page/prize-apex.png" alt="" />
+              <div class="bonus-prize-card__body">
+                <h3>Apex legends</h3>
+                <p>ключ к игре</p>
+                <div class="bonus-prize-card__meta">
+                  <span class="bonus-prize-card__price">126 ₽</span>
+                  <span class="bonus-prize-card__icon-btn is-blue"><img src="./assets/wheel-page/icon-key.svg" alt="" /></span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="reviews-section bonus-reviews">
+          <div class="section-head reviews-head">
+            <div>
+              <h2><img src="./assets/icon-reviews.svg" alt="" />Последние отзывы</h2>
+              <p>Все отзывы взяты с независимой площадки</p>
+            </div>
+            <button class="show-all" type="button">Все отзывы</button>
+          </div>
+          <div class="review-grid">
+            <article class="review-card">
+              <div class="review-top">
+                <img src="./assets/review-avatar.png" alt="" />
+                <div><b>Bizidin</b><span>★★★★★ <strong>5.0</strong></span></div>
+                <time>Сегодня в 11:48</time>
+              </div>
+              <p class="review-text">Отзывчивый и приятный продавец, помог не только с товаром но и с другим вопросом. Рекомендую!</p>
+              <div class="review-product">
+                <img src="./assets/product-pubg.png" alt="" />
+                <b>🌸 FunTime | Полностью готовый сервер под ключ ⚡</b>
+                <span>139₽</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="review-top">
+                <img src="./assets/review-avatar.png" alt="" />
+                <div><b>Bizidin</b><span>★★★★★ <strong>5.0</strong></span></div>
+                <time>Сегодня в 11:48</time>
+              </div>
+              <p class="review-text">Отзывчивый и приятный продавец, помог не только с товаром но и с другим вопросом. Рекомендую!</p>
+              <div class="review-product">
+                <img src="./assets/product-pubg.png" alt="" />
+                <b>🌸 FunTime | Полностью готовый сервер под ключ ⚡</b>
+                <span>139₽</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="review-top">
+                <img src="./assets/review-avatar.png" alt="" />
+                <div><b>Bizidin</b><span>★★★★★ <strong>5.0</strong></span></div>
+                <time>Сегодня в 11:48</time>
+              </div>
+              <p class="review-text">Отзывчивый и приятный продавец, помог не только с товаром но и с другим вопросом. Рекомендую!</p>
+              <div class="review-product">
+                <img src="./assets/product-pubg.png" alt="" />
+                <b>🌸 FunTime | Полностью готовый сервер под ключ ⚡</b>
+                <span>139₽</span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer class="shell site-footer">
+        <div class="footer-top">
+          <img src="./assets/logo.svg" alt="PlayPapa" />
+          <nav>
+            <a href="#">Стать продавцом</a>
+            <a href="#">Бонусы</a>
+            <a href="#">Поддержка</a>
+            <a href="#">Гарантии</a>
+            <a href="#">Отзывы</a>
+          </nav>
+        </div>
+        <div class="footer-mid">
+          <div class="footer-social">
+            <b>PlayPapa</b>
+            <a class="social-icon" href="#" aria-label="VK"><img src="./assets/footer-vk.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="Telegram"><img src="./assets/footer-telegram.svg" alt="" /></a>
+            <a class="footer-channel" href="#">Polk Zone</a>
+            <a class="social-icon" href="#" aria-label="TikTok"><img src="./assets/footer-tiktok.svg" alt="" /></a>
+            <a class="social-icon" href="#" aria-label="YouTube"><img src="./assets/footer-youtube.svg" alt="" /></a>
+          </div>
+          <div class="payments">
+            <span><img src="./assets/payment-visa.svg" alt="VISA" /></span>
+            <span><img src="./assets/payment-mir.svg" alt="МИР" /></span>
+            <span><img src="./assets/payment-mastercard.svg" alt="Mastercard" /></span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <nav>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Соглашение</a>
+            <a href="#">Договор-оферта</a>
+          </nav>
+          <span>© 2026 PlayPapa</span>
+        </div>
+      </footer>
+    </main>
+
+    <section class="bonus-modal-layer" id="bonusPremiumModal" aria-hidden="true" inert>
+      <div class="bonus-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="bonusPremiumModalTitle">
+        <button class="bonus-modal-dialog__close" type="button" aria-label="Закрыть" data-bonus-modal-close>
+          <img src="./assets/wheel-page/modal-close.svg" alt="" />
+        </button>
+        <img class="bonus-modal-dialog__logo" src="./assets/wheel-page/modal-logo.png" alt="PlayPapa" />
+        <h2 id="bonusPremiumModalTitle">Плати бонусами, а не деньгами</h2>
+        <p>Крути колесо, лови бонусы и оплачивай ими пополнение Steam. 1 бонус = 1 рубль. Прокрутка бесплатная, попытка ничего не стоит.</p>
+        <p class="bonus-modal-dialog__note">Бонусы зачисляются мгновенно и не сгорают.</p>
+        <img class="bonus-modal-dialog__preview" src="./assets/wheel-page/modal-wheel-preview.png" alt="" />
+        <button class="bonus-modal-dialog__action" type="button" data-bonus-modal-action>Крутить бесплатно</button>
+      </div>
+    </section>
+
+    <section class="bonus-modal-layer" id="bonusSubscribeModal" aria-hidden="true" inert>
+      <div class="bonus-modal-dialog is-subscribe" role="dialog" aria-modal="true" aria-labelledby="bonusSubscribeModalTitle">
+        <button class="bonus-modal-dialog__close" type="button" aria-label="Закрыть" data-bonus-modal-close>
+          <img src="./assets/wheel-page/modal-close.svg" alt="" />
+        </button>
+        <h2 id="bonusSubscribeModalTitle">Подписка</h2>
+        <p>Подпишитесь на наш канал, чтобы получить бесплатную прокрутку колеса.</p>
+        <button class="bonus-modal-dialog__action" type="button" data-bonus-modal-close>Понятно</button>
+      </div>
+    </section>
+
+    <script>
+      const profileMenu = document.querySelector(".profile-menu");
+      const profileButton = profileMenu?.querySelector(".profile-btn");
+      const profilePopover = document.getElementById("profilePopover");
+      const setProfileOpen = (open, returnFocus = false) => {
+        if (!profileMenu || !profilePopover || !profileButton) return;
+        profileMenu.classList.toggle("is-open", open);
+        profileButton.setAttribute("aria-expanded", open ? "true" : "false");
+        profilePopover.setAttribute("aria-hidden", open ? "false" : "true");
+        profilePopover.toggleAttribute("inert", !open);
+        document.body.classList.toggle("profile-open", open);
+        if (returnFocus) profileButton.focus();
+      };
+      profileButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setProfileOpen(!profileMenu?.classList.contains("is-open"));
+      });
+      document.addEventListener("pointerdown", (event) => {
+        if (!profileMenu?.classList.contains("is-open") || profileMenu.contains(event.target)) return;
+        setProfileOpen(false);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        setProfileOpen(false, true);
+      });
+      const catalogLayer = document.getElementById("catalogMegaMenu");
+      const catalogButton = document.querySelector(".catalog-btn:not([href])");
+      catalogButton?.addEventListener("click", () => {
+        const open = !document.body.classList.contains("catalog-open");
+        document.body.classList.toggle("catalog-open", open);
+        catalogLayer?.setAttribute("aria-hidden", open ? "false" : "true");
+        catalogLayer?.toggleAttribute("inert", !open);
+        catalogButton.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    </script>
+    <script src="./assets/wheel-page.js"></script>
+  </body>
+</html>
