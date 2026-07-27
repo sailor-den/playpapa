@@ -985,6 +985,47 @@ body.bonus-modal-open {
   margin-top: 0;
 }
 
+@media (max-width: 767px), (max-height: 700px) {
+  .bonus-modal-layer {
+    padding: 16px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bonus-modal-dialog:not(.is-subscribe) {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 24px 20px 28px;
+  }
+
+  .bonus-modal-dialog__logo {
+    width: 100px;
+    height: 35px;
+    margin-bottom: 14px;
+  }
+
+  .bonus-modal-dialog h2 {
+    font-size: 18px;
+  }
+
+  .bonus-modal-dialog p {
+    font-size: 13px;
+  }
+
+  .bonus-modal-dialog__preview {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 21 / 11;
+  }
+
+  .bonus-modal-dialog__action {
+    margin-top: 20px;
+  }
+}
+
 @media (max-width: 767px) {
   body.wheel-page {
     min-width: 0;
