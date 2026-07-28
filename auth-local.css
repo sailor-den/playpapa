@@ -44,7 +44,7 @@
   gap: 18px;
   padding: 32px;
   border-radius: 18px;
-  background: var(--card-bg, #fff);
+  background: var(--surface);
   box-shadow: 0 24px 80px rgba(32, 40, 56, 0.14);
 }
 
@@ -59,7 +59,7 @@
 
 .auth-page-card h1 {
   margin: 0;
-  color: var(--heading, #202838);
+  color: var(--heading);
   font-size: 28px;
   font-weight: 900;
   text-align: center;
@@ -96,7 +96,7 @@
 
 .profile-facts dd {
   margin: 0;
-  color: var(--heading, #202838);
+  color: var(--heading);
   font-weight: 900;
   text-align: right;
 }

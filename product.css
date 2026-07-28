@@ -78,7 +78,7 @@
   align-items: center;
   justify-content: center;
   background: #ff4556;
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
   font-weight: 700;
   box-shadow: 0 8px 18px rgba(206, 34, 54, 0.22);
@@ -235,7 +235,7 @@
 
 .product-media-head p {
   margin: 0 0 7px;
-  color: #202838;
+  color: var(--text);
   font-size: 12px;
   font-weight: 700;
 }
@@ -392,7 +392,7 @@
 }
 
 .delivery-method strong {
-  color: #202838;
+  color: var(--text);
   font-size: 14px;
   font-weight: 800;
 }
@@ -415,7 +415,7 @@
   justify-content: center;
   gap: 10px;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 15px;
   font-weight: 700;
   box-shadow: 0 14px 28px rgba(38, 139, 243, 0.28);
@@ -502,7 +502,7 @@
   align-items: center;
   justify-content: center;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 13px;
   font-weight: 800;
 }
@@ -680,7 +680,7 @@
 }
 
 .product-page-tabs button.is-active {
-  color: #202838;
+  color: var(--text);
 }
 
 .product-page-tabs button.is-active::after {
@@ -1112,7 +1112,7 @@
   align-items: center;
   justify-content: center;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 15px;
   font-weight: 700;
   box-shadow: 0 10px 20px rgba(38, 139, 243, 0.22);
@@ -1358,7 +1358,7 @@
   align-items: center;
   justify-content: center;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 15px;
   font-weight: 700;
   box-shadow: 0 10px 20px rgba(38, 139, 243, 0.22);
@@ -1541,7 +1541,7 @@ body.checkout-modal-open {
   align-items: center;
   justify-content: center;
   background: rgba(15, 22, 34, 0.72);
-  color: #fff;
+  color: var(--surface);
   font-size: 26px;
   font-weight: 500;
   line-height: 1;
@@ -1887,7 +1887,7 @@ body.checkout-modal-open {
   border: 0;
   border-radius: 12px;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 17px;
   font-weight: 800;
   box-shadow: 0 16px 28px rgba(38, 139, 243, 0.28);
@@ -1989,7 +1989,7 @@ body.checkout-modal-open {
   border-radius: 9px;
   padding: 8px 10px;
   overflow-wrap: anywhere;
-  background: #fff;
+  background: var(--surface);
   color: #172033;
   font: 800 13px/1.4 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
@@ -2101,7 +2101,7 @@ body.checkout-modal-open {
   border: 0;
   border-radius: 13px;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 16px;
   font-weight: 700;
   box-shadow: 0 12px 24px rgba(38, 139, 243, 0.24);

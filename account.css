@@ -38,7 +38,7 @@ body.account-page [data-mobile-panel] {
   min-height: 40px;
   padding: 10px 16px;
   border: 0;
-  border-bottom: 1px solid #f4f5f7;
+  border-bottom: 1px solid var(--button-soft);
   background: transparent;
   color: var(--muted);
   font-size: 16px;
@@ -69,12 +69,12 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-nav-item:hover {
-  background: #f4f5f7;
+  background: var(--button-soft);
 }
 
 .account-nav-logout {
   margin-top: auto;
-  border-top: 1px solid #f4f5f7;
+  border-top: 1px solid var(--button-soft);
   border-bottom: 0;
 }
 
@@ -96,7 +96,7 @@ body.account-page [data-mobile-panel] {
   overflow: hidden;
   border: 1px solid #f0f2f5;
   border-radius: 12px;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   padding: 16px;
 }
@@ -160,7 +160,7 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-bonus-copy span {
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 15px;
   font-weight: 500;
 }
@@ -194,13 +194,13 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-action-btn:hover {
-  background: #f4f5f7;
+  background: var(--button-soft);
 }
 
 .account-action-btn.is-primary {
   background: #3878ff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  color: #fff;
+  color: var(--surface);
 }
 
 .account-action-btn.is-primary:hover {
@@ -251,9 +251,9 @@ body.account-page [data-mobile-panel] {
   gap: 4px;
   min-height: 26px;
   padding: 8px 10px;
-  border: 1px solid #f4f5f7;
+  border: 1px solid var(--button-soft);
   border-radius: 5px;
-  background: #fff;
+  background: var(--surface);
   color: #a0a8b5;
   font-size: 8px;
   font-weight: 600;
@@ -262,7 +262,7 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-link-btn:hover {
-  background: #f4f5f7;
+  background: var(--button-soft);
 }
 
 .account-link-btn img {
@@ -295,7 +295,7 @@ body.account-page [data-mobile-panel] {
   height: 24px;
   border-radius: 50%;
   background: linear-gradient(61.1deg, #ff8d28 0.88%, #ffcc31 100%);
-  color: #fff;
+  color: var(--surface);
   font-size: 13px;
   font-weight: 800;
   line-height: 24px;
@@ -343,7 +343,7 @@ body.account-page [data-mobile-panel] {
   min-height: 54px;
   padding: 6px 16px 6px 6px;
   border-radius: 12px;
-  background: #f4f5f7;
+  background: var(--button-soft);
 }
 
 .account-purchase-main {
@@ -371,7 +371,7 @@ body.account-page [data-mobile-panel] {
 .account-purchase-main span {
   display: block;
   margin-top: 2px;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
@@ -396,13 +396,13 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-badge.is-price {
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
 }
 
 .account-badge.is-bonus {
   background: linear-gradient(79.84deg, #ff8d28 0.88%, #ffcc31 100%);
-  color: #fff;
+  color: var(--surface);
 }
 
 .account-badge.is-key {
@@ -411,7 +411,7 @@ body.account-page [data-mobile-panel] {
   padding: 0;
   display: grid;
   place-items: center;
-  background: #268bf3;
+  background: var(--blue);
 }
 
 .account-badge.is-key img {
@@ -438,7 +438,7 @@ body.account-page [data-mobile-panel] {
   padding: 7px 12px 7px 8px;
   border-radius: 8px;
   background: #edf8e8;
-  color: #6eb83f;
+  color: var(--green);
   font-size: 10px;
   font-weight: 700;
 }
@@ -493,7 +493,7 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-field-block label {
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 12px;
   font-weight: 600;
 }
@@ -529,7 +529,7 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-field-input::placeholder {
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .account-field-input:focus {
@@ -564,7 +564,7 @@ body.account-page [data-mobile-panel] {
   padding: 8px 10px;
   border: 0;
   border-radius: 5px;
-  background: #fff;
+  background: var(--surface);
   color: #a0a8b5;
   font-size: 10px;
   font-weight: 600;
@@ -622,7 +622,7 @@ body.account-page [data-mobile-panel] {
   border: 0;
   border-radius: 10px;
   background: transparent;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
@@ -642,7 +642,7 @@ body.account-page [data-mobile-panel] {
   justify-content: center;
   padding: 10px;
   background: #3878ff;
-  color: #fff;
+  color: var(--surface);
 }
 
 .account-history-tab:hover:not(.is-active) {
@@ -668,8 +668,8 @@ body.account-page [data-mobile-panel] {
 .account-history-table-head {
   min-height: 21px;
   padding-bottom: 9px;
-  border-bottom: 1px solid #e5e9f1;
-  color: #8a94a6;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
   font-size: 12px;
   font-weight: 600;
 }
@@ -731,7 +731,7 @@ body.account-page [data-mobile-panel] {
 }
 
 .account-history-date span {
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .account-history-row .account-badge.is-price {
@@ -851,7 +851,7 @@ body.account-page [data-mobile-panel] {
   .account-nav-item {
     justify-content: center;
     border-bottom: 0;
-    border-right: 1px solid #f4f5f7;
+    border-right: 1px solid var(--button-soft);
   }
 
   .account-nav-item:last-child {
@@ -860,7 +860,7 @@ body.account-page [data-mobile-panel] {
 
   .account-nav-logout {
     margin-top: 0;
-    border-top: 1px solid #f4f5f7;
+    border-top: 1px solid var(--button-soft);
   }
 
   .account-bonus-bar {

@@ -36,7 +36,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-ticker-copy {
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
   font-weight: 600;
   line-height: 19.5px;
@@ -50,7 +50,7 @@ body.steam-topup-page [data-mobile-panel] {
   height: 26px;
   padding: 0 10px;
   border-radius: 5px;
-  background: #fff;
+  background: var(--surface);
   color: #ff8d28;
   font-size: 12px;
   font-weight: 800;
@@ -153,7 +153,7 @@ body.steam-topup-page [data-mobile-panel] {
   justify-content: center;
   gap: 8px;
   background: transparent;
-  color: #8a94a6;
+  color: var(--muted);
   font: inherit;
   font-size: 15px;
   font-weight: 700;
@@ -166,13 +166,13 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-tab.is-active[data-tab="login"] {
-  background: #268bf3;
-  color: #fff;
+  background: var(--blue);
+  color: var(--surface);
 }
 
 .steam-topup-tab.is-active[data-tab="gift"] {
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
 }
 
 .steam-topup-tab.is-active[data-tab="login"] .steam-topup-tab-badge {
@@ -181,7 +181,7 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-tabs:has([data-tab="gift"].is-active) .steam-topup-tab[data-tab="login"]:not(.is-active) {
   background: var(--surface);
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .steam-topup-tab svg {
@@ -202,7 +202,7 @@ body.steam-topup-page [data-mobile-panel] {
   align-items: center;
   justify-content: center;
   background: #f2810d;
-  color: #fff;
+  color: var(--surface);
   font-size: 10px;
   font-weight: 800;
   line-height: 1;
@@ -250,7 +250,7 @@ body.steam-topup-page [data-mobile-panel] {
 .steam-topup-help-link {
   min-height: 26px;
   padding: 8px 10px;
-  border: 1px solid #f4f5f7;
+  border: 1px solid var(--button-soft);
   border-radius: 5px;
   display: inline-flex;
   align-items: center;
@@ -291,8 +291,8 @@ body.steam-topup-page [data-mobile-panel] {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #f4f5f7;
-  color: #8a94a6;
+  background: var(--button-soft);
+  color: var(--muted);
   font: inherit;
   font-size: 12px;
   font-weight: 600;
@@ -305,7 +305,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-region.is-active {
-  border-color: #268bf3;
+  border-color: var(--blue);
   background: #eef5ff;
   color: #2c3242;
 }
@@ -317,7 +317,7 @@ body.steam-topup-page [data-mobile-panel] {
   display: grid;
   place-items: center;
   background: #a9b3c2;
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
   font-weight: 800;
 }
@@ -357,7 +357,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-input input::placeholder {
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .steam-topup-balance-label {
@@ -413,11 +413,11 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-input-clear:hover {
   background: rgba(44, 50, 66, 0.06);
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .steam-topup-input-clear:focus-visible {
-  outline: 2px solid #268bf3;
+  outline: 2px solid var(--blue);
   outline-offset: 1px;
 }
 
@@ -443,7 +443,7 @@ body.steam-topup-page [data-mobile-panel] {
   height: 36px;
   border: 0;
   border-radius: 10px;
-  background: #fff;
+  background: var(--surface);
   color: #c8cbd0;
   font: inherit;
   font-size: 16px;
@@ -453,12 +453,12 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-currency-tabs button:hover:not(.is-active) {
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .steam-topup-currency-tabs button.is-active {
-  background: #268bf3;
-  color: #fff;
+  background: var(--blue);
+  color: var(--surface);
 }
 
 .steam-topup-amount-footer {
@@ -482,8 +482,8 @@ body.steam-topup-page [data-mobile-panel] {
   padding: 8px 13px;
   border: 1px solid transparent;
   border-radius: 8px;
-  background: #f4f5f7;
-  color: #8a94a6;
+  background: var(--button-soft);
+  color: var(--muted);
   font: inherit;
   font-size: 14px;
   font-weight: 600;
@@ -498,7 +498,7 @@ body.steam-topup-page [data-mobile-panel] {
 .steam-topup-quick-amounts button.is-active {
   background: #eef5ff;
   color: #2c3242;
-  border-color: #268bf3;
+  border-color: var(--blue);
 }
 
 .steam-topup-min-note {
@@ -532,7 +532,7 @@ body.steam-topup-page [data-mobile-panel] {
   border: 2px solid transparent;
   border-radius: 10px;
   padding: 0;
-  background: #f4f5f7;
+  background: var(--button-soft);
   text-align: left;
   cursor: pointer;
   transition: border-color 0.2s var(--ease);
@@ -543,8 +543,8 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-gift-card.is-selected {
-  border-color: #6eb83f;
-  background: #f4f5f7;
+  border-color: var(--green);
+  background: var(--button-soft);
   box-shadow: none;
 }
 
@@ -559,13 +559,13 @@ body.steam-topup-page [data-mobile-panel] {
   padding: 8px;
   overflow: hidden;
   background: linear-gradient(152deg, #3573ff 0%, #8bc4ff 51.38%, #3472ff 100.82%);
-  color: #fff;
+  color: var(--surface);
 }
 
 .steam-topup-gift-card-top small {
   display: block;
   max-width: 72px;
-  color: #fff;
+  color: var(--surface);
   font-size: 10px;
   font-weight: 600;
   line-height: 1;
@@ -603,7 +603,7 @@ body.steam-topup-page [data-mobile-panel] {
   display: grid;
   place-items: center;
   background: #f2810d;
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
   font-weight: 800;
   line-height: 1;
@@ -662,8 +662,8 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-gift-card.is-selected .steam-topup-gift-check {
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
 }
 
 .steam-topup-gift-check svg {
@@ -677,7 +677,7 @@ body.steam-topup-page [data-mobile-panel] {
   margin-top: 16px;
   border: 1px solid #f0f2f5;
   border-radius: 12px;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -729,7 +729,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-promo-label {
-  color: #268bf3;
+  color: var(--blue);
   font-size: 13px;
   font-weight: 800;
   font-style: italic;
@@ -747,7 +747,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-promo-accent {
-  color: #6eb83f;
+  color: var(--green);
   font-style: italic;
 }
 
@@ -758,7 +758,7 @@ body.steam-topup-page [data-mobile-panel] {
   border: 0;
   border-radius: 12px;
   background: #eef5ff;
-  color: #268bf3;
+  color: var(--blue);
   font: inherit;
   font-size: 15px;
   font-weight: 800;
@@ -796,7 +796,7 @@ body.steam-topup-page [data-mobile-panel] {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f4f5f7;
+  background: var(--button-soft);
   box-shadow: none;
 }
 
@@ -807,8 +807,8 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-sidebar .topup-payment-method.is-selected {
-  border-color: #6eb83f;
-  background: #f4f5f7;
+  border-color: var(--green);
+  background: var(--button-soft);
 }
 
 .steam-topup-sidebar .topup-payment-icon {
@@ -816,7 +816,7 @@ body.steam-topup-page [data-mobile-panel] {
   height: 36px;
   flex: 0 0 36px;
   border-radius: 10px;
-  background: #fff;
+  background: var(--surface);
 }
 
 .steam-topup-sidebar .topup-payment-icon img {
@@ -844,7 +844,7 @@ body.steam-topup-page [data-mobile-panel] {
   font-size: 10px;
   font-weight: 600;
   line-height: 1;
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .steam-topup-sidebar .topup-payment-check {
@@ -857,8 +857,8 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-sidebar .topup-payment-method.is-selected .topup-payment-check {
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
 }
 
 .steam-topup-sidebar .topup-payment-check svg {
@@ -887,7 +887,7 @@ body.steam-topup-page [data-mobile-panel] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: var(--surface);
   color: #2c3242;
   font-size: 16px;
   font-weight: 700;
@@ -905,7 +905,7 @@ body.steam-topup-page [data-mobile-panel] {
   flex: 1 1 auto;
   min-width: 0;
   margin: 0;
-  color: #fff;
+  color: var(--surface);
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
@@ -950,7 +950,7 @@ body.steam-topup-page [data-mobile-panel] {
   justify-content: center;
   gap: 6px;
   background: transparent;
-  color: #268bf3;
+  color: var(--blue);
   font: inherit;
   font-size: 12px;
   font-weight: 700;
@@ -983,7 +983,7 @@ body.steam-topup-page [data-mobile-panel] {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 12px;
   font-weight: 500;
   line-height: 12px;
@@ -1013,7 +1013,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-summary-total strong {
-  color: #6eb83f;
+  color: var(--green);
   font-size: 16px;
   font-weight: 700;
 }
@@ -1103,7 +1103,7 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-topup-premium-box-head h3 {
   margin: 0;
-  color: #268bf3;
+  color: var(--blue);
   font-size: 14px;
   font-style: italic;
   font-weight: 700;
@@ -1114,12 +1114,12 @@ body.steam-topup-page [data-mobile-panel] {
 .steam-topup-premium-box-head button {
   min-height: 26px;
   padding: 8px 10px;
-  border: 1px solid #f4f5f7;
+  border: 1px solid var(--button-soft);
   border-radius: 5px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: #fff;
+  background: var(--surface);
   color: #a0a8b5;
   font: inherit;
   font-size: 8.5px;
@@ -1195,8 +1195,8 @@ body.steam-topup-page [data-mobile-panel] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
   font-size: 22px;
   font-weight: 700;
   line-height: 30px;
@@ -1231,8 +1231,8 @@ body.steam-topup-page [data-mobile-panel] {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #268bf3;
-  color: #fff;
+  background: var(--blue);
+  color: var(--surface);
   font: inherit;
   font-size: 15px;
   font-weight: 700;
@@ -1257,7 +1257,7 @@ body.steam-topup-page [data-mobile-panel] {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 11px;
   font-weight: 500;
   line-height: 1.3;
@@ -1279,7 +1279,7 @@ body.steam-topup-page [data-mobile-panel] {
   display: grid;
   place-items: center;
   background: #eff1f5;
-  color: #8a94a6;
+  color: var(--muted);
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
 
@@ -1290,7 +1290,7 @@ body.steam-topup-page [data-mobile-panel] {
 }
 
 .steam-topup-consent a {
-  color: #268bf3;
+  color: var(--blue);
   text-decoration: none;
 }
 
@@ -1312,7 +1312,7 @@ body.steam-topup-page [data-mobile-panel] {
   border: 1px solid #f0f2f5;
   border-radius: 12px;
   padding: 17px;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
@@ -1342,7 +1342,7 @@ body.steam-topup-page [data-mobile-panel] {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: #f4f5f7;
+  background: var(--button-soft);
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s var(--ease);
@@ -1368,8 +1368,8 @@ body.steam-topup-page [data-mobile-panel] {
   border-radius: 8px;
   display: grid;
   place-items: center;
-  background: #268bf3;
-  color: #fff;
+  background: var(--blue);
+  color: var(--surface);
   font-size: 14px;
   font-weight: 800;
   line-height: 1;
@@ -1382,7 +1382,7 @@ body.steam-topup-page [data-mobile-panel] {
   border-radius: 9999px;
   display: grid;
   place-items: center;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   transition: transform 0.22s var(--ease);
 }
@@ -1417,7 +1417,7 @@ body.steam-topup-page [data-mobile-panel] {
   border-radius: 12px;
   padding: 21px;
   background: #f8f9fb;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.625;
@@ -1503,7 +1503,7 @@ body.steam-topup-page [data-mobile-panel] {
   padding: 4px 6px;
   border-radius: 3px;
   background: #a0a8b5;
-  color: #fff;
+  color: var(--surface);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -1525,7 +1525,7 @@ body.steam-topup-page [data-mobile-panel] {
 
 .steam-review-text {
   margin: 0 0 8px;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.2;
@@ -1583,8 +1583,8 @@ body.steam-topup-page [data-mobile-panel] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
   font-size: 18px;
   font-weight: 800;
   white-space: nowrap;

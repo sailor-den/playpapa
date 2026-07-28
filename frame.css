@@ -1,7 +1,10 @@
+@import url("./colors.css");
+
 :root {
   --blue: #268bf3;
   --blue-dark: #167ee9;
-  --green: #39a22e;
+  --green: #6eb83f;
+  --green-soft: color-mix(in srgb, var(--green) 10%, transparent);
   --orange: #ff9c35;
   --red: #ef4851;
   --page: #f4f5f7;
@@ -17,6 +20,20 @@
   --heading: #111720;
   --muted: #8a94a6;
   --muted-strong: #647085;
+  --wheel-text: var(--color-2c3242);
+  --wheel-heading: var(--color-363636);
+  --wheel-blue: var(--color-3878ff);
+  --wheel-orange: var(--color-ff8d28);
+  --wheel-orange-light: var(--color-ffcc31);
+  --wheel-green-status: var(--color-34b251);
+  --wheel-green-status-bg: var(--color-e2f5e9);
+  --wheel-winners-bg: var(--color-dce9fc);
+  --wheel-premium-btn-bg: var(--color-eef5ff);
+  --wheel-premium-btn-text: var(--color-3a7aff);
+  --wheel-social-surface: var(--color-f4f7fc);
+  --wheel-border-soft: var(--color-f4f7fb);
+  --wheel-text-subtle: var(--color-76829b);
+  --wheel-text-strike: var(--color-a0a8b5);
   --shadow-soft: 0 10px 34px rgba(20, 40, 80, 0.08);
   --shadow-card: 0 10px 26px rgba(23, 31, 45, 0.07);
   --shadow-hover: 0 16px 34px rgba(23, 31, 45, 0.12);
@@ -227,7 +244,7 @@ body.theme-animating .site-header::before {
 .search-submit {
   border: 0;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-weight: 600;
   transition: transform 0.2s var(--ease), background-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -414,7 +431,7 @@ a.bonus-btn {
   display: grid;
   place-items: center;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   box-shadow: 0 4px 10px rgba(25, 96, 170, 0.25);
 }
 

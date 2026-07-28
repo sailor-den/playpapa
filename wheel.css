@@ -20,7 +20,7 @@ body.bonus-modal-open {
   z-index: 2;
   height: 30px;
   overflow: hidden;
-  background: linear-gradient(10.63deg, var(--orange) 0.88%, #ffcc31 100%);
+  background: linear-gradient(10.63deg, var(--wheel-orange) 0.88%, var(--wheel-orange-light) 100%);
 }
 
 .bonus-live-ticker__track {
@@ -71,7 +71,7 @@ body.bonus-modal-open {
   padding: 0 10px;
   border-radius: 5px;
   background: var(--surface);
-  color: var(--orange);
+  color: var(--wheel-orange);
   font-size: 12px;
   font-weight: 800;
   line-height: 1;
@@ -113,8 +113,8 @@ body.bonus-modal-open {
   margin-bottom: 12px;
   border-radius: 7px;
   padding: 7px 8px;
-  background: #e2f5e9;
-  color: #34b251;
+  background: var(--wheel-green-status-bg);
+  color: var(--wheel-green-status);
   font-size: 15px;
   font-weight: 700;
 }
@@ -127,7 +127,7 @@ body.bonus-modal-open {
 .bonus-hero__title {
   position: relative;
   margin: 0;
-  color: var(--text);
+  color: var(--wheel-text);
   font-size: 35px;
   font-weight: 700;
   line-height: 1;
@@ -141,7 +141,7 @@ body.bonus-modal-open {
   padding: 6px 20px 6px 10px;
   border-radius: 7px;
   overflow: hidden;
-  background: linear-gradient(85deg, var(--orange) 0.88%, #ffcc31 100%);
+  background: linear-gradient(85deg, var(--wheel-orange) 0.88%, var(--wheel-orange-light) 100%);
   font-style: italic;
   color: var(--surface);
 }
@@ -150,7 +150,7 @@ body.bonus-modal-open {
   width: 186px;
   border-radius: 7px;
   padding: 11px 16px;
-  background: #dce9fc;
+  background: var(--wheel-winners-bg);
   text-align: center;
   margin-top: -37px;
 }
@@ -158,7 +158,7 @@ body.bonus-modal-open {
 .bonus-winners>span {
   display: block;
   margin-bottom: 4px;
-  color: var(--blue);
+  color: var(--wheel-blue);
   font-size: 12px;
   font-weight: 600;
 }
@@ -171,7 +171,7 @@ body.bonus-modal-open {
   min-height: 40px;
   border-radius: 6px;
   padding: 10px;
-  background: var(--blue);
+  background: var(--wheel-blue);
   color: var(--surface);
   font-size: 14px;
   font-weight: 700;
@@ -304,7 +304,7 @@ body.bonus-modal-open {
   width: 120%;
   height: var(--bonus-wheel-fade-height);
   transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(254, 254, 254, 0.00) 30.8%, #FEFEFE 100%);
+  background: linear-gradient(180deg, var(--alpha-254-254-254-0-00) 30.8%, var(--color-fefefe) 100%);
   pointer-events: none;
 }
 
@@ -324,7 +324,7 @@ body.bonus-modal-open {
 }
 
 .bonus-timer strong {
-  color: var(--text);
+  color: var(--wheel-text);
   font-size: 30px;
   font-weight: 700;
   letter-spacing: -0.6px;
@@ -335,29 +335,37 @@ body.bonus-modal-open {
   z-index: 4;
   display: flex;
   align-items: center;
-  gap: 20px;
-  width: min(100%, 508px);
+  justify-content: center;
+  width: 100%;
+  max-width: 508px;
   margin: 18px auto 0;
+  --premium-banner-width: 430px;
+  --premium-info-size: 59px;
+  --premium-info-gap: 20px;
+  --premium-shift: calc((var(--premium-info-size) + var(--premium-info-gap)) / 2);
+  gap: var(--premium-info-gap);
+  transform: translateX(var(--premium-shift));
 }
 
 .bonus-premium__banner {
   display: flex;
-  flex: 1;
+  flex: 0 1 auto;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  width: min(var(--premium-banner-width), calc(100% - var(--premium-info-size) - var(--premium-info-gap)));
   min-width: 0;
   min-height: 60px;
-  border: 1px solid #c5dcfa;
+  border: 1px solid var(--color-c5dcfa);
   border-radius: 10px;
   overflow: hidden;
   padding: 10px 10px 10px 18px;
-  background: radial-gradient(222.75% 87.45% at 32.02% 50%, rgba(234, 251, 255, 0.50) 0%, rgba(202, 238, 255, 0.50) 21.19%, rgba(98, 155, 255, 0.50) 100%);
+  background: radial-gradient(222.75% 87.45% at 32.02% 50%, var(--alpha-234-251-255-0-50) 0%, var(--alpha-202-238-255-0-50) 21.19%, var(--alpha-98-155-255-0-50) 100%);
 }
 
 .bonus-premium__copy strong {
   display: block;
-  color: var(--text);
+  color: var(--wheel-text);
   font-size: 14px;
   font-style: italic;
   font-weight: 800;
@@ -365,7 +373,7 @@ body.bonus-modal-open {
 }
 
 .bonus-premium__copy span {
-  color: var(--text);
+  color: var(--wheel-text);
   font-size: 12px;
   font-weight: 600;
 }
@@ -378,10 +386,10 @@ body.bonus-modal-open {
   gap: 8px;
   min-width: 230px;
   height: 40px;
-  border: 1px solid #c5dcfa;
+  border: 1px solid var(--color-c5dcfa);
   border-radius: 8px;
-  background: var(--surface);
-  color: var(--blue);
+  background: var(--wheel-premium-btn-bg);
+  color: var(--wheel-premium-btn-text);
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -389,7 +397,7 @@ body.bonus-modal-open {
 }
 
 .bonus-premium__topup:hover {
-  background: #f8fbff;
+  background: var(--color-f8fbff);
 }
 
 .bonus-premium__topup img {
@@ -401,17 +409,17 @@ body.bonus-modal-open {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 59px;
-  height: 59px;
+  width: var(--premium-info-size);
+  height: var(--premium-info-size);
   border: 0;
   border-radius: 10.5px;
-  background: #dfecfa;
+  background: var(--color-dfecfa);
   cursor: pointer;
   transition: background-color 0.2s var(--ease);
 }
 
 .bonus-premium__info:hover {
-  background: #d2e4f8;
+  background: var(--color-d2e4f8);
 }
 
 .bonus-premium__info img {
@@ -442,7 +450,7 @@ body.bonus-modal-open {
 
 .bonus-card__head h2 {
   margin: 0 0 8px;
-  color: #363636;
+  color: var(--wheel-heading);
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -503,7 +511,7 @@ body.bonus-modal-open {
 .bonus-free-spin__divider {
   height: 1px;
   margin: 11px;
-  background: #f4f5f7;
+  background: var(--button-soft);
 }
 
 .bonus-social-row {
@@ -522,14 +530,14 @@ body.bonus-modal-open {
   min-height: 70px;
   border-radius: 10px;
   padding: 11px 15px 11px 11px;
-  background: #f4f7fc;
+  background: var(--wheel-social-surface);
 }
 
 .bonus-social-card__copy {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text);
+  color: var(--wheel-text);
   font-size: 14px;
   font-weight: 700;
 }
@@ -544,7 +552,7 @@ body.bonus-modal-open {
   height: 40px;
   border: 0;
   border-radius: 10px;
-  background: var(--blue);
+  background: var(--wheel-blue);
   color: var(--surface);
   font-size: 14px;
   font-weight: 700;
@@ -561,9 +569,9 @@ body.bonus-modal-open {
   place-items: center;
   width: 70px;
   height: 70px;
-  border: 1px solid #f4f7fb;
+  border: 1px solid var(--wheel-border-soft);
   border-radius: 10px;
-  color: #76829b;
+  color: var(--wheel-text-subtle);
   font-size: 12px;
   font-weight: 700;
 }
@@ -589,7 +597,7 @@ body.bonus-modal-open {
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: rgba(110, 184, 63, 0.1);
+  background: var(--green-soft);
 }
 
 .bonus-referral-bar__icon img {
@@ -599,7 +607,7 @@ body.bonus-modal-open {
 
 .bonus-referral-bar__text strong {
   display: block;
-  color: var(--text);
+  color: var(--wheel-text);
   font-size: 16px;
   font-weight: 700;
 }
@@ -675,26 +683,26 @@ body.bonus-modal-open {
 }
 
 .bonus-prize-card.is-green {
-  border-color: #d5edc6;
-  background: #f1ffe7;
+  border-color: var(--color-d5edc6);
+  background: var(--color-f1ffe7);
 }
 
 .bonus-prize-card.is-blue {
   border-width: 3px;
-  border-color: #d7e7ff;
-  background: #eef5ff;
+  border-color: var(--color-d7e7ff);
+  background: var(--color-eef5ff);
 }
 
 .bonus-prize-card.is-orange {
   border-width: 3px;
-  border-color: #fae8cc;
-  background: radial-gradient(circle at 40% 2%, #fff8ed 0%, #fff0d8 31%);
+  border-color: var(--color-fae8cc);
+  background: radial-gradient(circle at 40% 2%, var(--color-fff8ed) 0%, var(--color-fff0d8) 31%);
 }
 
 .bonus-prize-card.is-purple {
   border-width: 3px;
-  border-color: #f1dcfb;
-  background: #f6eeff;
+  border-color: var(--color-f1dcfb);
+  background: var(--color-f6eeff);
 }
 
 .bonus-prize-card.is-purple .bonus-prize-card__art,
@@ -747,7 +755,7 @@ body.bonus-modal-open {
 
 .bonus-prize-card__body h3 {
   margin: 0 0 6px;
-  color: var(--text);
+  color: var(--wheel-text);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.1;
@@ -787,7 +795,7 @@ body.bonus-modal-open {
 }
 
 .bonus-prize-card__old {
-  color: #a0a8b5;
+  color: var(--wheel-text-strike);
   font-size: 12px;
   font-weight: 600;
   text-decoration: line-through;
@@ -808,15 +816,15 @@ body.bonus-modal-open {
 }
 
 .bonus-prize-card__icon-btn.is-blue {
-  background: var(--blue);
+  background: var(--wheel-blue);
 }
 
 .bonus-prize-card__icon-btn.is-orange {
-  background: var(--orange);
+  background: var(--wheel-orange);
 }
 
 .bonus-prize-card__icon-btn.is-pink {
-  background: #f17bcf;
+  background: var(--color-f17bcf);
 }
 
 .bonus-prize-card__icon-btn img {
@@ -831,8 +839,8 @@ body.bonus-modal-open {
   min-height: 26px;
   border-radius: 6px;
   padding: 6px 10px;
-  background: #f17bcf;
-  color: #fff;
+  background: var(--color-f17bcf);
+  color: var(--surface);
   font-size: 18px;
   font-weight: 700;
 }
@@ -863,7 +871,7 @@ body.bonus-modal-open {
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgba(15, 23, 42, 0.56);
+  background: var(--alpha-15-23-42-0-56);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s var(--ease), visibility 0.2s var(--ease);
@@ -901,7 +909,7 @@ body.bonus-modal-open {
 .bonus-modal-dialog h2 {
   flex-shrink: 0;
   margin: 0 0 10px;
-  color: #1f2937;
+  color: var(--color-1f2937);
   font-size: 21px;
   font-weight: 800;
   text-align: center;
@@ -910,7 +918,7 @@ body.bonus-modal-open {
 .bonus-modal-dialog p {
   flex-shrink: 0;
   margin: 0 0 10px 0;
-  color: #2c3242;
+  color: var(--wheel-text);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
@@ -919,7 +927,7 @@ body.bonus-modal-open {
 
 .bonus-modal-dialog__note {
   margin-top: 10px !important;
-  color: #7a8290 !important;
+  color: var(--color-7a8290) !important;
   font-size: 13px !important;
 }
 
@@ -944,7 +952,7 @@ body.bonus-modal-open {
   height: 36px;
   border: 0;
   border-radius: 11px;
-  background: #f1f3f5;
+  background: var(--color-f1f3f5);
   cursor: pointer;
 }
 
@@ -963,7 +971,7 @@ body.bonus-modal-open {
   margin-top: auto;
   border: 0;
   border-radius: 11px;
-  background: var(--blue);
+  background: var(--wheel-blue);
   color: var(--surface);
   font-size: 15px;
   font-weight: 700;
@@ -1069,6 +1077,7 @@ body.bonus-modal-open {
 
   .bonus-hero__title {
     font-size: 24px;
+    max-width: 310px;
   }
 
   .bonus-badge {
@@ -1152,10 +1161,21 @@ body.bonus-modal-open {
   }
 
   .bonus-premium {
-    width: fit-content;
+    --premium-banner-width: 258px;
+    --premium-info-size: 35px;
+    --premium-info-gap: 8px;
+    --premium-shift: calc((var(--premium-info-size) + var(--premium-info-gap)) / 2);
+    max-width: none;
+    width: 100%;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: var(--premium-info-gap);
+    transform: translateX(
+      min(
+        var(--premium-shift),
+        calc((100% - var(--premium-banner-width) - var(--premium-info-size) - var(--premium-info-gap)) / 2)
+      )
+    );
   }
 
   .bonus-premium__copy strong {
@@ -1167,6 +1187,8 @@ body.bonus-modal-open {
   }
 
   .bonus-premium__banner {
+    width: min(var(--premium-banner-width), calc(100% - var(--premium-info-size) - var(--premium-info-gap)));
+    flex: 0 0 auto;
     height: 36px;
     min-height: auto;
     flex-direction: row;
@@ -1174,7 +1196,7 @@ body.bonus-modal-open {
     padding: 6px 6px 6px 12px;
     gap: 8px;
     border-radius: 6px;
-    background: radial-gradient(222.75% 87.45% at 32.02% 50%, rgba(234, 251, 255, 0.50) 0%, rgba(202, 238, 255, 0.50) 21.19%, rgba(98, 155, 255, 0.50) 100%);
+    background: radial-gradient(222.75% 87.45% at 32.02% 50%, var(--alpha-234-251-255-0-50) 0%, var(--alpha-202-238-255-0-50) 21.19%, var(--alpha-98-155-255-0-50) 100%);
   }
 
   .bonus-premium__copy {
@@ -1185,10 +1207,10 @@ body.bonus-modal-open {
   .bonus-premium__info {
     align-self: center;
     margin-top: 0;
-    width: 35px;
+    width: var(--premium-info-size);
     height: 36px;
     border-radius: 6.24px;
-    background: #DFECFA;
+    background: var(--color-dfecfa);
   }
 
   .bonus-premium__info img {
@@ -1206,7 +1228,7 @@ body.bonus-modal-open {
     gap: 6px;
     font-size: 8px;
     border-radius: 4.8px;
-    background: #EEF5FF;
+    background: var(--wheel-premium-btn-bg);
   }
 
   .bonus-premium__topup span {
@@ -1268,7 +1290,7 @@ body.bonus-modal-open {
     height: 27.2px;
     min-width: 90px;
     border-radius: 6.8px;
-    background: var(--blue);
+    background: var(--wheel-blue);
   }
 
   .bonus-free-spin__divider {
@@ -1300,7 +1322,7 @@ body.bonus-modal-open {
     min-height: 48px;
     padding: 6px 10px 7px 9px;
     gap: 12px;
-    background: #f4f7fc;
+    background: var(--wheel-social-surface);
     border-radius: 10px;
   }
 

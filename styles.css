@@ -105,7 +105,7 @@
 .auth-primary {
   border: 0;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-weight: 600;
   transition: transform 0.2s var(--ease), background-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -165,7 +165,7 @@
   position: relative;
   height: 263px;
   overflow: hidden;
-  border: 1px solid #e5e9f1;
+  border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--surface);
 }
@@ -193,7 +193,7 @@
   z-index: 2;
   width: 126px;
   height: 56px;
-  border: 2px solid #e5e9f1;
+  border: 2px solid var(--line);
   border-radius: 999px;
   background: #f7f8fa;
   box-shadow: 0 10px 22px rgba(23, 31, 45, 0.08);
@@ -250,7 +250,7 @@
 }
 
 .hero-dots span:first-child {
-  background: #fff;
+  background: var(--surface);
 }
 
 .hero-dots span:nth-child(n + 4) {
@@ -406,7 +406,7 @@
   align-items: center;
   justify-content: center;
   background: #60b642;
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
 }
 
@@ -534,7 +534,7 @@
   display: grid;
   place-items: center;
   background: #7c879a;
-  color: #fff;
+  color: var(--surface);
 }
 
 .currency-mark .currency-icon-ruble {
@@ -599,7 +599,7 @@
 
 .currency-tabs button.is-active {
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
 }
 
 .pay-btn {
@@ -693,7 +693,7 @@
 .topup-quick-amounts button.is-active {
   border-color: var(--blue);
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
 }
 
 .topup-expand {
@@ -816,7 +816,7 @@
   align-items: center;
   gap: 14px;
   background: #69bd39;
-  color: #fff;
+  color: var(--surface);
   opacity: 0;
   transform: translateY(-5px);
   transition: max-height 0.28s var(--ease), margin-top 0.28s var(--ease), padding 0.28s var(--ease), opacity 0.2s ease, transform 0.28s var(--ease);
@@ -849,7 +849,7 @@
 .topup-promo-benefit strong span {
   border-radius: 6px;
   padding: 3px 7px;
-  background: #fff;
+  background: var(--surface);
   color: #61b334;
 }
 
@@ -970,7 +970,7 @@
 
 .topup-payment-method.is-selected .topup-payment-check {
   background: #69bd39;
-  color: #fff;
+  color: var(--surface);
 }
 
 .topup-total-row {
@@ -1013,7 +1013,7 @@
   display: inline-flex;
   align-items: center;
   background: #69bd39;
-  color: #fff;
+  color: var(--surface);
   font-size: 11px;
   font-weight: 600;
 }
@@ -1134,7 +1134,7 @@
 .chip:hover,
 .chip.is-active {
   background: #398bfa;
-  color: #fff;
+  color: var(--surface);
   box-shadow: 0 10px 24px rgba(57, 139, 250, 0.24);
 }
 
@@ -1218,7 +1218,7 @@
   border-radius: 0 13px 0 9px;
   display: grid;
   place-items: center;
-  color: #fff;
+  color: var(--surface);
   font-size: 12px;
   font-weight: 600;
   box-shadow: 0 6px 12px rgba(20, 24, 36, 0.16);
@@ -1292,7 +1292,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(180deg, #4a90ff 0%, #2f6bff 100%);
-  color: #fff;
+  color: var(--surface);
   box-shadow: 0px 6.33px 14.24px 0px #2f6bff66;
   font-size: 14px;
   font-weight: 700;
@@ -1302,7 +1302,7 @@
 .product-body button:hover,
 .product-body a:hover {
   background: linear-gradient(180deg, #4a90ff 0%, #2f6bff 100%);
-  color: #fff;
+  color: var(--surface);
   box-shadow: 0px 6.33px 14.24px 0px #2f6bff66;
 }
 
@@ -1355,7 +1355,7 @@
   justify-content: center;
   overflow: visible;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 15px;
   font-weight: 600;
   isolation: isolate;
@@ -1425,7 +1425,7 @@
   border-radius: 8px;
   padding: 0 14px 0 16px;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
 }
 
 .coupon-text,
@@ -1490,7 +1490,7 @@
 }
 
 .coupon-stat b {
-  color: #fff;
+  color: var(--surface);
 }
 
 .stat-item small {
@@ -1647,7 +1647,7 @@
   align-items: center;
   justify-content: center;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-size: 13px;
   font-weight: 600;
 }
@@ -1794,7 +1794,7 @@
   display: grid;
   place-items: center;
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
   font-weight: 600;
 }
 
@@ -2094,7 +2094,7 @@
 }
 
 .auth-social-vk {
-  background: #268bf3;
+  background: var(--blue);
 }
 
 .auth-social-steam {
@@ -2156,8 +2156,8 @@
   content: "";
   width: 10px;
   height: 6px;
-  border-left: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-left: 2px solid var(--surface);
+  border-bottom: 2px solid var(--surface);
   transform: translateY(-1px) rotate(-45deg);
 }
 
@@ -2286,7 +2286,7 @@
   align-items: center;
   justify-content: center;
   gap: 14px;
-  color: #fff;
+  color: var(--surface);
   font-size: 15px;
   font-weight: 700;
   white-space: nowrap;
@@ -2607,7 +2607,7 @@ html[data-theme="dark"] .auth-status-error {
 
   .topup-row .currency-tabs button.is-active {
     background: var(--blue);
-    color: #fff;
+    color: var(--surface);
   }
 
   .pay-btn {
@@ -2732,7 +2732,7 @@ html[data-theme="dark"] .auth-status-error {
   .topup-row .topup-quick-popover-buttons button.is-active {
     border-color: var(--blue);
     background: var(--blue);
-    color: #fff;
+    color: var(--surface);
   }
 
   html[data-theme="dark"] .topup-row {
@@ -2790,7 +2790,7 @@ html[data-theme="dark"] .auth-status-error {
   html[data-theme="dark"] .topup-row .currency-tabs button.is-active,
   html[data-theme="dark"] .topup-row .topup-quick-popover-buttons button.is-active {
     background: var(--blue);
-    color: #fff;
+    color: var(--surface);
   }
 
   html[data-theme="dark"] .topup-row .topup-quick-popover-buttons button {

@@ -62,7 +62,7 @@
   justify-content: center;
   gap: 0;
   background: var(--field);
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
@@ -340,7 +340,7 @@
   height: 14px;
   border: 1px solid #cfd8e7;
   border-radius: 50%;
-  background: #fff;
+  background: var(--surface);
 }
 
 .filter-range i {
@@ -379,7 +379,7 @@
   margin-top: 29px;
   border-radius: 9px;
   background: linear-gradient(180deg, #5b8df7 0%, #406bf6 100%);
-  color: #fff;
+  color: var(--surface);
   font-size: 14px;
   box-shadow: 0 12px 22px rgba(50, 116, 239, 0.22);
 }
@@ -446,7 +446,7 @@
 .catalog-category-tabs .chip.is-active,
 .catalog-category-tabs .chip:hover {
   background: linear-gradient(180deg, #5b8df7 0%, #406bf6 100%);
-  color: #fff;
+  color: var(--surface);
   box-shadow: 0 12px 22px rgba(50, 116, 239, 0.22);
 }
 
@@ -627,7 +627,7 @@
   align-content: center;
   gap: 8px;
   background: var(--surface);
-  color: #8a94a6;
+  color: var(--muted);
   text-align: center;
 }
 
@@ -783,7 +783,7 @@
   display: grid;
   place-items: center;
   background: #7c879a;
-  color: #fff;
+  color: var(--surface);
   font-size: 11px;
   font-weight: 700;
 }
@@ -827,12 +827,12 @@
 
 .catalog-topup-tabs button.is-active {
   background: #3c83f7;
-  color: #fff;
+  color: var(--surface);
 }
 
 .catalog-topup-pay {
   background: linear-gradient(180deg, #5b8df7 0%, #406bf6 100%);
-  color: #fff;
+  color: var(--surface);
   font-size: 11px;
   font-weight: 700;
   box-shadow: 0 8px 15px rgba(47, 111, 246, 0.22);
@@ -902,7 +902,7 @@
 .catalog-topup-row .currency-mark,
 .catalog-topup-row .pay-btn,
 .catalog-topup-row .currency-tabs button.is-active {
-  color: #fff;
+  color: var(--surface);
 }
 
 .catalog-product-grid-secondary {
@@ -1046,7 +1046,7 @@ html[data-theme="dark"] .catalog-page .filter-range b {
 
 html[data-theme="dark"] .catalog-page .catalog-category-tabs .chip.is-active,
 html[data-theme="dark"] .catalog-page .catalog-category-tabs .chip:hover {
-  color: #fff;
+  color: var(--surface);
   background: linear-gradient(180deg, #4a90ff 0%, #2f6bff 100%);
   box-shadow: 0px 6.33px 14.24px 0px #2f6bff66;
 }
@@ -1096,12 +1096,12 @@ html[data-theme="dark"] .catalog-page .catalog-topup-tabs button {
 
 html[data-theme="dark"] .catalog-page .catalog-topup-tabs button.is-active {
   background: #3c83f7;
-  color: #fff;
+  color: var(--surface);
 }
 
 html[data-theme="dark"] .catalog-page .catalog-topup-row .currency-tabs button.is-active {
   background: var(--blue);
-  color: #fff;
+  color: var(--surface);
 }
 
 html[data-theme="dark"] .catalog-page .catalog-topup-pay,
@@ -1434,7 +1434,7 @@ html[data-theme="dark"] .catalog-page .catalog-loader {
     height: 18px;
     border: 2px solid #cfd7e3;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--surface);
   }
 
   body.catalog-mobile-filter-open .filter-check:has(input:checked)::before,
@@ -1497,7 +1497,7 @@ html[data-theme="dark"] .catalog-page .catalog-loader {
   body.catalog-mobile-filter-open .filter-reset {
     order: 1;
     background: #eef2f7;
-    color: #8a94a6;
+    color: var(--muted);
   }
 
   body.catalog-mobile-filter-open .filter-apply {
@@ -1647,7 +1647,7 @@ html[data-theme="dark"] .catalog-page .catalog-loader {
     padding: 0 12px;
     gap: 6px;
     background: linear-gradient(180deg, #4a90ff 0%, #2f6bff 100%);
-    color: #fff;
+    color: var(--surface);
     font-size: 11px;
     box-shadow: 0px 6.33px 14.24px 0px #2f6bff66;
   }

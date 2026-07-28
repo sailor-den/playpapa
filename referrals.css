@@ -23,7 +23,7 @@ body.referrals-page [data-mobile-panel] {
   overflow: hidden;
   border: 1px solid #f0f2f5;
   border-radius: 12px;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -92,7 +92,7 @@ body.referrals-page [data-mobile-panel] {
   padding: 0 20px;
   border-radius: 7px;
   background: linear-gradient(61.1deg, #ff8d28 0.88%, #ffcc31 100%);
-  color: #fff;
+  color: var(--surface);
 }
 
 .referrals-benefits {
@@ -129,7 +129,7 @@ body.referrals-page [data-mobile-panel] {
   padding: 2px 6px;
   border-radius: 5px;
   background: linear-gradient(180deg, #4a90ff 0%, #2f6bff 100%);
-  color: #fff;
+  color: var(--surface);
   font-weight: 700;
 }
 
@@ -156,7 +156,7 @@ body.referrals-page [data-mobile-panel] {
   display: grid;
   place-items: center;
   background: #eff1f5;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 28px;
   font-weight: 700;
   line-height: 1;
@@ -172,8 +172,8 @@ body.referrals-page [data-mobile-panel] {
   padding: 0 20px;
   border: 0;
   border-radius: 10px;
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
   font: inherit;
   font-size: 13px;
   font-weight: 700;
@@ -229,7 +229,7 @@ body.referrals-page [data-mobile-panel] {
   display: grid;
   place-items: center;
   background: #ff8d28;
-  color: #fff;
+  color: var(--surface);
   font-size: 13px;
   font-weight: 700;
   line-height: 1;
@@ -256,7 +256,7 @@ body.referrals-page [data-mobile-panel] {
 }
 
 .referrals-earned-copy span {
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
@@ -278,7 +278,7 @@ body.referrals-page [data-mobile-panel] {
   padding: 0 30px;
   border: 0;
   border-radius: 10px;
-  background: #fff;
+  background: var(--surface);
   color: #3878ff;
   font: inherit;
   font-size: 13px;
@@ -288,7 +288,7 @@ body.referrals-page [data-mobile-panel] {
 }
 
 .referrals-withdraw-btn:hover {
-  background: #f4f5f7;
+  background: var(--button-soft);
 }
 
 .referrals-withdraw-btn img {
@@ -314,7 +314,7 @@ body.referrals-page [data-mobile-panel] {
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: rgba(110, 184, 63, 0.1);
+  background: var(--green-soft);
   display: grid;
   place-items: center;
   flex: 0 0 auto;
@@ -335,7 +335,7 @@ body.referrals-page [data-mobile-panel] {
 }
 
 .referrals-metric-copy span {
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
@@ -370,7 +370,7 @@ body.referrals-page [data-mobile-panel] {
   gap: 4px;
   min-height: 26px;
   padding: 8px 10px;
-  border: 1px solid #f4f5f7;
+  border: 1px solid var(--button-soft);
   border-radius: 5px;
   background: transparent;
   color: #a0a8b5;
@@ -384,7 +384,7 @@ body.referrals-page [data-mobile-panel] {
 }
 
 .referrals-link-btn:hover {
-  background: #f4f5f7;
+  background: var(--button-soft);
 }
 
 .referrals-link-btn img {
@@ -447,7 +447,7 @@ body.referrals-page [data-mobile-panel] {
   padding: 4px 6px;
   border-radius: 3px;
   background: #c8cfdc;
-  color: #fff;
+  color: var(--surface);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -459,8 +459,8 @@ body.referrals-page [data-mobile-panel] {
   min-height: 26px;
   padding: 6px 8px;
   border-radius: 6px;
-  background: #6eb83f;
-  color: #fff;
+  background: var(--green);
+  color: var(--surface);
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
@@ -472,7 +472,7 @@ body.referrals-page [data-mobile-panel] {
   align-items: center;
   gap: 4px;
   background: #ff8d28;
-  color: #fff;
+  color: var(--surface);
   font-size: 16px;
   font-weight: 700;
 }
@@ -499,7 +499,7 @@ body.referrals-page [data-mobile-panel] {
   min-height: 90px;
   border: 1px solid #f0f2f5;
   border-radius: 12px;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -560,7 +560,7 @@ body.referrals-page [data-mobile-panel] {
 
 .referrals-invite-copy em {
   font-style: italic;
-  color: #268bf3;
+  color: var(--blue);
   font-weight: 700;
 }
 
@@ -586,7 +586,7 @@ body.referrals-page [data-mobile-panel] {
 }
 
 .referrals-invite-input::placeholder {
-  color: #8a94a6;
+  color: var(--muted);
 }
 
 .referrals-invite-submit {
@@ -596,7 +596,7 @@ body.referrals-page [data-mobile-panel] {
   border: 0;
   border-radius: 10px;
   background: #3878ff;
-  color: #fff;
+  color: var(--surface);
   font: inherit;
   font-size: 13px;
   font-weight: 700;
@@ -605,7 +605,7 @@ body.referrals-page [data-mobile-panel] {
 }
 
 .referrals-invite-submit:hover {
-  background: #268bf3;
+  background: var(--blue);
 }
 
 .referrals-invite-applied {
@@ -689,7 +689,7 @@ body.referrals-page [data-mobile-panel] {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  background: #f4f5f7;
+  background: var(--button-soft);
   text-align: left;
   cursor: pointer;
   transition: background-color 0.2s var(--ease);
@@ -715,8 +715,8 @@ body.referrals-page [data-mobile-panel] {
   border-radius: 8px;
   display: grid;
   place-items: center;
-  background: #268bf3;
-  color: #fff;
+  background: var(--blue);
+  color: var(--surface);
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
@@ -730,7 +730,7 @@ body.referrals-page [data-mobile-panel] {
   border-radius: 9999px;
   display: grid;
   place-items: center;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   transition: transform 0.22s var(--ease);
 }
@@ -765,7 +765,7 @@ body.referrals-page [data-mobile-panel] {
   border: 1px solid #f0f2f5;
   border-radius: 12px;
   background: #f8f9fb;
-  color: #8a94a6;
+  color: var(--muted);
   font-size: 11px;
   font-weight: 500;
   line-height: 1.55;
