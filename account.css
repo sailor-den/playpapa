@@ -23,7 +23,7 @@ body.account-page [data-mobile-panel] {
   top: calc(var(--header-height) + 16px);
   display: flex;
   flex-direction: column;
-  min-height: 235px;
+  min-height: 230px;
   padding-top: 6px;
   border-radius: 16px;
   background: var(--surface);
@@ -745,7 +745,7 @@ body.account-page [data-mobile-panel] {
   align-items: center;
   gap: 24px;
   min-height: 48px;
-  padding: 3px 24px 4px 3px;
+  padding: 3px 24px 3px 4px;
   border-radius: 10px;
   background: #f4f6fa;
 }
@@ -780,8 +780,8 @@ body.account-page [data-mobile-panel] {
   height: 42px;
   justify-content: center;
   padding: 10px;
-  background: var(--blue);
-  color: var(--surface);
+  background: #268bf3;
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -801,12 +801,12 @@ body.account-page [data-mobile-panel] {
   position: relative;
   height: 21px;
   margin: 0 24px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #e2e8f0;
   color: #a0a8b5;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.5px;
-  line-height: 1;
+  line-height: 12px;
 }
 
 .account-history-head-name,
@@ -923,6 +923,8 @@ body.account-page [data-mobile-panel] {
   height: 30px;
   min-height: 30px;
   padding: 6px 8px;
+  background: #6eb83f;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -933,6 +935,7 @@ body.account-page [data-mobile-panel] {
   width: 29px;
   height: 30px;
   min-height: 30px;
+  background: #268bf3;
 }
 
 .account-history-row .account-badge.is-key img {
@@ -966,8 +969,8 @@ body.account-page [data-mobile-panel] {
   padding: 0;
   border: 0;
   border-radius: 8px;
-  background: var(--blue);
-  color: var(--surface);
+  background: #268bf3;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.5px;
