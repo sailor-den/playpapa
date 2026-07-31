@@ -583,14 +583,15 @@ body.referrals-page [data-mobile-panel] {
 
 .referrals-invite-art {
   position: absolute;
-  left: 3px;
+  left: 9px;
   top: -5px;
-  width: 213px;
-  height: 151px;
+  width: 201px;
+  height: 150px;
   object-fit: contain;
   object-position: left top;
   pointer-events: none;
   z-index: 1;
+  transform: rotate(-4deg);
 }
 
 .referrals-invite-inner {
@@ -601,7 +602,7 @@ body.referrals-page [data-mobile-panel] {
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
-  padding: 16px 20px 16px 210px;
+  padding: 16px 27px 16px 221px;
 }
 
 .referrals-invite-copy {
@@ -619,8 +620,7 @@ body.referrals-page [data-mobile-panel] {
   color: var(--blue);
 }
 
-.referrals-invite-copy em {
-  font-style: italic;
+.referrals-invite-copy span {
   color: var(--blue);
   font-weight: 700;
 }
@@ -711,21 +711,23 @@ body.referrals-page [data-mobile-panel] {
 .referrals-invite-applied-badge {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 9px;
   min-height: 32px;
   padding: 7px 8px;
   border-radius: 7px;
   background: #e2f5e9;
   color: #34b251;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.3;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.5px;
   white-space: nowrap;
 }
 
 .referrals-invite-applied-badge img {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   flex: 0 0 auto;
 }
 
@@ -735,7 +737,7 @@ body.referrals-page [data-mobile-panel] {
   box-shadow: 0 10px 34px rgba(20, 40, 80, 0.08);
 }
 
-.referrals-faq > h2 {
+.referrals-faq>h2 {
   margin: 0 0 16px;
   color: #2c3242;
   font-size: 24px;
@@ -834,7 +836,7 @@ body.referrals-page [data-mobile-panel] {
   overflow: hidden;
 }
 
-.referrals-faq-panel-inner > div {
+.referrals-faq-panel-inner>div {
   margin: 8px 0 0;
   padding: 21px;
   border: 1px solid #f4f6fa;
@@ -1008,7 +1010,7 @@ body.referrals-page [data-mobile-panel] {
     padding: 20px 16px;
   }
 
-  .referrals-faq > h2 {
+  .referrals-faq>h2 {
     font-size: 20px;
   }
 
@@ -1016,7 +1018,7 @@ body.referrals-page [data-mobile-panel] {
     font-size: 15px;
   }
 
-  .referrals-faq-panel-inner > div {
+  .referrals-faq-panel-inner>div {
     font-size: 14px;
   }
 }
