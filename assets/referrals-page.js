@@ -1,6 +1,4 @@
 (() => {
-  const referralCode = "AVTY";
-
   document.querySelectorAll(".referrals-faq-item").forEach((item) => {
     const trigger = item.querySelector(".referrals-faq-trigger");
     trigger?.addEventListener("click", () => {
@@ -32,8 +30,15 @@
   });
 
   copyButton?.addEventListener("click", async () => {
+    const referralLink =
+      copyButton.getAttribute("data-referral-link") ||
+      document.querySelector(".referrals-link-text")?.textContent?.trim() ||
+      "";
+
+    if (!referralLink) return;
+
     try {
-      await navigator.clipboard.writeText(referralCode);
+      await navigator.clipboard.writeText(referralLink);
     } catch {
       /* clipboard unavailable */
     }

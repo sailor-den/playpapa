@@ -140,24 +140,31 @@
               </div>
             </div>
 
-            <div class="referrals-code-row">
-              <div class="referrals-code-cells" aria-label="Ваш реферальный код">
-                <div class="referrals-code-cell">А</div>
-                <div class="referrals-code-cell">В</div>
-                <div class="referrals-code-cell">Т</div>
-                <div class="referrals-code-cell">Y</div>
+            <h2 class="referrals-steps-title">Как это работает:</h2>
+            <div class="referrals-steps">
+              <div class="referrals-step">
+                <span class="referrals-step-num">1</span>
+                <span>Отправь ссылку другу - в личку, чат или сторис</span>
               </div>
-              <button class="referrals-copy-btn" type="button" data-referral-copy>
+              <div class="referrals-step">
+                <span class="referrals-step-num">2</span>
+                <span>Друг регистрируется по ней и делает первое пополнение</span>
+              </div>
+              <div class="referrals-step">
+                <span class="referrals-step-num">3</span>
+                <span>Тебе начисляются бонусы - 25% от суммы пополнения</span>
+              </div>
+            </div>
+
+            <div class="referrals-code-row">
+              <div class="referrals-link-field" aria-label="Ваша реферальная ссылка">
+                <img class="referrals-link-icon" src="./assets/referrals-page/link-icon.svg" alt="" />
+                <span class="referrals-link-text">playpapa.io/ref=8912</span>
+              </div>
+              <button class="referrals-copy-btn" type="button" data-referral-copy data-referral-link="playpapa.io/ref=8912">
                 <img src="./assets/referrals-page/copy-icon.svg" alt="" />
                 <span>Копировать</span>
               </button>
-            </div>
-
-            <h2 class="referrals-steps-title">Как это работает:</h2>
-            <div class="referrals-steps">
-              <div class="referrals-step"><span class="referrals-step-num">1</span><span>Скопируй код</span></div>
-              <div class="referrals-step"><span class="referrals-step-num">2</span><span>Друг регистрируется</span></div>
-              <div class="referrals-step"><span class="referrals-step-num">3</span><span>Ты получаешь бонус</span></div>
             </div>
           </section>
 
@@ -166,11 +173,11 @@
             <div class="referrals-earned">
               <div class="referrals-earned-copy">
                 <span>Всего заработано:</span>
-                <strong>4 892₽</strong>
+                <strong>4 892 бонусов</strong>
               </div>
               <button class="referrals-withdraw-btn" type="button">
-                <span>Вывести</span>
-                <img src="./assets/referrals-page/withdraw-icon.svg" alt="" />
+                <span>Потратить</span>
+                <img src="./assets/referrals-page/spend-icon.svg" alt="" />
               </button>
             </div>
 
@@ -193,16 +200,13 @@
 
             <div class="referrals-history-head">
               <h2>История:</h2>
-              <button class="referrals-link-btn" type="button">
-                <span>Посмотреть полностью</span>
-                <img src="./assets/referrals-page/link-chevron.svg" alt="" />
-              </button>
+              <button class="referrals-link-btn" type="button">Посмотреть полностью</button>
             </div>
 
             <div class="referrals-history-list">
               <article class="referrals-history-item">
                 <div class="referrals-history-user">
-                  <img src="./assets/review-avatar.png" alt="" />
+                  <img src="./assets/referrals-page/history-avatar.png" alt="" />
                   <div class="referrals-history-user-copy">
                     <b>Bizidin <span>сегодня в 11:48</span></b>
                     <small>приобрел игру DOOM 2016</small>
@@ -213,7 +217,7 @@
               <div class="referrals-history-divider" aria-hidden="true"></div>
               <article class="referrals-history-item">
                 <div class="referrals-history-user">
-                  <img src="./assets/review-avatar.png" alt="" />
+                  <img src="./assets/referrals-page/history-avatar.png" alt="" />
                   <div class="referrals-history-user-copy">
                     <b>Bizidin <span>сегодня в 11:48</span></b>
                     <small>ваш новый реферал</small>
@@ -227,13 +231,16 @@
               <div class="referrals-history-divider" aria-hidden="true"></div>
               <article class="referrals-history-item">
                 <div class="referrals-history-user">
-                  <img src="./assets/review-avatar.png" alt="" />
+                  <img src="./assets/referrals-page/history-avatar.png" alt="" />
                   <div class="referrals-history-user-copy">
                     <b>Bizidin <span>сегодня в 11:48</span></b>
-                    <small>приобрел игру DOOM 2016</small>
+                    <small>ваш новый реферал</small>
                   </div>
                 </div>
-                <span class="referrals-history-badge">+10.99 ₽</span>
+                <span class="referrals-history-badge is-profile">
+                  <span>+</span>
+                  <img src="./assets/referrals-page/referral-profile-icon.svg" alt="" />
+                </span>
               </article>
             </div>
           </aside>
@@ -247,7 +254,10 @@
           <div class="referrals-invite-inner">
             <p class="referrals-invite-copy">Уже есть реферальный код от друзей? <span class="referrals-invite-accent">Примени и получи бонусы</span></p>
             <form class="referrals-invite-form" action="#">
-              <input class="referrals-invite-input" type="text" placeholder="Введите код" aria-label="Введите код" />
+              <label class="referrals-invite-field">
+                <img class="referrals-link-icon" src="./assets/referrals-page/link-icon.svg" alt="" />
+                <input class="referrals-invite-input" type="text" placeholder="Введите ссылку" aria-label="Введите ссылку" />
+              </label>
               <button class="referrals-invite-submit" type="button" data-referral-apply>Использовать</button>
             </form>
           </div>
@@ -261,11 +271,9 @@
           <div class="referrals-invite-inner">
             <p class="referrals-invite-copy">Реферальный код от пользователя <em>DimaMaslennikov</em> уже применен!</p>
             <div class="referrals-invite-applied">
-              <div class="referrals-invite-applied-cells" aria-label="Примененный код">
-                <div class="referrals-code-cell">3</div>
-                <div class="referrals-code-cell">7</div>
-                <div class="referrals-code-cell">9</div>
-                <div class="referrals-code-cell">2</div>
+              <div class="referrals-link-field" aria-label="Примененная ссылка">
+                <img class="referrals-link-icon" src="./assets/referrals-page/link-icon.svg" alt="" />
+                <span class="referrals-link-text">playpapa.io/ref=3792</span>
               </div>
               <span class="referrals-invite-applied-badge">
                 <img src="./assets/referrals-page/applied-check.svg" alt="" />
@@ -276,12 +284,12 @@
         </section>
 
         <section class="referrals-card referrals-faq" aria-labelledby="referralsFaqTitle">
-          <h2 id="referralsFaqTitle">FAQ</h2>
+          <h2 id="referralsFaqTitle">Часто задаваемые вопросы</h2>
           <div class="referrals-faq-list">
             <article class="referrals-faq-item">
               <button class="referrals-faq-trigger" type="button" aria-expanded="false">
-                <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">?</span>Сколько я получу за друга?</span>
-                <span class="referrals-faq-arrow" aria-hidden="true"><img src="./assets/steam-page/faq-arrow-down.svg" alt="" /></span>
+                <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">1</span>Сколько я получу за друга?</span>
+                <span class="referrals-faq-arrow" aria-hidden="true"><img src="./assets/referrals-page/faq-arrow-down.svg" alt="" /></span>
               </button>
               <div class="referrals-faq-panel">
                 <div class="referrals-faq-panel-inner"><div>Вы получаете 25% от пополнений приглашенного друга в виде бонусов на ваш счет.</div></div>
@@ -289,12 +297,12 @@
             </article>
             <article class="referrals-faq-item is-open">
               <button class="referrals-faq-trigger" type="button" aria-expanded="true">
-                <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">?</span>Когда приходит выплата?</span>
-                <span class="referrals-faq-arrow" aria-hidden="true"><img src="./assets/steam-page/faq-arrow-down.svg" alt="" /></span>
+                <span class="referrals-faq-trigger-copy"><span class="referrals-faq-icon">2</span>Когда приходит выплата?</span>
+                <span class="referrals-faq-arrow" aria-hidden="true"><img src="./assets/referrals-page/faq-arrow-down.svg" alt="" /></span>
               </button>
               <div class="referrals-faq-panel">
                 <div class="referrals-faq-panel-inner">
-                  <div>Each social media can only be linked to one platform account. You can go to Personal Center -&gt; Account Settings to link to another platform account. Once you have linked your social media account, you can log in to the trading platform using either account. Please note that linking a social media account to a platform account is an irreversible process. You will not be able to unlink your social media account in the future.</div>
+                  <div>Бонусы падают на счет сразу после того, как друг оплатил заказ. Вывод денег не предусмотрен - бонусы тратятся внутри магазина по&nbsp;курсу 1 бонус = 1 ₽ при оформлении любой покупки.</div>
                 </div>
               </div>
             </article>
